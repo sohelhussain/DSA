@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Effective100
  */
@@ -7,13 +9,53 @@ public class Effective100 {
 		
 
 
-// 1 - Sum of two integers
-// 2- Print the messege along with values and sum
+//✅ 1 - Sum of two integers
+
+// int sum1 = 100;
+// int sum2 = 100;
+// int sum3 = sum1 + sum2;
+// System.out.println(sum3);
+
+
+
+//✅ 2- Print the messege along with values and sum
 // 	Ex - The sum of 45 & 12  = 57
-// 3- Accept two integers from user and print the sum
+
+// int val = 45;
+// int val2 = 12;
+// int msg = val + val2;
+// System.out.println("The sum of " + val + " & " + val2 + " = " + msg);
+
+
+
+
+//✅ 3- Accept two integers from user and print the sum
 // 	Ex - The sum of 45 & 12 = 57
-// 4- Accept the User's name, age and print in following manner
+
+
+// Scanner sc = new Scanner(System.in);
+// int ans = sc.nextInt();
+// Scanner sc2 = new Scanner(System.in);
+// int ans2 = sc2.nextInt();
+// int fnans = ans + ans2;
+
+// System.out.println("The sum of " + ans + " & " + ans2 + " = " + fnans);
+
+
+
+//✅ 4- Accept the User's name, age and print in following manner
 // 	Ex - Hello Shery, you are 12 years old.
+
+
+// Scanner sc = new Scanner(System.in);
+// String name = sc.next();
+
+// Scanner sc2 = new Scanner(System.in);
+// int age = sc2.nextInt();
+
+// System.out.println("Hello " + name + " you are "+ age +" years old");
+
+
 // 5- Solve Increment & decrement operator questions on
 // 	https://javaconceptoftheday.com/quiz-on-increment-and-decrement-operators/
 // 6- Accept two numbers from user and swap their values
