@@ -34,5 +34,12 @@ public class Operators {
         // i++ :- we store the value in i that is value is 11, then increment the value int i is 12
         // ++i :- know we know that we increment the value first the value is 12 + 1, 13
         // 11 + 13;
+
+
+        //✅ 1:-
+
+        // int i = 11;
+        // i = i-- + --i;    
+        // System.out.println(i);
     }
 }
