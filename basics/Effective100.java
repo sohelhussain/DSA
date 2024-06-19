@@ -173,10 +173,47 @@ public class Effective100 {
 // 	 *     *
 //               *          *
 // --------------------------------------------------------------------ARRAY-------------------------------------------------------------
-// 54- Accept size n from user and create a n size array then take n inputs into the and finally 
+//✅ 54- Accept size n from user and create a n size array then take n inputs into the and finally 
 //       Print the sum & Mean of all elements.
+
+
+// Scanner sc = new Scanner(System.in);
+
+// int size = sc.nextInt();
+
+// int[] arr = new int[size];
+
+// for (int i = 0; i < size; i++){
+// 	arr[i] = sc.nextInt(); // this line ask every time input
+// }
+// int sum = 0;
+// for (int i = 0; i < size; i++){
+// 	sum += arr[i];
+// }
+// System.out.println(sum);
+
+// sc.close();
+
+
+
+
 // 55- Find the greatest element and print its index too.
 //       {2, 96, 69, 77, 145, 20} = Max element = 145 found at 4 index
+
+
+int arr[] = {2, 96, 69, 77, 145, 20};
+
+		int max = 0;
+
+	for (int i = 0; i < arr.length; i++){
+		for (int j = 1; j < arr.length; j++){
+			if (arr[i]>arr[j]) {
+				  max = arr[i];
+			}
+		}
+	}
+
+
 // 56- Find the second greatest element 
 //       {2, 96, 69, 77, 145, 20} = Second greatest element = 96
 // 57- Check if array is sorted in increasing order or not.
