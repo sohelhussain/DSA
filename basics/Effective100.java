@@ -197,21 +197,20 @@ public class Effective100 {
 
 
 
-// 55- Find the greatest element and print its index too.
+//✅ 55- Find the greatest element and print its index too.
 //       {2, 96, 69, 77, 145, 20} = Max element = 145 found at 4 index
 
 
 int arr[] = {2, 96, 69, 77, 145, 20};
 
-		int max = 0;
+		int max = arr[0];
 
-	for (int i = 0; i < arr.length; i++){
-		for (int j = 1; j < arr.length; j++){
-			if (arr[i]>arr[j]) {
-				  max = arr[i];
-			}
+	for(int i = 1; i < arr.length; i++){
+		if (arr[i] > max) {
+			max = arr[i];
 		}
 	}
+	System.out.println(max);
 
 
 // 56- Find the second greatest element 
