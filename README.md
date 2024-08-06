@@ -101,3 +101,39 @@ Day 6	--Maths Level 3
 					if b is even then pow(a, b/2) * pow(a, b/2)
 					if b is odd then pow(a, b/2) * pow(a, b/2) * a
 			P22. 231. Power of Two
+Day 7	--Array & ArrayList
+			--dynamic Size Arrays i.e. ArrayList
+			
+			P23. Largest / Second largest element in array
+			P24. 344. Reverse String
+			P25. Left Rotation by K elements
+				--in O(n) time & O(n) space
+				--in O(1) space using swap algo
+			P26. 189. Rotate Array
+			
+Day 8	--Arrays Level 1 / Two Pointer
+
+			P27. 485. Max Consecutive Ones
+			P28. 88. Merge Sorted Array
+			P29. 941. Valid Mountain Array
+			P30. 26. Remove Duplicates from Sorted Array
+			P31. 1089. Duplicate Zeros
+		
+			P33. 977. Squares of a Sorted Array
+			P34. 283. Move Zeroes
+			
+
+Day 9	--Arrays Level 2 / Prefix Sum
+
+			P37. 724. Find Pivot Index
+			P38. 238. Product of Array Except Self
+			P39. 53. Maximum Subarray 
+					--Kadane's Algo
+			P40. 169. Majority Element
+					--Moore's Voting Algo
+			P41. 121. Best Time to Buy and Sell Stock
+			
+		
+
+Day 10		P43. 42. Trapping Rain Water
+			P44. 11. Container With Most Water
