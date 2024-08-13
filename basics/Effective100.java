@@ -56,9 +56,26 @@ public class Effective100 {
 // System.out.println("Hello " + name + " you are "+ age +" years old");
 
 
-// 5- Solve Increment & decrement operator questions on
+//✅ 5- Solve Increment & decrement operator questions on
 // 	https://javaconceptoftheday.com/quiz-on-increment-and-decrement-operators/
-// 6- Accept two numbers from user and swap their values
+//✅ 6- Accept two numbers from user and swap their values
+
+	// Scanner sc = new Scanner(System.in);
+	// Scanner sc2 = new Scanner(System.in);
+
+	// int num1 = sc.nextInt();
+	// int num2 = sc2.nextInt();
+	// System.out.print(num1);
+	// System.out.print(num2);
+
+	// int temp;
+
+	// temp = num1;
+	// num1 = num2;
+	// num2 = temp;
+
+	// System.out.print(num1);
+	// System.out.print(num2);
 //                 Part 2 - Swap without using third variable
 // --------------------------------------------------------------MATH CLASS---------------------------------------------------------
 // 7- Accept the length and width of a rectangle. Calculate & print the area and perimiter.

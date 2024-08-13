@@ -53,7 +53,6 @@ public class day4 {
     //     return (n % 9 == 0) ? 9 : n % 9;
 
     // }
-
     public static void main(String[] args) {
         // countNum(3424357, 1);
 
