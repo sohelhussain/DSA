@@ -1,4 +1,6 @@
-public class search {
+package algorithms.searching;
+
+public class binary {
     //! binary search
     public static int binarySearch(int[] num, int search){
 
