@@ -65,6 +65,48 @@ public class day8 {
         return ++j;
     }
 
+    // ! 977. Squares of a Sorted Array
+
+    public static int[] Squares(int[] nums) {
+        int[] x = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = nums[i] * nums[i];
+        }
+        int head = 0;
+        int tail = nums.length - 1;
+
+        for (int pos = nums.length - 1; pos >= 0; pos--) {
+            if (nums[head] > nums[tail]) {
+                x[pos] = nums[head];
+                // increeament head pointer
+                head++;
+            } else {
+                x[pos] = nums[tail];
+                // dereament tail pointer
+                tail--;
+            }
+        }
+        return x;
+
+    }
+
+
+
+
+    // ! 283. Move Zeroes
+
+    public static void moveZeroes(int[] nums) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] != 0) {
+                nums[count++] = nums[i];
+            }
+            while (count < nums.length) {
+                nums[count++] = 0;
+            }
+        }
+    }
     public static void main(String[] args) {
 
         // ? 485. Max Consecutive Ones
@@ -90,8 +132,18 @@ public class day8 {
 
         // ? 26. Remove Duplicates from Sorted Array
 
-        int[] nums = { 1, 2, 2,2,4,4,5 };
-        System.out.println(RemoveDuplicates(nums));
+        // int[] nums = { 1, 2, 2,2,4,4,5 };
+        // System.out.println(RemoveDuplicates(nums));
+
+        // ? 977. Squares of a Sorted Array
+
+        // int[] nums = { -4, -1, 0, 3, 10 };
+        // int[] ans = Squares(nums);
+
+
+        // ? 283. Move Zeroes
+        int[] nums = {0,1,0,3,12};
+        moveZeroes(nums);
 
     }
 }
