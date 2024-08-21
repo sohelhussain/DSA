@@ -127,8 +127,8 @@ public class day8 {
 
         // ? 941. Valid Mountain Array
 
-        // int[] A = { 0, 2, 3, 4, 5, 2, 1, 0 };
-        // System.out.println(Mountain(A));
+        int[] A = { 0, 2, 3, 4, 5, 2, 1, 0 };
+        System.out.println(Mountain(A));
 
         // ? 26. Remove Duplicates from Sorted Array
 
@@ -142,8 +142,8 @@ public class day8 {
 
 
         // ? 283. Move Zeroes
-        int[] nums = {0,1,0,3,12};
-        moveZeroes(nums);
+        // int[] nums = {0,1,0,3,12};
+        // moveZeroes(nums);
 
     }
 }
