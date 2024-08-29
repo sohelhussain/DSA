@@ -47,7 +47,7 @@ public class mergsort {
         int mid = si + (ei - si) / 2;  // Find the middle point
 
         // Recursively divide the left half
-        divide(arr, si, mid);
+        divide(arr, si, mid); //! ending index me ham mid value ko pass kar dete hen
 
         // Recursively divide the right half
         divide(arr, mid + 1, ei);
