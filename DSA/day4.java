@@ -45,14 +45,14 @@ public class day4 {
 
     // ! 4. Add Digits
 
-    // public static int addDigits(int n) {
-    //     if (n == 0) {
-    //         return 0;
-    //     }
+    public static int addDigits(int n) {
+        if (n == 0) {
+            return 0;
+        }
 
-    //     return (n % 9 == 0) ? 9 : n % 9;
+        return (n % 9 == 0) ? 9 : n % 9;
 
-    // }
+    }
     public static void main(String[] args) {
         // countNum(3424357, 1);
 
@@ -60,7 +60,7 @@ public class day4 {
 
         // System.out.println(isReverse(123));
 
-        // System.out.println(addDigits(39));
+        System.out.println(addDigits(39));
 
     }
 }
