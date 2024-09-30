@@ -6,6 +6,7 @@ import java.util.List;
 public class day33 {
 
     //!  Tower of Hanoi
+    // play the game:- https://www.mathsisfun.com/games/towerofhanoi.html
 
     public static void towerOfHanoi(int n, int s, int h, int d){
         if(n==1){
