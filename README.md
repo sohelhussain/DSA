@@ -660,4 +660,98 @@ Day 57	--Dynamic Programming Level 5 - Palindromic Subsequence
 			
 Day 58	--Dynamic Programming Level 6
 			P195. 72. Edit Distance	
-			P196. 300. Longest Increasing Subsequence	
+			P196. 300. Longest Increasing Subsequence
+
+
+
+
+
+
+
+
+
+				<!--! ali extra sheet  -->
+
+
+P32. 1299. Replace Elements with Greatest Element on Right Side
+P35. 905. Sort Array By Parity
+P36. 1480. Running Sum of 1d Array
+--Move all Negative elements to one side
+			--https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/
+P42. 122. Best Time to Buy and Sell Stock II
+P45. 4. Median of Two Sorted Arrays
+
+Cyclic Sort
+
+P51. 287. Find the Duplicate Number
+
+BS
+
+P56. 278. First Bad Version
+P61. Search in an Infinte sorted array
+P62. 74. Search a 2D Matrix
+
+Hashing
+
+P70. Longest Sub-Array with Sum K 
+		 https://practice.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1/
+P73. 128. Longest Consecutive Sequence
+
+2D
+
+P78. 54. Spiral Matrix
+
+LL
+
+P86. 142. Linked List Cycle II
+P91. 160. Intersection of Two Linked Lists
+P93. 19. Remove Nth Node From End of List
+
+Stack
+
+P101. 155. Min Stack
+
+Rec
+
+P109. 47. Permutations II
+P113. 40. Combination Sum II
+P116. 52. N-Queens II
+P117. 79. Word Search
+P118. 60. Permutation Sequence
+
+BT
+
+P124. 101. Symmetric Tree
+P131. 199. Binary Tree Right Side View
+
+BST
+
+P137. 700. Search in a Binary Search Tree
+P142. 99. Recover Binary Search Tree
+
+PQ
+
+P147. 295. Find Median from Data Stream
+P145. 973. K Closest Points to Origin
+
+Graph
+
+P163. 695. Max Area of Island
+P164. 994. Rotting Oranges
+
+Sliding
+
+P170. 438. Find All Anagrams in a String
+P172. 239. Sliding Window Maximum
+
+DP
+
+P177. 198. House Robber
+P179. Subset sum problem
+				  https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1
+P184. Maximum cuts
+				  https://practice.geeksforgeeks.org/problems/cutted-segments1642/1
+P187. Minimum number of deletions and insertions.
+				  https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions-and-insertions0209/1
+P194. 1312. Minimum Insertion Steps to Make a String Palindrome
+P195. 72. Edit Distance
