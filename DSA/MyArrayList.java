@@ -1,60 +1,93 @@
-package DSA;
+import java.util.Arrays;
 
-import static java.lang.StringTemplate.STR;
-
-@SuppressWarnings("unused")
 public class MyArrayList {
-    private int data[];
-    private int last = 0;
+    int[] data;
+    int p;
 
     public MyArrayList() {
-        data = new int[10];
+        data = new int[7];
+        p = -1;
     }
 
     public MyArrayList(int initialCapacity) {
         data = new int[initialCapacity];
-    }
-
-    public int size() {
-        return last;
-    }
-
-    public void add(int element) {
-        ensureCapacity();
-
-        data[last++] = element;
+        p = -1;
     }
 
     private void ensureCapacity() {
-        if (last == data.length) {
-            int temp[] = new int[data.length * 2];
-            for (int i = 0; i < data.length; i++) {
-                temp[i] = data[i];
-            }
-            data = temp;
+        if (p + 1 == data.length) {
+            data = Arrays.copyOf(data, data.length * 2);
         }
     }
 
-    public void add(int index, int element) {
-        if(index < 0 || index > last)
-            throw new IndexOutOfBoundsException(STR."\{index} out of bounds for \{last}");
+    // Add method to add an element at the end
+    public void add(int val) {
         ensureCapacity();
-        for (int i = last; i > index ; i--) {
-            data[i] = data[i-1];
-        }
-        data[index] = element;
-        last++;
+        data[++p] = val;
     }
 
-    public String toString() {
-        //System.out.println(Arrays.toString(data));
-        if (last == 0) return "[]";
-        StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i < last; i++) {
-            sb.append(STR."\{data[i]}, ");
+    // Add method to add an element at a specific index
+    public void add(int index, int val) {
+        // Validate index
+        if (index < 0 || index > p + 1) {
+            throw new IndexOutOfBoundsException("at index: " + index + " for size: " + size());
         }
-        sb.delete(sb.length() - 2, sb.length());
-        return sb + "]";
+        // Ensure capacity
+        ensureCapacity();
 
+        // Shift elements to the right
+        for (int i = p; i >= index; i--) {
+            data[i + 1] = data[i];
+        }
+
+        // Add the element
+        data[index] = val;
+        p++;
+    }
+
+    // Get the size of the list
+    public int size() {
+        return p + 1;
+    }
+
+    // Get the element at a specific index
+    public int get(int index) {
+        // Validate index
+        if (index < 0 || index > p) {
+            throw new IndexOutOfBoundsException("at index: " + index + " for size: " + size());
+        }
+        return data[index];
+    }
+
+    // Remove an element at a specific index
+    public int remove(int index) {
+        // Validate index
+        if (index < 0 || index > p) {
+            throw new IndexOutOfBoundsException("at index: " + index + " for size: " + size());
+        }
+
+        int remValue = data[index];
+
+        // Shift elements to the left
+        for (int i = index; i < p; i++) {
+            data[i] = data[i + 1];
+        }
+
+        p--;
+        return remValue;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i <= p; i++) {
+            sb.append(data[i]);
+            if (i < p) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
