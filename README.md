@@ -369,12 +369,12 @@ Day 34	--Recursion Level 5
 			P115. 51. N-Queens
 			
 
-Day 35	--Tree / Non linear Data Structure
+Day 35	--Tree / Non linear Data Structure & hexarchial dataStructure
 		--Terminologies
 			Node, Root, Parent, Child, Siblings, Leaf, Descendent, Ancestor, Degree
 		--Implementation of Binary Tree
 			--Node Structure
-			--Can have max 2 childrens
+			--Can have max 2 children
 			--Building a tree using inputs
 	
 		--Tree traversals - DFS - Depth first Search

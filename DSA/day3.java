@@ -1,31 +1,31 @@
-package DSA;
+// package DSA;
 
-//! recursion
+// //! recursion
 
-public class day3 {
+// public class day3 {
 
-    public static void prn(int n) {
-        if (n == 0) {
-            return;
-        }
-        System.out.println(n);
-        prn(n - 1);
-    }
-    public static int sum(int n) {
-        if (n == 1) {
-            return 1; 
-        }
-        return n + sum(n - 1);
-    }
-    public static int fib(int n){
-        if(n <= 1){
-            return n;
-        }
-        return fib(n - 1) + fib(n - 2);
-    }
-    public static void main(String[] args) {
-        // prn(5);
-        // System.out.println(sum(5));
-        System.out.println(fib(6));
-    }
-}
+//     public static void prn(int n) {
+//         if (n == 0) {
+//             return;
+//         }
+//         System.out.println(n);
+//         prn(n - 1);
+//     }
+//     public static int sum(int n) {
+//         if (n == 1) {
+//             return 1; 
+//         }
+//         return n + sum(n - 1);
+//     }
+//     public static int fib(int n){
+//         if(n <= 1){
+//             return n;
+//         }
+//         return fib(n - 1) + fib(n - 2);
+//     }
+//     public static void main(String[] args) {
+//         // prn(5);
+//         // System.out.println(sum(5));
+//         System.out.println(fib(6));
+//     }
+// }
