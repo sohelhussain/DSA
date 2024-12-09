@@ -49,6 +49,28 @@ public class Digits {
             factSum = factSum + fact;
             n = n / 10;
         }
-        System.out.println(factSum);     
+        System.out.println(factSum);    
+
+
+
+
+
+
+
+        // calculat auto mofic and count of digit
+
+       int number = 25;
+       int count = 0;
+       int temp = number;
+
+       while (number != 0) {
+        count++;
+        number = number / 10;
+       }
+
+       number = temp;
+       long sq = number * number;
+       long lastdigit = sq % (long) Math.pow(10, count);
+       System.out.println(number == lastdigit ? "auto morfic" : "non auto morfic");
     }
 }
