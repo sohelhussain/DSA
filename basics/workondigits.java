@@ -72,5 +72,23 @@ public class Digits {
        long sq = number * number;
        long lastdigit = sq % (long) Math.pow(10, count);
        System.out.println(number == lastdigit ? "auto morfic" : "non auto morfic");
+
+
+
+
+        //giv single digits
+
+        
+              int n = 14398;
+      while (n > 9) {
+          int sum = 0; 
+          while (n != 0) {
+           int last = n % 10;
+           sum = sum + last;
+           n = n / 10;  
+          }
+          n = sum;
+      }
+      System.out.println(n);
     }
 }
