@@ -31,5 +31,24 @@ public class Digits {
         }
         num = temper;
         System.out.println(num == revers ? "palindrome": "is Not palindrome");
+
+
+
+
+
+        //factotrial of sum
+
+        int n = 145;
+        int factSum = 0;
+        while( n != 0){
+            int lastdigit = n % 10;
+            int fact = 1;
+            for(int i = 1; i <= lastdigit; i++){
+                fact = fact * i;
+            }
+            factSum = factSum + fact;
+            n = n / 10;
+        }
+        System.out.println(factSum);     
     }
 }
