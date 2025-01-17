@@ -47,7 +47,20 @@ public class Hello {
         for(int i = 0; i < n; i++){
             System.out.print(revers[i] + " ");
         }
+
+
+        // left rotation by 1
+
+        int temp = arr[0];
         
+        for(int i = 0; i < n-1; i++){
+            arr[i] = arr[i +1];
+        }
+        arr[n -1] = temp;
+        
+        for(int i = 0; i < n; i++){
+            System.out.print(arr[i] + " ");
+        }
 
     }
 }
