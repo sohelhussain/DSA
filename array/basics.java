@@ -25,6 +25,28 @@ public class Hello {
 
         //---------
 
+        //! reverse array
+
+
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        
+        int[] arr = new int[n];
+        
+        for (int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        int[] revers = new int[n];
+        
+        for(int i = 0; i < n; i++){
+            revers[i] = arr[n - 1 - i];
+        }
+        
+        for(int i = 0; i < n; i++){
+            System.out.print(revers[i] + " ");
+        }
         
 
     }
