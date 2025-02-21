@@ -7,7 +7,9 @@ public class Hello {
 
 
     public static void main(String[] args) {
+        
             //! isSorted or not in increaseing order
+        
          int[] arr = {1,4,6,7,3,3};
         int n = arr.length;
         boolean isSorted = true;
