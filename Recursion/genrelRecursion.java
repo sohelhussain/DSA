@@ -30,6 +30,7 @@ public class genrelRecursion {
     // ----------------genral recursion--------------------------------
 
     public static void gen(int n){
+        
         System.out.println(n);
         if (n == 1) {
             return
