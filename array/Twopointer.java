@@ -1,4 +1,5 @@
 class Twopointer {
+
   public void main(args) {
 
 
@@ -26,6 +27,23 @@ class Twopointer {
             }
             i--;
         }
+    }
+
+    //26. Remove Duplicates from Sorted Array
+
+    public int removeDuplicates(int[] nums) {
+        int i = 0;
+        int j = 0;
+
+        while(j < nums.length){
+            if(nums[i] != nums[j]){
+                nums[++i] = nums[j++];
+            }else {
+                j++;
+            }
+        }
+
+        return i + 1;
     }
   }
 }
