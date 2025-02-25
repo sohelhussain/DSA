@@ -3,7 +3,8 @@ class Twopointer {
 
 
     //! 1089. Duplicate Zeros
-    if(j < arr.length){
+   public void write(int[]arr, int i, int j){
+        if(j < arr.length){
             arr[j] = arr[i];
         }
     }
@@ -25,5 +26,6 @@ class Twopointer {
             }
             i--;
         }
+    }
   }
 }
