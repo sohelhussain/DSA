@@ -51,6 +51,21 @@ public class day9 {
         }
     }
 
+    // 53 maximum subArray
+
+    public int maxSubArray(int[] nums) {
+        int maxSum = nums[0];                // <- we store a initial value becuse question give a minimum one value 
+        int curSum = 0;
+        for(int num: nums){
+            curSum += num;
+            maxSum = Math.max(maxSum, curSum);
+            if(curSum < 0){                  // --Kadane's Algo when you see the negetive element then you do current sum is zero
+                curSum = 0;
+            }
+        }
+
+        return maxSum;
+    }
     public static void main(String[] args) {
         int[] nums = { 1, 7, 3, 6, 5, 6 };
         System.out.println(Pivot(nums));
