@@ -66,6 +66,42 @@ public class day9 {
 
         return maxSum;
     }
+
+
+   // P40. 169. Majority Element
+				// --Moore's Voting Algo
+
+    public int majorityElement(int[] nums) {
+        int probably = nums[0];
+        int voting = 1;
+
+        for (int num : nums) {
+            if (num == probably) {
+                voting++;
+            } else {
+                voting--;
+            }
+            if (voting == 0) {
+                probably = num;
+                voting = 1;
+            }
+        }
+
+        // confermation code
+        
+        int count = 0;
+        for(int num: nums){
+            if (num == probably) {
+                count++;
+            }
+        }
+
+        if (count >= (nums.length / 2) + 1) {            
+            return probably;
+        }
+        return probably;
+    }
+    
     public static void main(String[] args) {
         int[] nums = { 1, 7, 3, 6, 5, 6 };
         System.out.println(Pivot(nums));
