@@ -2,6 +2,25 @@ import java.util.*;
 import java.util.List;
 
 public class Day10 {
+    // 3 sum brut force
+    public List<List<Integer>> threeSum(int[] nums) {
+        List <int[]> list = new ArrayList<>();
+
+    for(int i = 0; i < nums.length; i++) {
+        for(int j = i + 1; j < nums.length; j++){
+            for(int k = j + 1; k < nums.length; k++){
+                if (nums[i] + nums[j] + nums[k] == 0) {
+                    list.add(new int[]{nums[i], nums[j], nums[k]});
+                }
+            }
+        }
+    }
+
+    return list; // <- this is worng.
+    }
+
+
+    // 56 merge intervals
 
     public static int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
