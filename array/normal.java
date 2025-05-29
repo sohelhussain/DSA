@@ -25,4 +25,23 @@ public class Normal {
 
         return ans;
     }
+
+  // 11. Container With Most Water
+
+  public int maxArea(int[] height) {
+        int length = height.length;
+        int i = 0, j = length - 1;
+
+        int maxWaterArea = 0;
+        while(i < j){
+            int minWidth = Math.min(height[i], height[j]);
+            maxWaterArea = Math.max(maxWaterArea, (j - i) * minWidth);
+            if(height[i] < height[j]){
+                i++;
+            }else{
+                j--;
+            }
+        }
+
+        return maxWaterArea;
 }
