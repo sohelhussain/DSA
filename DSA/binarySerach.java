@@ -85,7 +85,11 @@ public class binarySearch {
 
 
   // 4. Median of Two Sorted Arrays
-  public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+  public double findMedianSortedArrays() {
+
+    int[] nums1 = {1,3,9,11,15};   
+      int[] nums2 = {2,4,7,20,29,45}; 
+    
         if(nums1.length > nums2.length){
             int temp[] = nums1;
             nums1 = nums2;
