@@ -129,53 +129,63 @@ public class binarySearch {
 
 
 
-  // Book allocation
+  // Book allocation problem - gfg
+      //Minimise the maximum number of pages read by a student.
+      //Restrictions:-
+           // Every student must read at least one book
+           // Two students can not read the same book
+           // Allot books in a continuous manner
   {
-    private static int minimize(int[] nums, int student){
-      if (student > nums.length) {
+    private static int minimize(int[] pages, int student){
+      if (student > pages.length) {
         return -1;
       }
 
-      int max = nums[0], sum = 0;
-      for(int e: nums){
-        sum += e;
-        max = Math.max(max, e);
+      int maxPageBook = pages[0], sumPages = 0;
+      for(int page: pages){
+        sumPages += page;
+        maxPageBook = Math.max(page, maxPageBook);
       }
 
-      int start = max, end = sum;
-      int ans = -1;
+      int start = maxPageBook, end = sumPages;
 
+      int ans = -1;
       while (start <= end) {
         int mid = start + (end - start) / 2;
 
-        if (isValid(nums, student, mid)) {
+        if (isValid(pages, student, mid)) {
           ans = mid;
           end = mid - 1;
-        }else{
+        }else {
           start = mid + 1;
         }
       }
+
       return ans;
+
     }
 
+
     private static boolean isValid(int[] pages, int student, int capacity){
+
       int curPages = 0;
       int curStrudents = 1;
 
-      for(int page: pages){
+      for (int page: pages) {
         if (curPages + page > capacity) {
           curStrudents++;
           curPages = page;
           if (curStrudents > student) {
             return false;
           }
-        }else {
+        }else{
           curPages += page;
         }
       }
 
       return true;
     }
+
 
     public static void main(String[] args) {
       int[] nums = {2,6,5,3,7};
