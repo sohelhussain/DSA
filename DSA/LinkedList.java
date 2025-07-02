@@ -59,6 +59,25 @@ class Solution {
         return ans.next;
     }
 
+
+
+//206. Reverse Linked List
+  {
+    public ListNode reverse(ListNode head, ListNode pre) {
+        if (head == null) return pre;
+
+        ListNode temp = head.next;
+        head.next = pre;
+        pre = head;
+        head = temp;
+
+        return reverse(head, pre);
+
+    }
+    public ListNode reverseList(ListNode head) {
+        return reverse(head, null);
+    }
+  }
   
   }
 }
