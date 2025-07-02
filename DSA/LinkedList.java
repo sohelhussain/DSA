@@ -1,6 +1,8 @@
 class Solution {
   public static void main(String[] args) {
 
+
+    
         //876. Middle of the Linked List
         public ListNode middleNode(ListNode head) {
         if(head==null || head.next == null) return head; // but we not need becuse constraint say at least one node is present;
@@ -14,6 +16,9 @@ class Solution {
         return slow;
     }
 
+
+
+  
 
     //21. Merge Two Sorted Lists
     ==> // recusive
@@ -60,7 +65,28 @@ class Solution {
     }
 
 
+  
 
+  //141. Linked List Cycle
+      public boolean hasCycle(ListNode head) {
+        ListNode fast = head, slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            
+            if(fast == slow){
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+
+
+
+  
 //206. Reverse Linked List
   {
     public ListNode reverse(ListNode head, ListNode pre) {
