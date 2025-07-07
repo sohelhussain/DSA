@@ -263,5 +263,57 @@ public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         return dummyHead.next;
     }
 
+
+// 1669. Merge In Between Linked Lists
+public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+        ListNode prevA = list1;
+        ListNode afterB = list1;
+        ListNode tailNode = list2;
+        int counter = 0;
+
+        while(counter != a - 1){
+            counter++;
+            prevA = prevA.next;
+        }
+
+        counter = 0;
+        while(counter != b + 1) {
+            counter++;
+            afterB = afterB.next;
+        }
+
+        while(tailNode.next != null){
+            tailNode = tailNode.next;
+        }
+
+        prevA.next = list2;
+        tailNode.next = afterB;
+
+        return list1;
+    }
+
+
+//2181. Merge Nodes in Between Zeros
+
+public ListNode mergeNodes(ListNode head) {
+        boolean isAdd = false;
+        ListNode dummy = new ListNode();
+        ListNode point = dummy;
+        int sum = 0;
+
+        while(head != null){
+            sum += head.val;
+
+            if(head.val == 0){
+                point.next = new ListNode(sum);
+                point = point.next;
+                sum = 0;
+            }
+            head = head.next;
+        }
+
+        return dummy.next.next;
+    }
+
   }
 }
