@@ -263,5 +263,46 @@ public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         return dummyHead.next;
     }
 
+
+
+//2058. Find the Minimum and Maximum Number of Nodes Between Critical Points
+public int[] nodesBetweenCriticalPoints(ListNode head) {
+        if(head == null || head.next == null) return new int[]{-1,-1};
+
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next = head.next;
+
+        int first = -1, last = -1;
+        int index = 1;
+        int minDist = Integer.MAX_VALUE;
+
+        while(next != null && next.next != null) {
+            prev = curr;
+            curr = next;
+            next = next.next;
+            index++;
+
+                // local maxima                                      // local minima
+            if(prev.val < curr.val && curr.val > next.val || prev.val > curr.val && curr.val < next.val) {
+
+                if(first == -1) {
+                    first = index;
+                }else {
+                    minDist = Math.min(minDist, index - last);
+                }
+
+                last = index;
+            }
+        }
+
+        if(first == last) return new int[]{-1,-1};
+
+        return new int[] {minDist, last - first};
+    }
+
+
+
+
   }
 }
