@@ -134,3 +134,32 @@ class MyStack {
  * int param_3 = obj.top();
  * boolean param_4 = obj.empty();
  */
+
+
+
+
+
+//find the next grater element(gfg). imp
+
+class Solution {
+    public int[] nextGreaterElement(int[] arr) {
+        int ans[] = new int[arr.length];
+        Stack<Integer> st = new Stack<>(); 
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            // Pop elements that are less than or equal to the current element
+            while (!st.isEmpty() && st.peek() <= arr[i]) {
+                st.pop(); // Remove smaller elements
+            }
+
+            // If the stack is empty, no greater element exists
+            // Otherwise, the top of the stack is the next greater element
+            ans[i] = st.isEmpty() ? -1 : st.peek();
+
+            // Push the current element onto the stack
+            st.push(arr[i]);
+        }
+        return ans; 
+    }
+}
+
