@@ -245,6 +245,85 @@ public int largestRectangleArea(int[] heights) {
     }
 
 
+
+    // 85. Maximal Rectangle
+
+    class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        if (matrix.length == 0) {
+            return 0;
+        }
+        
+        int n = matrix.length;    // Number of rows
+        int m = matrix[0].length; // Number of columns
+        int[] heights = new int[m]; // Histogram heights for each column
+        int maxArea = 0;
+
+        for (int i = 0; i < n; i++) {
+            // Update heights array based on current row
+            for (int j = 0; j < m; j++) {
+                // If the matrix has a '1', increment the height; otherwise, reset to 0
+                if (matrix[i][j] == '1') {
+                    heights[j]++;
+                } else {
+                    heights[j] = 0;
+                }
+            }
+            
+            // Calculate the maximum rectangle area for this row's heights
+            maxArea = Math.max(maxArea, largestRectangleArea(heights));
+        }
+
+        return maxArea;
+    }
+
+    // Function to calculate the largest rectangle in a histogram using NSL/NSR approach
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int[] NSL = new int[n]; // Nearest Smaller to Left
+        int[] NSR = new int[n]; // Nearest Smaller to Right
+
+        // Calculate NSL (Nearest Smaller to Left)
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            if (stack.isEmpty()) {
+                NSL[i] = -1;
+            } else {
+                NSL[i] = stack.peek();
+            }
+            stack.push(i);
+        }
+
+        // Clear stack to reuse for NSR
+        stack.clear();
+
+        // Calculate NSR (Nearest Smaller to Right)
+        for (int i = n - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            if (stack.isEmpty()) {
+                NSR[i] = n;
+            } else {
+                NSR[i] = stack.peek();
+            }
+            stack.push(i);
+        }
+
+        // Calculate the maximum area
+        int maxArea = 0;
+        for (int i = 0; i < n; i++) {
+            int width = NSR[i] - NSL[i] - 1;
+            int area = heights[i] * width;
+            maxArea = Math.max(maxArea, area);
+        }
+
+        return maxArea;
+    }
+}
     
 
 }
