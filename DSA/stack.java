@@ -324,6 +324,102 @@ public int largestRectangleArea(int[] heights) {
         return maxArea;
     }
 }
+
+
+
+    // 155. Min Stack
+
+    class MinStack {
+    Stack<Integer> stack;
+    Stack<Integer> minStack;
+
+    public MinStack() {
+        stack = new Stack<>();    
+        minStack = new Stack<>();    
+    }
+    
+    public void push(int val) {
+        stack.push(val);
+        if(minStack.isEmpty() || val <= minStack.peek()) {
+            minStack.push(val);
+        }
+    }
+    
+    public void pop() {
+        if(stack.isEmpty()) return;
+        int top = stack.pop();
+        if(top == minStack.peek()) {
+            minStack.pop();
+        }
+    }
+    
+    public int top() {
+        return stack.peek();
+    }
+    
+    public int getMin() {
+        return minStack.peek();
+    }
+        
+}
+
+
+
+// 150. Evaluate Reverse Polish Notation
+
+    public int evalRPN(String[] tokens) {
+    Stack<Integer> stack = new Stack<>();
+    for(int i = 0; i < tokens.length; i++) {
+        String ch = tokens[i];
+        if(ch.equals("+") || ch.equals("-") || ch.equals("*") || ch.equals("/")) {
+                int b = stack.pop();
+                int a = stack.pop();
+                int result = 0;
+                if(ch.equals("+")) {
+                    result = a + b;
+                }else if(ch.equals("-")) {
+                    result = a - b;
+                }else if(ch.equals("*") ) {
+                    result = a * b;
+                }else {
+                    result = a / b;
+                }
+                stack.push(result);
+        }else {
+            stack.push(Integer.parseInt(ch));
+        }
+    }
+    return stack.pop();
+}
+																											
+
+
+
+
+//22. Generate Parentheses
+
+    private void backtrack(int openN, int closedN, int n, List<String> res, StringBuilder stack) {
+    if(openN == closedN && openN == n) {
+        res.add(stack.toString());
+        return;
+    }
+    if(openN < n) {
+        stack.append('(');
+        backtrack(openN + 1, closedN, n, res, stack);
+        stack.deleteCharAt(stack.length() - 1);
+    }
+    if(closedN < openN) {
+        stack.append(')');
+        backtrack(openN, closedN + 1, n, res, stack);
+        stack.deleteCharAt(stack.length() - 1);
+    }
+}
+public List<String> generateParenthesis(int n) {
+    List<String> list = new ArrayList<>();
+    StringBuilder stack = new StringBuilder();
+    backtrack(0, 0, n, list, stack);
+    return list;
+}
     
 
 }
