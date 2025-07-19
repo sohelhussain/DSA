@@ -469,7 +469,43 @@ public List<String> generateParenthesis(int n) {
 
         return result.toString();
     }
-    
+
+
+
+
+	// 735. Asteroid Collision
+
+	asteroids = [-1, 3, 2, -3];
+
+	public int[] asteroidCollision(int[] asteroids) {
+        Stack<Integer> stack = new Stack<>();
+        for(int i = 0; i < asteroids.length; i++) {
+            int a = asteroids[i];
+
+            while(!stack.isEmpty() && a < 0 && stack.peek() > 0) {
+                int diff = a + stack.peek();
+
+                if(diff < 0) {
+                    stack.pop();
+                } else if(diff > 0) {
+                    // when you found diff is positive then asteroids is destorye
+                    a = 0;
+                }else {
+                    // when the diff is 0 then we destroye both of asteroids and stack top element
+                    a = 0;
+                    stack.pop();
+                }
+            }
+
+            if(a != 0) {
+                stack.add(a);
+            }
+
+            
+        }
+
+
+        return stack.stream().mapToInt(i -> i)
 
 }
 
