@@ -507,5 +507,33 @@ public List<String> generateParenthesis(int n) {
 
         return stack.stream().mapToInt(i -> i)
 
+
+
+
+
+
+
+
+
+// 71. Simplify Path
+
+public String simplifyPath(String path) {
+        Stack<String> stack = new Stack<>();
+        String[] paths = path.split("/");
+
+        for(int i = 0; i < paths.length; i++) {
+            String ch = paths[i];
+
+            if(ch.equals("..")) {
+                if(!stack.isEmpty()) stack.pop();
+            }else if(!ch.equals("") && !ch.equals(".")) {
+                stack.push(ch);
+            }
+        }
+
+        return "/" + String.join("/", stack);
+
+    }
+
 }
 
