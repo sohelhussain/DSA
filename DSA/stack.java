@@ -420,6 +420,55 @@ public List<String> generateParenthesis(int n) {
     backtrack(0, 0, n, list, stack);
     return list;
 }
+
+
+
+
+	// 394. Decode String
+
+
+	public String decodeString(String s) {
+        Stack<String> stack = new Stack<>();
+        Stack<Integer> numStack = new Stack<>();
+        int k = 0;
+
+        for(int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if(Character.isDigit(ch)) {
+                k = (k * 10) + (ch - '0');
+            }else if(ch == '[') {
+                numStack.push(k);
+                k = 0;
+                stack.push("[");
+            }else if(ch == ']') {
+                StringBuilder temp = new StringBuilder();
+                while(!stack.peek().equals("[")) {
+                    temp.insert(0, stack.pop());
+                }
+                // [ remove this
+                stack.pop();
+
+                int count = numStack.pop();
+                StringBuilder repeated = new StringBuilder();
+
+                for(int j = 0; j < count; j++) {
+                    repeated.append(temp);
+                }
+                stack.push(repeated.toString());
+            }else {
+                stack.push(String.valueOf(ch));
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        while(!stack.isEmpty()) {
+            result.insert(0, stack.pop());
+        }
+
+        return result.toString();
+    }
     
 
 }
