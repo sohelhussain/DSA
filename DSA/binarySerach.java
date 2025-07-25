@@ -256,5 +256,41 @@ public class binarySearch {
       int student = 2;
       System.out.println(minimize(nums, student));
     } 
+
   }
+
+
+
+
+
+
+// 875. Koko Eating Bananas
+    public int minEatingSpeed(int[] piles, int h) {
+    int pile = Integer.MAX_VALUE;
+    int start = 1, end = 0;
+
+    for (int i : piles) {
+        end = Math.max(end, i);        
+    }
+
+
+    while (start <= end) {
+        int mid = start + (end - start) / 2;
+
+        int speed = 0;
+
+        for (int p : piles) {
+            speed += Math.ceil((double) p / mid);
+        }
+
+        if (speed <= h) {
+            pile = Math.min(pile, mid);
+            end = mid - 1;
+        }else {
+            start = mid + 1;
+        }
+    }
+
+    return pile;
+    }
 }
