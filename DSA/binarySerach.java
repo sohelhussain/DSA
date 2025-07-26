@@ -339,4 +339,26 @@ public class binarySearch {
 
         return false;
     }
+
+
+
+
+
+
+// 374. Guess Number Higher or Lower
+
+  public int guessNumber(int n) {
+        int start = 1, end = n;
+
+        while(true) {
+            int num = start + (end - start) / 2;
+
+            if(0 == guess(num)) {
+                return num;
+            }else if(0 < guess(num)) {
+                start = num + 1;
+            }else {
+                end = num -1;
+            }
+        }
 }
