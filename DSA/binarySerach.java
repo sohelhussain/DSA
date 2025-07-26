@@ -361,4 +361,53 @@ public class binarySearch {
                 end = num -1;
             }
         }
+
+
+
+
+// 1011. Capacity To Ship Packages Within D Days
+    class Solution {
+    private boolean isValid(int[] weights, int ships, int capacity) {
+        int currentShip = 1, currentWeight = 0;
+
+        for(int w: weights) {
+            if(w + currentWeight > capacity)  {
+                currentShip++;
+                currentWeight = w;
+                if(currentShip > ships) {
+                    return false;
+                }
+            } else {
+                currentWeight += w;
+            }
+        }
+        return true;
+    }
+    public int shipWithinDays(int[] weights, int days) {
+        if(days > weights.length) {
+            return -1;
+        }
+
+        int start = weights[0], end = 0;
+
+        for(int i = 0; i < weights.length - 1; i++) {
+            start = Math.max(weights[i], start);
+            end += weights[i];
+        }
+
+
+        int ans = -1;
+        while(start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if(isValid(weights,days,mid)) {
+                ans = mid;
+                end = mid - 1;
+            }else {
+                start = mid + 1;
+            }
+        }
+        return ans;
+    }
+}
 }
