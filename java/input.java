@@ -14,6 +14,7 @@ public class input {
     // System.out.println("Enter your name");
     // String name = sc.next();   //? <--- sirf space or nextlineSimbole ko nhi leta
     // System.out.println("Hello " + name);
+   
 
     System.out.println("Enter your name");
     String name = sc.nextLine();  //? <--- ye puri line ko pic kar leta he
