@@ -24,6 +24,7 @@ public static void main(String[] args) {
     }
 ```
 
+![towerofhanoi](https://github.com/user-attachments/assets/b91896d3-b2d2-4ae2-b7c0-3fb79d79363d)
 
 ---
 
