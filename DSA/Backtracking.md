@@ -1,4 +1,4 @@
-### 1. Tower Of Hanoi.
+# 1. Tower Of Hanoi.
 
 1. First, we move n - 1 plates to the auxiliary rod.
 (To do this, we can make the auxiliary rod the temporary destination for a shorter time.)
@@ -27,10 +27,12 @@ public static void main(String[] args) {
 
 ---
 
-### 1823. Find the Winner of the Circular Game.
+# 1823. Find the Winner of the Circular Game.
 
 1. We create a circular ArrayList and find the index of the person to be eliminated using the formula:
 (i + k - 1) % size, where i is the current index, k is the step count, and size is the number of remaining people.
+
+**why we're using this formula** => [Learn more](https://github.com/sohelhussain/DSA/blob/main/why.md#scenario-josephus-problem)
 
 ```
 class Solution {
