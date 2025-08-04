@@ -57,3 +57,36 @@ class Solution {
 
 ![circular array](https://github.com/user-attachments/assets/0c965ea0-f0ca-415d-be8b-b74145e5917c)
 
+
+---
+
+# Subset powerset **Imp.**
+
+
+### 1. powerSet
+```
+class Solution {
+public static void subsetString(String s, String cur, List<String> ans, int i) {
+    if(i == s.length()) {
+        if (cur.length() > 0) {
+            ans.add(cur);
+        }
+        return;
+    }
+
+    //choose
+    subsetString(s, cur + s.charAt(i), ans, i + 1);
+    
+    // not choose
+    subsetString(s, cur, ans, i + 1);
+  } 
+
+    public static void main(String[] args) {
+        String s = "abc";
+        List<String> ans = new ArrayList<>();
+        subsetString(s, "", ans, 0);
+        Collections.sort(ans);
+        System.out.println(ans);
+    }
+}
+```
