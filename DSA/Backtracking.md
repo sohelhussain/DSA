@@ -67,18 +67,18 @@ class Solution {
 ```
 class Solution {
 public static void subsetString(String s, String cur, List<String> ans, int i) {
-    if(i == s.length()) {
-        if (cur.length() > 0) {
-            ans.add(cur);
+    if(i == s.length()) {  // O(1)
+        if (cur.length() > 0) {  // O(1)
+            ans.add(cur);  // O(n) making a new string
         }
         return;
     }
 
     //choose
-    subsetString(s, cur + s.charAt(i), ans, i + 1);
+    subsetString(s, cur + s.charAt(i), ans, i + 1); // O(2^n)
     
     // not choose
-    subsetString(s, cur, ans, i + 1);
+    subsetString(s, cur, ans, i + 1); // O(2^n)
   } 
 
     public static void main(String[] args) {
@@ -90,3 +90,51 @@ public static void subsetString(String s, String cur, List<String> ans, int i) {
     }
 }
 ```
+
+Time Complexity: O(n × 2ⁿ)
+Space Complexity: O(n × 2ⁿ)
+
+
+### 2. 78 subSet [solve here](https://leetcode.com/problems/subsets/submissions/1410588368/)
+
+
+```
+class Solution {
+    // Recursive method to generate subsets
+    public static void powerKaSetArrayWala(int[] arr, int i, List<Integer> cur, List<List<Integer>> ans) {
+        // Base case: If we have processed all elements, add the current subset to the result
+        if(i == arr.length) {
+            ans.add(new ArrayList<>(cur));  // Add a copy of the current subset
+            return;
+        }
+        
+        // Include the current element and move to the next element
+        cur.add(arr[i]);
+        powerKaSetArrayWala(arr, i+1, cur, ans);
+        
+        // Backtrack: Remove the last element and move to the next element (not including this one)
+        cur.remove(cur.size() - 1);  // Use remove(size - 1) to remove the last element
+        
+        // Exclude the current element and move to the next element
+        powerKaSetArrayWala(arr, i+1, cur, ans);
+    }
+
+    // Main function for LeetCode problem
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();  // This will hold all subsets
+        List<Integer> cur = new ArrayList<>();  // This is the current subset being built
+        
+        // Start the recursion
+        powerKaSetArrayWala(nums, 0, cur, ans);
+        
+        return ans;
+    }
+}
+```
+
+#### Time Complexity
+
+we are making a copy that hold O(n)
+and we calling a 2^n calls
+
+so final Complexity is ``` O(n * 2^n) ```
