@@ -95,7 +95,7 @@ Time Complexity: O(n × 2ⁿ)
 Space Complexity: O(n × 2ⁿ)
 
 
-### 2. 78 subSet [solve here](https://leetcode.com/problems/subsets/submissions/1410588368/)
+### 2. 78 subSet [solve here](https://leetcode.com/problems/subsets/)
 
 
 ```
