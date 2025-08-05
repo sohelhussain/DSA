@@ -1,5 +1,6 @@
-public class binarySearch {
+# Peak Index In Mountain Array [solve here](https://leetcode.com/problems/peak-index-in-a-mountain-array/submissions/1707914677/)
 
+```
   public int peakIndexInMountainArray(int[] arr) {
         int start = 0, end = arr.length - 1;
         while(start < end){
@@ -13,9 +14,13 @@ public class binarySearch {
 
         return start;
     }
+```
 
-  
-  public static void findFirstPositionAndLast() {
+
+# 34. Find First and Last Position of Element in Sorted Array. [solve here](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
+
+```
+ public static void findFirstPositionAndLast() {
 
        int[] nums = {5,7,7,8,8,10};
        int target = 8;
@@ -52,11 +57,15 @@ public class binarySearch {
 
         }
        }
-       System.out.println(firts0);
-       System.out.println(last0);
+       return new int[] {firts0, last0);
     }
+```
+
+ 
   
-  // 33. Search in Rotated Sorted Array
+# 33. Search in Rotated Sorted Array. [solve here](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+  ```
   public int search(int[] nums, int target) {
         int start = 0, end = nums.length - 1;
 
@@ -82,10 +91,11 @@ public class binarySearch {
 
         return -1;
     }
+```
 
+# 81. Search in Rotated Sorted Array II. [solve here](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
 
-//81. Search in Rotated Sorted Array II
-
+```
   class Solution {
     public boolean search(int[] nums, int target) {
         int start = 0, end = nums.length - 1;
@@ -116,12 +126,13 @@ public class binarySearch {
         return false;
     }
 }
-
+```
 
   
   
 
-  //153. Find Minimum in Rotated Sorted Array
+# 153. Find Minimum in Rotated Sorted Array. [solve here](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+```
   class Solution {
     public int findMin(int[] nums) {
         int min = Integer.MAX_VALUE;
@@ -142,13 +153,15 @@ public class binarySearch {
         return min;
     }
 }
-
-
-  
+```
 
   
 
-  // 4. Median of Two Sorted Arrays
+  
+
+# 4. Median of Two Sorted Arrays. [solve here](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+
+```
   public double findMedianSortedArrays() {
 
     int[] nums1 = {1,3,9,11,15};   
@@ -189,16 +202,17 @@ public class binarySearch {
       }
       return 0.0; 
     }
+```
 
 
-
-
-  // Book allocation problem - gfg
-      //Minimise the maximum number of pages read by a student.
-      //Restrictions:-
-           // Every student must read at least one book
-           // Two students can not read the same book
-           // Allot books in a continuous manner
+# Book allocation problem - gfg. [solve here](https://www.geeksforgeeks.org/problems/allocate-minimum-number-of-pages0937/1)
+  .
+      Minimise the maximum number of pages read by a student.
+      Restrictions:-
+           1. Every student must read at least one book
+           2. Two students can not read the same book
+           3. Allot books in a continuous manner
+```
   {
     private static int minimize(int[] pages, int student){
       if (student > pages.length) {
@@ -258,13 +272,15 @@ public class binarySearch {
     } 
 
   }
+```
 
 
 
 
 
+# 875. Koko Eating Bananas. [solve here](https://leetcode.com/problems/koko-eating-bananas/)
 
-// 875. Koko Eating Bananas
+```
     public int minEatingSpeed(int[] piles, int h) {
     int pile = Integer.MAX_VALUE;
     int start = 1, end = 0;
@@ -293,12 +309,14 @@ public class binarySearch {
 
     return pile;
     }
+```
 
 
 
 
+# 74. Search a 2D Matrix. [solve here](https://leetcode.com/problems/search-a-2d-matrix/)
 
-// 74. Search a 2D Matrix
+```
    public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length, n = matrix[0].length;
         int ROW = m - 1, COLS = n - 1;
@@ -339,14 +357,15 @@ public class binarySearch {
 
         return false;
     }
+```
 
 
 
 
 
+# 374. Guess Number Higher or Lower. [solve here](https://leetcode.com/problems/guess-number-higher-or-lower/)
 
-// 374. Guess Number Higher or Lower
-
+```
   public int guessNumber(int n) {
         int start = 1, end = n;
 
@@ -361,11 +380,11 @@ public class binarySearch {
                 end = num -1;
             }
         }
+```
 
 
-
-
-// 1011. Capacity To Ship Packages Within D Days
+# 1011. Capacity To Ship Packages Within D Days. [solve here](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
+```
     class Solution {
     private boolean isValid(int[] weights, int ships, int capacity) {
         int currentShip = 1, currentWeight = 0;
@@ -410,4 +429,4 @@ public class binarySearch {
         return ans;
     }
 }
-}
+```
