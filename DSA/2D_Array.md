@@ -1,8 +1,5 @@
-class Solution {
-
-    
-
-    //36. Valid Sudoku
+# 1. Valid Sudoku [solve here]()
+```
     public boolean isValidSudoku(char[][] board) {
         HashSet<String> set = new HashSet<>();
         for(int i = 0; i < board.length; i++){
@@ -17,4 +14,4 @@ class Solution {
         }
         return true;
     }
-}
+```
