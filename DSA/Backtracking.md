@@ -28,7 +28,7 @@ public static void main(String[] args) {
 
 ---
 
-# 1823. Find the Winner of the Circular Game.
+# 2. Find the Winner of the Circular Game.
 
 1. We create a circular ArrayList and find the index of the person to be eliminated using the formula:
 (i + k - 1) % size, where i is the current index, k is the step count, and size is the number of remaining people.
@@ -60,7 +60,7 @@ class Solution {
 
 ---
 
-# Subset powerset **Imp.**
+# 3. Subset powerset **Imp.**
 
 
 ### 1. powerSet
@@ -138,3 +138,140 @@ we are making a copy that hold O(n)
 and we calling a 2^n calls
 
 so final Complexity is ``` O(n * 2^n) ```
+
+
+### approach 2 
+
+in this time we did'nt call a not pick
+
+
+```
+class Solution {
+    private void sets(int[] nums, int start, List<List<Integer>> list, List<Integer> cur) {
+
+        list.add(new ArrayList<>(cur));
+        for(int i = start; i < nums.length; i++) {
+            cur.add(nums[i]);
+            sets(nums, i + 1, list, cur);
+            cur.remove(cur.size() - 1);
+        }
+    }
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+
+        sets(nums, 0, list, cur);
+        return list;
+    }
+}
+```
+
+call's look like this.
+```
+[
+  [], 
+  [1], 
+  [1,2], 
+  [1,2,3], 
+  [1,3], 
+  [2], 
+  [2,3], 
+  [3]
+]
+```
+
+# 4. Subsets 2. [solve here](https://leetcode.com/problems/subsets-ii/)
+
+```
+class Solution {
+    private void setsDup(int[] nums, List<List<Integer>> list, List<Integer> cur, int i, boolean picked) {
+        if(i == nums.length) {
+            list.add(new ArrayList<>(cur));
+            return;
+        }
+        if(i == 0 || nums[i] != nums[i - 1] || picked) {
+            cur.add(nums[i]);
+            setsDup(nums, list, cur, i + 1, true);
+            cur.remove(cur.size() - 1);
+        }
+        setsDup(nums, list, cur, i + 1, false);
+    }
+
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+        setsDup(nums, list, cur, 0, true);
+        return list;
+    }
+}
+```
+Tree Structure — Step-by-Step
+I'll show it as a decision tree where:
+
+✔️ means we pick the element
+
+❌ means we skip it
+
+We'll also show the current cur list at each step.
+
+
+```
+                             []
+                         /        \
+                    ✔️1             ❌1
+                   /   \            \
+               ✔️2     ❌2          ✔️2
+              /   \     \           \
+         ✔️2     ❌2    ✔️2         ❌2
+          |       |      |           |
+      [1,2,2]  [1,2]   [1,2]       [1]
+
+```
+Then on the right side of ❌1, we have:
+```
+                           []
+                             \
+                             ✔️2
+                            /   \
+                        ✔️2     ❌2
+                         |        |
+                      [2,2]     [2]
+
+```
+
+
+#### second approach
+
+```
+class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+        Arrays.sort(nums); // Corrected the sorting method
+        solve(nums, ans, cur, 0);
+        return ans;
+    }
+
+    public void solve(int[] nums, List<List<Integer>> ans, List<Integer> cur, int index) {
+        ans.add(new ArrayList<>(cur)); // Add the current subset to the result
+
+        // Iterate through the elements starting from the current index
+        for (int i = index; i < nums.length; i++) {
+            // Skip duplicates: if current number is the same as the previous and it's not the first element in the loop
+            if (i > index && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            // Include nums[i] in the current subset
+            cur.add(nums[i]);
+
+            // Recurse with the next index
+            solve(nums, ans, cur, i + 1);
+
+            // Backtrack: remove the last element added
+            cur.remove(cur.size() - 1);
+        }
+    }
+}
+```
