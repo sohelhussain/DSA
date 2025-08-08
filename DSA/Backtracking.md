@@ -278,3 +278,72 @@ class Solution {
     }
 }
 ```
+
+
+
+---
+
+
+# 51. N-Queens [solve here](https://leetcode.com/problems/n-queens/description/)
+
+```
+class Solution {
+    private boolean isValid(int[][] board, int row, int column) {
+        int i = row, j = column;
+
+        while(i >= 0 && j >= 0) {
+            if(board[i][j] == 1) return false;
+            i--;
+            j--;
+        }
+
+
+        i = row;
+        j = column;
+
+        while(j >= 0) {
+            if(board[i][j] == 1) return false;
+            j--;
+        }
+
+        i = row;
+        j = column;
+
+        while(i < board.length && j >= 0) {
+            if(board[i][j] == 1) return false;
+            i++;
+            j--;
+        }
+
+        return true;
+    }
+    private void nqueens(int[][] board, List<List<String>> ans, int column, int n) {
+        if(column == n) {
+            List<String> cur = new ArrayList<>();
+            for(int row[]: board) {
+                String r = "";
+                for(int data: row) {
+                    r += data == 1 ? "Q" : "."; 
+                }
+                cur.add(r);
+            }
+            ans.add(cur);
+            return;
+        }
+        for(int row = 0; row < n; row++) {
+            if(isValid(board, row, column)) {
+                board[row][column] = 1;
+                nqueens(board, ans, column + 1, n);
+                board[row][column] = 0;
+            }
+        }
+    }
+
+    public List<List<String>> solveNQueens(int n) {
+        int[][] board = new int[n][n];
+        List<List<String>> ans = new ArrayList<>();
+        nqueens(board, ans, 0, n);
+        return ans;
+    }
+}
+```
