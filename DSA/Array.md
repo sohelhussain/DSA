@@ -63,3 +63,37 @@ class Solution {
     }
 }
 ```
+
+
+---
+
+# 896. Monotonic Array [solve here](https://leetcode.com/problems/monotonic-array/)
+```
+class Solution {
+    public boolean isMonotonic(int[] nums) {
+        int n = nums.length;
+
+        if(nums[0] <= nums[n - 1]) {
+            for(int i = 1; i < n; i++) {
+                if(nums[i] < nums[i - 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }else {
+            for(int i = 1; i < n; i++) {
+                if(nums[i] > nums[i - 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+}
+```
+
+
+# 1752. Check if Array Is Sorted and Rotated [solve here](https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/)
+```
+
+```
