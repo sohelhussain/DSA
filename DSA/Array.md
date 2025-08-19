@@ -91,7 +91,7 @@ class Solution {
     }
 }
 ```
-
+---
 
 # 1752. Check if Array Is Sorted and Rotated [solve here](https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/)
 ```
@@ -115,3 +115,37 @@ class Solution {
     }
 }
 ```
+---
+
+# 1700. Number of Students Unable to Eat Lunch [solve here](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/)
+
+```
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        int ones = 0, zero = 0;
+
+        for(int s: students) {
+            if(s == 1) ones++;
+            else zero++;
+        }
+
+
+        for(int s: sandwiches) {
+            if(s == 0) {
+                if(zero == 0) return ones;
+                zero--;
+            }else {
+                if(ones == 0) return zero;
+                ones--;
+            }
+        }
+
+        return 0;
+    }
+}
+```
+
+[solve by queue]()
+
+---
+    
