@@ -143,7 +143,6 @@ code
 ---
 # 7. print X
 
-Hint: j jnha se start he or jnha par khtam he vnha ki printing karni he
 #### output
 ```
 *   *
@@ -164,6 +163,50 @@ code
             System.out.println();
         }
 ```
+---
+# 8. Rotate Image [solve here](https://leetcode.com/problems/rotate-image/)
+
+```
+class Solution {
+
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+        for(int i = 0; i < n; i++) {
+            for(int j = i; j < n; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n / 2; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][n - j - 1];
+                matrix[i][n - j - 1] = temp;
+            }
+        }
+    }
+}
+```
+---
+# 9. Search a 2D Matrix [solve here](https://leetcode.com/problems/search-a-2d-matrix/)
+
+```
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        for(int[] nums: matrix) {
+            for(int num: nums) {
+                if(num == target) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+[solve in O(log(m + n))]()
 ---
 
 # . Valid Sudoku [solve here](https://leetcode.com/problems/valid-sudoku/)
