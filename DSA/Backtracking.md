@@ -347,3 +347,47 @@ class Solution {
     }
 }
 ```
+
+---
+# . Sudoku Solver [solve here](https://leetcode.com/problems/sudoku-solver/)
+
+```
+class Solution {
+    private boolean isValid(char[][] board, int row, int column, char k) {
+        for (int var = 0; var < 9; var++) {
+            if (board[row][var] == k || board[var][column] == k) {
+                return false;
+            }
+            if (board[3 * (row / 3) + var / 3][3 * (column / 3) + var % 3] == k) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean solve(char[][] board) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == '.') {
+                    for (char k = '1'; k <= '9'; k++) {
+                        if (isValid(board, i, j, k)) {
+                            board[i][j] = k;
+                            if (solve(board)) {
+                                return true;
+                            }
+                            board[i][j] = '.';
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void solveSudoku(char[][] board) {
+        solve(board);
+    }
+}
+
+```
