@@ -180,6 +180,7 @@ call's look like this.
 ]
 ```
 
+
 ![sec-approach](https://github.com/user-attachments/assets/2e1ac177-f0f9-4e6f-bd48-d126e4699de9)
 
 ---
