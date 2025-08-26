@@ -350,7 +350,7 @@ class Solution {
 ```
 
 ---
-# . Sudoku Solver [solve here](https://leetcode.com/problems/sudoku-solver/)
+# 37. Sudoku Solver [solve here](https://leetcode.com/problems/sudoku-solver/)
 
 ```
 class Solution {
