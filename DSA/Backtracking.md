@@ -218,6 +218,9 @@ class Solution {
 ```
 #### Time Complexity ``` n * n!```
 
+![IMG_0058](https://github.com/user-attachments/assets/8d5fc941-437a-47ed-9553-8694779b45fd)
+
+
 ---
 # 4. Subsets 2. [solve here](https://leetcode.com/problems/subsets-ii/)
 
