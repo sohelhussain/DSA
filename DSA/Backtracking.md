@@ -322,6 +322,37 @@ class Solution {
 
 ---
 
+# 17. Letter Combinations of a Phone Number [solve here](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+
+```
+class Solution {
+    private void combinations(List<String> list, String digits, String[] keyPad, String cur, int start) {
+        if(start == digits.length()) {
+            list.add(cur);
+            return;
+        }
+
+        char c = digits.charAt(start);
+        int n = c - '0';
+
+        for(int i = 0; i < keyPad[n].length(); i++) {
+            combinations(list, digits, keyPad, cur + keyPad[n].charAt(i), start + 1);
+        }
+    }
+    public List<String> letterCombinations(String digits) {
+        List<String> list = new ArrayList<>();
+        if(digits.length() == 0) return list;
+
+        String[] keyPad = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    
+        combinations(list, digits, keyPad, "", 0);
+
+        return list;
+    }
+}
+```
+
+---
 
 # 51. N-Queens [solve here](https://leetcode.com/problems/n-queens/description/)
 
