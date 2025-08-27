@@ -184,6 +184,41 @@ call's look like this.
 ![sec-approach](https://github.com/user-attachments/assets/2e1ac177-f0f9-4e6f-bd48-d126e4699de9)
 
 ---
+# 46. Permutations [solve here](https://leetcode.com/problems/permutations/)
+
+```
+class Solution {
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    private void permut(int[] nums, List<List<Integer>> list, int start) {
+        if(start == nums.length - 1) {
+            List<Integer> cur = new ArrayList<>();
+            for(int a: nums) cur.add(a);
+            list.add(cur);
+            return;
+        }
+
+        for(int i = start; i < nums.length; i++) {
+            swap(nums, start, i);
+            permut(nums, list, start + 1);
+            swap(nums, start, i);
+        }
+    }
+
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        permut(nums, list, 0);
+        return list;
+    }
+}
+```
+#### Time Complexity ``` n * n!```
+
+---
 # 4. Subsets 2. [solve here](https://leetcode.com/problems/subsets-ii/)
 
 ```
