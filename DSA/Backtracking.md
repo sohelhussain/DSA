@@ -352,6 +352,9 @@ class Solution {
 }
 ```
 
+![IMG_0060](https://github.com/user-attachments/assets/96533919-bfa9-44c8-8084-d29840ff6f69)
+
+
 ---
 
 # 51. N-Queens [solve here](https://leetcode.com/problems/n-queens/description/)
