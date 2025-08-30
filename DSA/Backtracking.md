@@ -524,3 +524,40 @@ class Solution {
     }
 }
 ```
+---
+
+# 47. Permutations II [solve here](https://leetcode.com/problems/permutations-ii/)
+
+```
+class Solution {
+    private void swap(int[] nums, int start, int end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+    private void fn(int[] nums, List<List<Integer>> list, int start) {
+        if(start == nums.length) {
+            List<Integer> cur = new ArrayList<>();
+            for(int a: nums) cur.add(a);
+            list.add(cur);
+            return;
+        }
+
+        for(int i = start; i < nums.length; i++) {
+            if(i > start && nums[i] == nums[start]) continue;
+            swap(nums, start, i);
+            fn(nums, list, start + 1);
+        }
+
+        for(int i = nums.length - 1; i > start; i--) {
+            swap(nums, start, i);
+        }
+    }
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> list = new ArrayList<>();
+        fn(nums, list, 0);
+        return list;
+    }
+}
+```
