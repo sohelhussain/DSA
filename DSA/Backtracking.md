@@ -383,6 +383,8 @@ class Solution {
 }
 ```
 
+![IMG_0061](https://github.com/user-attachments/assets/e1888874-befc-40a6-b011-dcf59997eda6)
+
 ---
 
 # 51. N-Queens [solve here](https://leetcode.com/problems/n-queens/description/)
