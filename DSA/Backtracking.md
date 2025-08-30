@@ -561,3 +561,31 @@ class Solution {
     }
 }
 ```
+
+---
+
+# 1079. Letter Tile Possibilities [soleve here](https://leetcode.com/problems/letter-tile-possibilities/)
+
+```
+class Solution {
+    
+    private void fn(String tiles, String cur, boolean[] visited, Set<String> set) {
+       for(int i = 0; i < tiles.length(); i++) {
+            if(visited[i]) continue;
+            String charSequence = cur + tiles.charAt(i);
+            visited[i] = true;
+            set.add(charSequence);
+            fn(tiles, charSequence, visited, set);
+            visited[i] = false;
+       }
+    }
+    public int numTilePossibilities(String tiles) {
+        boolean[] visited = new boolean[tiles.length()];
+        Set<String> set = new HashSet<>();
+        fn(tiles, "", visited, set);
+        return set.size();
+    }
+}
+```
+
+<img width="1000" height="219" alt="image" src="https://github.com/user-attachments/assets/b7416294-6f31-477c-993f-fd2a191f0344" />
