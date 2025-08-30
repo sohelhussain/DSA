@@ -357,6 +357,33 @@ class Solution {
 
 
 ---
+# 39. Combination Sum [solve here](https://leetcode.com/problems/combination-sum/)
+```
+class Solution {
+    private void sum(int[] candidates, int target, List<List<Integer>> list, List<Integer> cur, int start) {
+        if(target == 0) {
+            list.add(new ArrayList<>(cur));
+            return;
+        }
+        if(target < 0) {
+            return;
+        }
+        for(int i = start; i < candidates.length; i++) {
+            cur.add(candidates[i]);
+            sum(candidates, target - candidates[i], list, cur, i);
+            cur.remove(cur.size() - 1);
+        }
+    }
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+        sum(candidates, target, list, cur, 0);
+        return list;
+    }
+}
+```
+
+---
 
 # 51. N-Queens [solve here](https://leetcode.com/problems/n-queens/description/)
 
