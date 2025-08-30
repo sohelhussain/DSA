@@ -494,3 +494,33 @@ class Solution {
 }
 
 ```
+
+---
+
+# 40. Combination Sum II [solve here](https://leetcode.com/problems/combination-sum-ii/)
+
+```
+class Solution {
+    private void fn(int[] candidates, int target, List<List<Integer>> list, List<Integer> cur, int start) {
+        if(target == 0) {
+            list.add(new ArrayList<>(cur));
+            return;
+        }
+
+        for(int i = start; i < candidates.length; i++) {
+            if(i > start && candidates[i] == candidates[i - 1]) continue;
+            if(candidates[i] > target) break;
+            cur.add(candidates[i]);
+            fn(candidates, target - candidates[i], list, cur, i + 1);
+            cur.remove(cur.size() - 1);
+        }
+    }
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+        fn(candidates, target, list, cur, 0);
+        return list;
+    }
+}
+```
