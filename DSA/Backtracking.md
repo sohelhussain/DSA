@@ -524,6 +524,9 @@ class Solution {
     }
 }
 ```
+
+![IMG_0062](https://github.com/user-attachments/assets/5e15104f-1de5-4fbd-af47-6cac58e5475d)
+
 ---
 
 # 47. Permutations II [solve here](https://leetcode.com/problems/permutations-ii/)
