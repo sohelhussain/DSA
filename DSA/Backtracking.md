@@ -592,3 +592,44 @@ class Solution {
 ```
 
 <img width="1000" height="219" alt="image" src="https://github.com/user-attachments/assets/b7416294-6f31-477c-993f-fd2a191f0344" />
+
+---
+
+# 131. Palindrome Partitioning [solve here](https://leetcode.com/problems/palindrome-partitioning/)
+
+```
+class Solution {
+    private boolean isPalindrome(String s) {
+        int i = 0, j = s.length() - 1;
+        while(i < j) {
+            if(s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+    private void fn(String s, List<List<String>> list, List<String> cur, int tracker) {
+        if(tracker == s.length()) {
+            list.add(new ArrayList<>(cur));
+            return;
+        }
+
+        for(int i = tracker; i < s.length(); i++) {
+            String part = s.substring(tracker, i + 1);
+            if(isPalindrome(part)) {
+                cur.add(part);
+                fn(s, list, cur, i + 1);
+                cur.remove(cur.size() - 1);
+            }
+        }
+    }
+    public List<List<String>> partition(String s) {
+        List<List<String>> list = new ArrayList<>();
+        List<String> cur = new ArrayList<>();
+        fn(s, list, cur, 0);
+        return list;
+    }
+}
+```
