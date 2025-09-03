@@ -1,9 +1,6 @@
-class Solution {
+# 125. Valid Palindrome
 
-  
-  // 125. Valid Palindrome
-
-  
+```  
     public boolean isPalindrome(String str) {
         if(str.isEmpty()) return true;
         String s = str.toLowerCase();
@@ -29,11 +26,12 @@ class Solution {
         return true;
     }
 
+```
+---
 
+# 167. Two Sum II - Input Array Is Sorted
 
-  // 167. Two Sum II - Input Array Is Sorted
-
-
+```
   public int[] twoSum(int[] numbers, int target) {
         int i = 0;
         int j = numbers.length - 1;
@@ -54,13 +52,12 @@ class Solution {
         return new int[] {};
     }
 
+```
+---
 
+# 189. Rotate Array
 
-  // 189. Rotate Array
-
-
-
-
+```
   class Solution {
     public void rotate(int[] nums, int k) { 
         int n = nums.length;
@@ -81,14 +78,12 @@ class Solution {
         }
     }
 }
+```
+---
 
+# 18. 4Sum
 
-
-
-
-  // 18. 4Sum
-
-
+```
   public List<List<Integer>> fourSum(int[] nums, int target) {
        Arrays.sort(nums);
         List<List<Integer>> list = new ArrayList<>();
@@ -124,12 +119,13 @@ class Solution {
 
         return list;
     }
+```
+---
 
 
+# 881. Boats to Save People
 
-  // 881. Boats to Save People
-
-
+```
   public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
         int i = 0, j = people.length - 1;
@@ -151,3 +147,4 @@ class Solution {
 
   
 }
+```
