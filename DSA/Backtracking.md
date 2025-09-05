@@ -632,7 +632,61 @@ class Solution {
         return list;
     }
 }
+
+
 ```
 
 
 ![IMG_0064](https://github.com/user-attachments/assets/e8fb4374-e74b-427a-8f92-e1eb46abfb0c)
+
+
+---
+
+# 79. Word Search [solve here](https://leetcode.com/problems/word-search/)
+
+```
+class Solution {
+    private boolean exist(char[][] board, String word, int[][] visited, int row, int col, int ind, int m, int n) {
+        if(ind == word.length()) {
+            return true;
+        }
+        if(row < 0 || row >= m || col < 0 || col >= n || visited[row][col] == 1 || board[row][col] != word.charAt(ind)) {
+            return false;
+        }
+
+        visited[row][col] = 1;
+        int[] cc = {-1, 0, 1, 0};
+        int[] cr = {0, 1, 0, -1};
+        for(int i = 0; i < 4; i++) {
+            int nRow = row + cr[i];
+            int nCol = col + cc[i];
+            if(exist(board, word, visited, nRow, nCol, ind + 1, m, n)) {
+                return true;
+            }
+        }
+
+        // if(exist(board, word, visited, row - 1, col, ind + 1, m, n)
+        // || exist(board, word, visited, row, col + 1, ind + 1, m, n)
+        // || exist(board, word, visited, row + 1, col, ind + 1, m, n)
+        // || exist(board, word, visited, row, col - 1, ind + 1, m, n)) {
+        //     return true;
+        // }
+
+        visited[row][col] = 0;
+        return false;
+    }
+    public boolean exist(char[][] board, String word) {
+        int m = board.length;
+        int n = board[0].length;
+        int visited[][] = new int[m][n];
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(exist(board, word, visited, i, j, 0, m, n)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
