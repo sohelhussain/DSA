@@ -1,9 +1,6 @@
-class Solution {
-  public static void main(String[] args) {
+# 876. Middle of the Linked List [solve here]()
 
-
-    
-        //876. Middle of the Linked List
+```
         public ListNode middleNode(ListNode head) {
         if(head==null || head.next == null) return head; // but we not need becuse constraint say at least one node is present;
         ListNode slow = head, fast = head;
@@ -15,13 +12,14 @@ class Solution {
 
         return slow;
     }
+```
+---
 
 
+# 21. Merge Two Sorted Lists [solve here]()
 
-  
-
-    //21. Merge Two Sorted Lists
-    ==> // recusive
+### recusive approach
+```
         public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
          if(list1 == null){
                 return list2;
@@ -40,8 +38,9 @@ class Solution {
             }
 
     }
-
-  ==> //itrative approch
+```
+### itrative approach
+```
   public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
         ListNode ans = new ListNode(-1);
@@ -63,11 +62,12 @@ class Solution {
 
         return ans.next;
     }
+```
 
+---
 
-  
-
-  //141. Linked List Cycle
+# 141. Linked List Cycle [solve here]()
+```
       public boolean hasCycle(ListNode head) {
         ListNode fast = head, slow = head;
 
@@ -82,12 +82,13 @@ class Solution {
         }
         return false;
     }
+```
 
 
-
-
+---
   
-//206. Reverse Linked List
+# 206. Reverse Linked List [solve here]()
+```
   {
     public ListNode reverse(ListNode head, ListNode pre) {
         if (head == null) return pre;
@@ -104,8 +105,12 @@ class Solution {
         return reverse(head, null);
     }
   }
+```
+---
 
-//83. Remove Duplicates from Sorted List
+# 83. Remove Duplicates from Sorted List [solve here]()
+
+```
 public ListNode deleteDuplicates(ListNode head) {
         if(head == null || head.next == null) return head;
 
@@ -118,10 +123,12 @@ public ListNode deleteDuplicates(ListNode head) {
             return head;
         }
     }
+```
+---
 
+# 24. Swap Nodes in Pairs [solve here]()
 
-//24. Swap Nodes in Pairs
-
+```
 class Solution {
     public void reverse(ListNode start, ListNode end){
         ListNode prev = null;
@@ -148,9 +155,11 @@ class Solution {
         return end;
     }
 }
+```
+---
 
-
-//25. Reverse Nodes in k-Group
+# 25. Reverse Nodes in k-Group [solve here]()
+```
 class Solution {
     public void reverse(ListNode start, ListNode end){
         ListNode prev = null;
@@ -185,10 +194,11 @@ class Solution {
         return end;
     }
 }
+```
+---
 
-
-
-//138. Copy List with Random Pointer
+# 138. Copy List with Random Pointer [solve here]()
+```
 class Solution {
     public Node copyRandomList(Node head) {
         if(head == null) return head;
@@ -221,10 +231,11 @@ class Solution {
         return nh;
     }
 }
+```
+---
 
-
-
-// 160. Intersection of Two Linked Lists
+# 160. Intersection of Two Linked Lists [solve here]()
+```
       public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode a = headA;
         ListNode b = headB;
@@ -236,10 +247,12 @@ class Solution {
 
     return a;
     }
+```
+---
 
+# 2. add two numbers. [solve here]()
 
-//2. add two numbers.
-
+```
 public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode();
         ListNode current = dummyHead;
@@ -259,13 +272,13 @@ public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             if(l1 != null) l1 = l1.next;
             if(l2 != null) l2 = l2.next;
         }
-
         return dummyHead.next;
     }
+```
+---
 
-
-
-// 1669. Merge In Between Linked Lists
+# 1669. Merge In Between Linked Lists [solve here]()
+```
 public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
         ListNode prevA = list1;
         ListNode afterB = list1;
@@ -292,10 +305,12 @@ public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
 
         return list1;
     }
+```
+---
 
+# 2181. Merge Nodes in Between Zeros [solve here]()
 
-//2181. Merge Nodes in Between Zeros
-
+```
 public ListNode mergeNodes(ListNode head) {
         boolean isAdd = false;
         ListNode dummy = new ListNode();
@@ -315,8 +330,11 @@ public ListNode mergeNodes(ListNode head) {
 
         return dummy.next.next;
     }
-    
-    //2058. Find the Minimum and Maximum Number of Nodes Between Critical Points
+```
+---
+
+# 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points [solve here]()
+```
 public int[] nodesBetweenCriticalPoints(ListNode head) {
         if(head == null || head.next == null) return new int[]{-1,-1};
 
@@ -351,6 +369,4 @@ public int[] nodesBetweenCriticalPoints(ListNode head) {
 
         return new int[] {minDist, last - first};
     }
-
-  }
-}
+```
