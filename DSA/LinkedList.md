@@ -156,6 +156,9 @@ class Solution {
     }
 }
 ```
+
+![IMG_0067](https://github.com/user-attachments/assets/bb7bb6b8-13d4-4d09-b1a8-6a5afcd02ecb)
+
 ---
 
 # 25. Reverse Nodes in k-Group [solve here]()
