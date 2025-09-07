@@ -34,3 +34,40 @@ public class TreeBasics {
     }
 }
 ```
+
+# Traversal
+
+## depth first search
+
+### LDR -> Left Data Right
+
+```
+        printLDR(root.left);
+        System.out.println(root.val);
+        printLDR(root.right);
+```
+```
+3 -> 16 -> 17 -> 24 -> 2 -> 9 -> 3
+```
+
+### DLR -> Data Left Right
+
+```
+        System.out.println(root.val);
+        printLDR(root.left);
+        printLDR(root.right);
+```
+```
+24 -> 16 -> 3 -> 17 -> 9 -> 2 -> 3
+```
+
+### LRD -> Left Right Data
+
+```
+        printLDR(root.left);
+        printLDR(root.right);
+        System.out.println(root.val);
+```
+```
+3 -> 17 -> 16 -> 2 -> 3 -> 9 -> 24
+```
