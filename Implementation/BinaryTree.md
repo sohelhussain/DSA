@@ -39,7 +39,7 @@ public class TreeBasics {
 
 ## depth first search
 
-### LDR -> Left Data Right
+### LDR -> Left Data Right aka Inorder Traversal
 
 ```
         printLDR(root.left);
@@ -50,7 +50,7 @@ public class TreeBasics {
 3 -> 16 -> 17 -> 24 -> 2 -> 9 -> 3
 ```
 
-### DLR -> Data Left Right
+### DLR -> Data Left Right aka Preorder Traversal
 
 ```
         System.out.println(root.val);
@@ -61,7 +61,7 @@ public class TreeBasics {
 24 -> 16 -> 3 -> 17 -> 9 -> 2 -> 3
 ```
 
-### LRD -> Left Right Data
+### LRD -> Left Right Data aka Postorder Traversal
 
 ```
         printLDR(root.left);
