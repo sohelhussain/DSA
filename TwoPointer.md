@@ -1,4 +1,51 @@
-# 125. Valid Palindrome
+# 1089. Duplicate Zeros [solve here]()
+```
+   public void write(int[]arr, int i, int j){
+        if(j < arr.length){
+            arr[j] = arr[i];
+        }
+    }
+    public void duplicateZeros(int[] arr) {
+        int zero = 0;
+
+        for(int n: arr){
+            if(n == 0){
+             zero++;
+            }
+        }
+
+        int i = arr.length - 1, j = (arr.length - 1) + zero;
+
+        while(i != j){
+            write(arr, i, j--);
+            if(arr[i] == 0){
+                write(arr, i, j--);
+            }
+            i--;
+        }
+    }
+```
+---
+# 26. Remove Duplicates from Sorted Array [solve here]()
+```
+    public int removeDuplicates(int[] nums) {
+        int i = 0;
+        int j = 0;
+
+        while(j < nums.length){
+            if(nums[i] != nums[j]){
+                nums[++i] = nums[j++];
+            }else {
+                j++;
+            }
+        }
+
+        return i + 1;
+    }
+```
+---
+
+# 125. Valid Palindrome [solve here]()
 
 ```  
     public boolean isPalindrome(String str) {
@@ -29,7 +76,7 @@
 ```
 ---
 
-# 167. Two Sum II - Input Array Is Sorted
+# 167. Two Sum II - Input Array Is Sorted [solve here]()
 
 ```
   public int[] twoSum(int[] numbers, int target) {
@@ -55,7 +102,7 @@
 ```
 ---
 
-# 189. Rotate Array
+# 189. Rotate Array [solve here]()
 
 ```
   class Solution {
@@ -81,7 +128,7 @@
 ```
 ---
 
-# 18. 4Sum
+# 18. 4Sum [solve here]()
 
 ```
   public List<List<Integer>> fourSum(int[] nums, int target) {
@@ -123,7 +170,7 @@
 ---
 
 
-# 881. Boats to Save People
+# 881. Boats to Save People [solve here]()
 
 ```
   public int numRescueBoats(int[] people, int limit) {
@@ -144,7 +191,4 @@
 
         return boats;
     }
-
-  
-}
 ```

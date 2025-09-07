@@ -1,4 +1,5 @@
-// 232. Implement Queue using Stacks
+# 232. Implement Queue using Stacks [solve here]()
+```
 class MyQueue {
     Stack<Integer> st1, st2;
 
@@ -40,14 +41,15 @@ class MyQueue {
         return st1.isEmpty() ? true : false;
     }
 }
+```
 
 
 
+# 225. Implement Stack using Queues [solve here]()
 
-//225. Implement Stack using Queues
+### using one queue
 
-//using one queue
-
+```
 class MyStack {
     Queue<Integer> q;
 
@@ -75,8 +77,9 @@ class MyStack {
         return q.isEmpty();
     }
 }
-
-// ---------------- using a two queue -------------------
+```
+### using a two queue
+```
 
 class MyStack {
     Queue<Integer> q1, q2;
@@ -125,22 +128,11 @@ class MyStack {
         return q1.isEmpty();
     }
 }
+```
+---
 
-/**
- * Your MyStack object will be instantiated and called as such:
- * MyStack obj = new MyStack();
- * obj.push(x);
- * int param_2 = obj.pop();
- * int param_3 = obj.top();
- * boolean param_4 = obj.empty();
- */
-
-
-
-
-
-//find the next grater element(gfg). imp
-
+# find the next grater element(gfg). imp [solve here]()
+```
 class Solution {
     public int[] nextGreaterElement(int[] arr) {
         int ans[] = new int[arr.length];
@@ -161,14 +153,12 @@ class Solution {
         }
         return ans; 
     }
+}
+```
 
-
-	
-
-
-
-//901. Online Stock Span
-
+---
+# 901. Online Stock Span [solve here]()
+```
     class StockSpanner {
     Stack<int[]> stack;
     int i = -1;
@@ -193,13 +183,10 @@ class Solution {
         return span;
     }
 }
+```
 
-
-
-
-
-
-// 84. Largest Rectangle in Histogram
+# 84. Largest Rectangle in Histogram [solve here]()
+```
 public int largestRectangleArea(int[] heights) {
         int n = heights.length;
         int[] NSL = new int[n]; // Nearest Smaller to Left
@@ -245,11 +232,12 @@ public int largestRectangleArea(int[] heights) {
 
         return maxArea;
     }
+```
+---
 
 
-
-    // 85. Maximal Rectangle
-
+# 85. Maximal Rectangle [solve here]()
+```
     class Solution {
     public int maximalRectangle(char[][] matrix) {
         if (matrix.length == 0) {
@@ -326,11 +314,13 @@ public int largestRectangleArea(int[] heights) {
         return maxArea;
     }
 }
+```
+---
 
 
+# 155. Min Stack [solve here]()
 
-    // 155. Min Stack
-
+```
     class MinStack {
     Stack<Integer> stack;
     Stack<Integer> minStack;
@@ -364,11 +354,11 @@ public int largestRectangleArea(int[] heights) {
     }
         
 }
+```
+---
 
-
-
-// 150. Evaluate Reverse Polish Notation
-
+# 150. Evaluate Reverse Polish Notation [solve here]()
+```
     public int evalRPN(String[] tokens) {
     Stack<Integer> stack = new Stack<>();
     for(int i = 0; i < tokens.length; i++) {
@@ -393,13 +383,15 @@ public int largestRectangleArea(int[] heights) {
     }
     return stack.pop();
 }
-																											
+```
+
+---
 
 
 
 
-//22. Generate Parentheses
-
+# 22. Generate Parentheses [solve here]()
+```
     private void backtrack(int openN, int closedN, int n, List<String> res, StringBuilder stack) {
     if(openN == closedN && openN == n) {
         res.add(stack.toString());
@@ -422,12 +414,13 @@ public List<String> generateParenthesis(int n) {
     backtrack(0, 0, n, list, stack);
     return list;
 }
+```
 
+---
 
+# 394. Decode String [solve here]()
 
-
-	// 394. Decode String
-
+```
 
 	public String decodeString(String s) {
         Stack<String> stack = new Stack<>();
@@ -472,11 +465,11 @@ public List<String> generateParenthesis(int n) {
         return result.toString();
     }
 
+```
+---
+# 735. Asteroid Collision [solve here]()
 
-
-
-	// 735. Asteroid Collision
-
+```
 	asteroids = [-1, 3, 2, -3];
 
 	public int[] asteroidCollision(int[] asteroids) {
@@ -509,16 +502,11 @@ public List<String> generateParenthesis(int n) {
 
         return stack.stream().mapToInt(i -> i)
 
+```
+---
 
-
-
-
-
-
-
-
-// 71. Simplify Path
-
+# 71. Simplify Path [solve here]()
+```
 public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
         String[] paths = path.split("/");
@@ -538,4 +526,4 @@ public String simplifyPath(String path) {
     }
 
 }
-
+```

@@ -1,6 +1,5 @@
-class Solution {
-
-  // 67. add binary
+# 67. add binary [solve here]()
+```
     public String addBinary(String a, String b) {
         int i = a.length() - 1;
         int j = b.length() - 1;
@@ -25,10 +24,11 @@ class Solution {
 
         return sb.reverse().toString();
     }
+```
 
 
-
-  // 796. Rotate String
+# 796. Rotate String [solve here]()
+```
   public boolean rotateString(String s, String goal) {
         if(s.length() != goal.length()) return false;
 
@@ -45,11 +45,11 @@ class Solution {
 
         return false;
     }
+```
 
 
-
-  //14. Longest Common Prefix
-
+# 14. Longest Common Prefix [solve here]()
+```
   public String check(String str1, String str2) {
 
         StringBuilder sb = new StringBuilder();
@@ -80,4 +80,4 @@ class Solution {
 
         return s;
     }
-}
+```
