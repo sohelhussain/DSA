@@ -451,6 +451,8 @@ class Solution {
 }
 ```
 
+![IMG_0072](https://github.com/user-attachments/assets/4d3bb712-2f9c-4538-89bf-a323b823ae41)
+
 ---
 # 37. Sudoku Solver [solve here](https://leetcode.com/problems/sudoku-solver/)
 
