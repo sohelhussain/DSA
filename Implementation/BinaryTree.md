@@ -1,3 +1,4 @@
+```
 import java.util.Scanner;
 
 public class TreeBasics {
@@ -32,3 +33,4 @@ public class TreeBasics {
         printLDR(root.right);
     }
 }
+```
