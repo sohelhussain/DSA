@@ -159,3 +159,105 @@ class Solution {
     }
 }
 ```
+---
+
+# 6. Symmetric Tree [solve here](https://leetcode.com/problems/symmetric-tree/)
+
+```
+class Solution {
+    private boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q == null) return true;
+        if(p == null || q == null) return false;
+        if(p.val != q.val) return false;
+        return isSameTree(p.left, q.right) && isSameTree(p.right, q.left);
+    }
+    public boolean isSymmetric(TreeNode root) {
+        return isSameTree(root, root);
+    }
+}
+```
+---
+# 7. Binary Tree Level Order Traversal aka BFS [solve here](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+```
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+         // Result list to store the final level order traversal.
+        List<List<Integer>> result = new ArrayList<>();
+
+        // Edge case: if the root is null, return an empty list.
+        if(root == null){
+            return result;
+        }
+
+        // Queue to facilitate breadth-first traversal.
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root); // Add the root node to the queue.
+
+        // Process nodes until the queue is empty.
+        while(!q.isEmpty()){
+            // Get the current size of the queue (number of nodes at the current level).
+            int size = q.size();
+
+            // List to store the values of nodes at the current level
+            List<Integer> currentLevel = new ArrayList<>();
+
+            // Iterate over all nodes at the current level.
+            while(size-- > 0){
+                // Poll the front node from the queue.
+                TreeNode front = q.poll();
+
+                // Add the value of the node to the current level list.
+                currentLevel.add(front.val);
+
+                // If the left child exists, add it to the queue.
+                if(front.left != null){
+                    q.offer(front.left);
+                }
+
+                // If the right child exists, add it to the queue.
+                if(front.right != null){
+                    q.offer(front.right);
+                }
+            }
+            // Add the current level list to the result.
+            result.add(currentLevel);
+        }
+        // Return the final level order traversal.
+        return result;
+    }
+}
+
+```
+
+# 8. Path Sum [solve here](https://leetcode.com/problems/path-sum/)
+```
+ int target;
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        target = targetSum;
+        return helper(root, 0);
+
+    }
+
+    private boolean helper(TreeNode root, int sum){
+        if(root == null) return false;
+        sum += root.val;
+        if(root.left == null && root.right == null){
+            return sum == target;
+        }
+        boolean leftAns = helper(root.left, sum);
+        boolean rightAns = helper(root.right, sum);
+
+        return leftAns || rightAns;
+    }
+```
+```
+class Solution {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null) return false;
+        if(root.left == null && root.right == null && targetSum - root.val == 0){
+            return true;
+        }
+        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum- root.val);
+    }
+}
+```
