@@ -107,5 +107,55 @@ class Solution {
 ```
 ---
 
-# 4. Maximum Depth | Maximum Height | Number Of Levels
+# 4. Maximum Depth | Maximum Height | Number Of Levels [solve here](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 
+```
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return 1 + Math.max(left, right);
+    }
+}
+```
+# 5. Same Tree [solve here](https://leetcode.com/problems/same-tree/)
+
+```
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q == null)
+            return true;
+        if(p == null || q == null)
+            return false;
+        if(p.val == q.val){
+            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        }
+            return false;
+    }
+}
+```
+```
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q == null) return true;
+        if(p == null || q == null) return false;
+        boolean left = isSameTree(p.left, q.left);
+        boolean right = isSameTree(p.right, q.right);
+        if(left == true && right == true && p.val == q.val) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+}
+```
+```
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q == null) return true;
+        if(p == null || q == null) return false;
+        return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+}
+```
