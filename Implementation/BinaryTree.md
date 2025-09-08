@@ -37,6 +37,8 @@ public class TreeBasics {
 
 # Traversal
 
+![IMG_0073](https://github.com/user-attachments/assets/0468f7f1-eff6-4058-a224-101f7e68631f)
+
 ## depth first search
 
 ### LDR -> Left Data Right aka Inorder Traversal
