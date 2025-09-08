@@ -1,14 +1,14 @@
 
 ![IMG_0074](https://github.com/user-attachments/assets/f6ba37a9-ccf0-4eb5-a7a9-76ca770ce32f)
-ldr
+### LDR -> Left Data Right aka Inorder Traversal
 ```
 3 -> 16 -> 17
 ```
-dlr
+### DLR -> Data Left Right aka Preorder Traversal
 ```
 16 -> 3 -> 17
 ```
-lrd
+### LRD -> Left Right Data aka Postorder Traversal
 ```
 3 -> 17 -> 16
 ```
@@ -55,7 +55,7 @@ class Solution {
         return result;
     }
     public void inorderHelper(TreeNode root, List<Integer> result){
-                if (root == null) {
+        if (root == null) {
             return;
         }
         inorderHelper(root.left, result); 
