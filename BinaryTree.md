@@ -1,3 +1,19 @@
+
+![IMG_0074](https://github.com/user-attachments/assets/f6ba37a9-ccf0-4eb5-a7a9-76ca770ce32f)
+ldr
+```
+3 -> 16 -> 17
+```
+dlr
+```
+16 -> 3 -> 17
+```
+lrd
+```
+3 -> 17 -> 16
+```
+---
+
 # 1. Binary Tree Inorder Traversal [solve here](https://leetcode.com/problems/binary-tree-inorder-traversal/)
 ## Iterative approach
 ```
