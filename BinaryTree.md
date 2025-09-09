@@ -230,6 +230,7 @@ class Solution {
 ```
 
 # 8. Path Sum [solve here](https://leetcode.com/problems/path-sum/)
+![pathSum](https://assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg)
 ```
  int target;
     public boolean hasPathSum(TreeNode root, int targetSum) {
@@ -258,6 +259,68 @@ class Solution {
             return true;
         }
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum- root.val);
+    }
+}
+```
+---
+# 226. Invert Binary Tree [solve here](https://leetcode.com/problems/invert-binary-tree/)
+![invertBinary](https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg)
+```
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null) return root;
+        TreeNode temp = root.left;
+        root.left = invertTree(root.right);
+        root.right = invertTree(temp);
+        return root;
+    }
+}
+```
+```
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null) return root;
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+    }
+}
+```
+---
+# 543. Diameter of Binary Tree [solve here](https://leetcode.com/problems/diameter-of-binary-tree/)
+![diameter](https://assets.leetcode.com/uploads/2021/03/06/diamtree.jpg)
+```
+class Solution {
+    int maxDiameater = 0;
+    private int height(TreeNode root) {
+        if(root == null) return 0;
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        maxDiameater = Math.max(maxDiameater, leftHeight + rightHeight);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+        height(root);
+        return maxDiameater;
+    }
+}
+```
+```
+class Solution {
+    private int height(TreeNode root, int[] maxDiameater) {
+        if(root == null) return 0;
+        int leftHeight = height(root.left, maxDiameater);
+        int rightHeight = height(root.right, maxDiameater);
+        maxDiameater[0] = Math.max(maxDiameater[0], leftHeight + rightHeight);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+        int[] maxDiameater = new int[1];
+        height(root, maxDiameater);
+        return maxDiameater[0];
     }
 }
 ```
