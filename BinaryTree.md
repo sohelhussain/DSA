@@ -263,6 +263,10 @@ class Solution {
 }
 ```
 ---
+# 113. Path Sum II [solve here](https://leetcode.com/problems/path-sum-ii/description/)
+```
+```
+---
 # 226. Invert Binary Tree [solve here](https://leetcode.com/problems/invert-binary-tree/)
 ![invertBinary](https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg)
 ```
@@ -321,6 +325,178 @@ class Solution {
         int[] maxDiameater = new int[1];
         height(root, maxDiameater);
         return maxDiameater[0];
+    }
+}
+```
+```
+class Solution {
+    private int[] fn(TreeNode root) {
+        int[] ans = {0,0};
+        if(root == null) return ans;
+
+        int[] left = fn(root.left);
+        int[] right = fn(root.right);
+
+        ans[1] = Math.max(Math.max(left[1], right[1]), left[0] + right[0]);
+        ans[0] = Math.max(left[0], right[0]) + 1;
+        return ans;
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+       return fn(root)[1]; 
+    }
+}
+```
+---
+# Left View of Binary Tree [solve here](https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/)
+
+### DFS -> dlr approach
+#### TreeNode.java
+```
+package Tree;
+
+public class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        left = null;
+        right = null;
+    }
+}
+
+```
+#### TreeBuild.java
+```
+package Tree;
+import java.util.Scanner;
+
+public class TreeBasics {
+    static int index = 0;
+    private static TreeNode buildTree(int[] data) {
+        TreeNode root = null;
+        if (data[index] == -1) {
+            index++;
+            return null;
+        }
+        root = new TreeNode(data[index++]);
+        root.left = buildTree(data);
+        root.right = buildTree(data);
+        return root;
+    }
+    public static void main(String[] args) {
+        int[] data = {70, 8, 12, 5, -1, -1, 7, -1, 9, 13, -1, -1, -1, 15, -1, -1, 4, -1, -1};
+        TreeNode root = buildTree(data);
+        LeftView.printLeftView(root);
+    }
+}
+```
+#### LeftView.java
+```
+package Tree;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LeftView {
+    private static Map<Integer, Integer> leftView(TreeNode root) {
+        Map<Integer, Integer> map = new HashMap<>();
+        dfs(root, map, 0);
+        return map;
+    }
+    private static void dfs(TreeNode root, Map<Integer, Integer> map, int level) {
+        if (root == null) {
+            return;
+        }
+        if(!map.containsKey(level)) { // if we remove not simbole then this print right view because it over right value
+            map.put(level, root.val);
+        }
+        dfs(root.left, map, level + 1);
+        dfs(root.right, map, level + 1);
+    }
+    public static void printLeftView(TreeNode root) {
+        Map<Integer, Integer> map = leftView(root);
+        System.out.println(map);
+    }
+}
+
+```
+### BFS approach
+```
+```
+---
+# Top View of Binary Tree [solve here]()
+### DFS -> dlr approach
+#### TreeNode.java
+```
+package Tree;
+
+public class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        left = null;
+        right = null;
+    }
+}
+
+```
+#### TreeBuild.java
+```
+package Tree;
+
+public class TreeBasics {
+    static int index = 0;
+
+    private static TreeNode buildTree(int[] data) {
+        if (index >= data.length) return null;
+
+        if (data[index] == -1) {
+            index++;
+            return null;
+        }
+
+        TreeNode root = new TreeNode(data[index++]);
+        root.left = buildTree(data);
+        root.right = buildTree(data);
+        return root;
+    }
+
+    public static void main(String[] args) {
+        int[] data = {70, 8, 12, 5, -1, -1, 7, -1, 9, 13, -1, -1, -1, 15, -1, -1, 4, -1, -1};
+        TreeNode root = buildTree(data);
+        TopView.printTopView(root);
+    }
+}
+
+```
+#### TopView.java
+```
+package Tree;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeMap;
+
+public class TopView {
+    private static void dfs(TreeNode root, Map<Integer, Integer> map, int hd) {
+        if (root == null) return;
+        if (!map.containsKey(hd)) {
+            map.put(hd, root.val);
+        }
+        dfs(root.left, map, hd - 1);
+        dfs(root.right, map, hd + 1);
+    }
+
+    public static void printTopView(TreeNode root) {
+        Map<Integer, Integer> map = new HashMap<>();
+        dfs(root, map, 0);
+
+        // sort by horizontal distance
+        Map<Integer, Integer> sorted = new TreeMap<>(map);
+        System.out.println(sorted.values());
     }
 }
 ```
