@@ -15,6 +15,7 @@
 ---
 
 # 1. Binary Tree Inorder Traversal [solve here](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+[solve without space]()
 ## Iterative approach
 ```
 class Solution {
@@ -500,3 +501,35 @@ public class TopView {
     }
 }
 ```
+---
+# morris traversal
+without using any space inorder travers
+```
+ private static void moriseLDR(TreeNode root) {
+        TreeNode cur = root;
+        while (cur != null) {
+            if (cur.left == null) {
+                System.out.println(cur.val + " ");
+                cur = cur.right;
+            } else {
+                TreeNode predecessor = cur.left;
+                while (predecessor.right != null && predecessor.right != cur) {
+                    predecessor = predecessor.right;
+                }
+                if(predecessor.right == null) {
+                    predecessor.right = cur;
+                    cur = cur.left;
+                } else {
+                    predecessor.right = null;
+                    System.out.println(cur.val + " ");
+                    cur = cur.right;
+                }
+            }
+        }
+    }
+    public static void main(String[] args) {
+        int[] data = {70, 8, 12, 5, -1, -1, 7, -1, 9, 13, -1, -1, -1, 15, -1, -1, 4, -1, 17, 25, -1, -1, 28, -1, -1};
+        TreeNode root = buildTree(data);
+        moriseLDR(root);
+```
+![geeks-morris](https://media.geeksforgeeks.org/wp-content/uploads/20250203183040504282/Morris-traversal-for-Inorder-8.webp)
