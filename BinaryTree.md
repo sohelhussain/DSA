@@ -15,7 +15,7 @@
 ---
 
 # 1. Binary Tree Inorder Traversal [solve here](https://leetcode.com/problems/binary-tree-inorder-traversal/)
-[solve without space by **morris traversal**](https://github.com/sohelhussain/DSA/blob/c6ed76ffd59e6fd6b231a11483e9a53b786bb4c1/BinaryTree.md?plain=1#L505)
+[solve without space by **morris traversal**](https://github.com/sohelhussain/DSA/blob/c6ed76ffd59e6fd6b231a11483e9a53b786bb4c1/BinaryTree.md#morris-traversal)
 ## Iterative approach
 ```
 class Solution {
