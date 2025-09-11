@@ -533,3 +533,19 @@ without using any space inorder travers
         moriseLDR(root);
 ```
 ![geeks-morris](https://media.geeksforgeeks.org/wp-content/uploads/20250203183040504282/Morris-traversal-for-Inorder-8.webp)
+
+---
+# 114. Flatten Binary Tree to Linked List [solve here](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
+```
+class Solution {
+    TreeNode next = null;
+    public void flatten(TreeNode root) {
+        if(root == null) return;
+        flatten(root.right);
+        flatten(root.left);
+        root.right = next;
+        root.left = null;
+        next = root;
+    }
+}
+```
