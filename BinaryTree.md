@@ -182,52 +182,25 @@ class Solution {
 ```
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-         // Result list to store the final level order traversal.
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> list = new ArrayList<>();
+        if(root == null) return list;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
 
-        // Edge case: if the root is null, return an empty list.
-        if(root == null){
-            return result;
-        }
-
-        // Queue to facilitate breadth-first traversal.
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root); // Add the root node to the queue.
-
-        // Process nodes until the queue is empty.
-        while(!q.isEmpty()){
-            // Get the current size of the queue (number of nodes at the current level).
-            int size = q.size();
-
-            // List to store the values of nodes at the current level
+        while(!queue.isEmpty()) {
+            int size = queue.size();
             List<Integer> currentLevel = new ArrayList<>();
-
-            // Iterate over all nodes at the current level.
-            while(size-- > 0){
-                // Poll the front node from the queue.
-                TreeNode front = q.poll();
-
-                // Add the value of the node to the current level list.
-                currentLevel.add(front.val);
-
-                // If the left child exists, add it to the queue.
-                if(front.left != null){
-                    q.offer(front.left);
-                }
-
-                // If the right child exists, add it to the queue.
-                if(front.right != null){
-                    q.offer(front.right);
-                }
+            while(size-- > 0) {
+                TreeNode frontNode = queue.poll();
+                currentLevel.add(frontNode.val);
+                if(frontNode.left != null) queue.offer(frontNode.left);
+                if(frontNode.right != null) queue.offer(frontNode.right);
             }
-            // Add the current level list to the result.
-            result.add(currentLevel);
+            list.add(currentLevel);
         }
-        // Return the final level order traversal.
-        return result;
+        return list;
     }
 }
-
 ```
 
 # 8. Path Sum [solve here](https://leetcode.com/problems/path-sum/)
