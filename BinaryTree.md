@@ -347,6 +347,9 @@ class Solution {
     }
 }
 ```
+
+![IMG_0075](https://github.com/user-attachments/assets/641f14d7-b5d3-41f4-ae8c-d573760f00d4)
+
 ---
 # Left View of Binary Tree [solve here](https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/)
 
@@ -533,6 +536,9 @@ without using any space inorder travers
         moriseLDR(root);
 ```
 ![geeks-morris](https://media.geeksforgeeks.org/wp-content/uploads/20250203183040504282/Morris-traversal-for-Inorder-8.webp)
+
+![IMG_0078](https://github.com/user-attachments/assets/5ad5513c-409f-4d73-a93e-c5b949823bc4)
+
 
 ---
 # 114. Flatten Binary Tree to Linked List [solve here](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
