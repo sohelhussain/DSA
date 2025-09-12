@@ -15,8 +15,8 @@
 ---
 
 # 1. Binary Tree Inorder Traversal [solve here](https://leetcode.com/problems/binary-tree-inorder-traversal/)
-[solve without space by **morris traversal**](https://github.com/sohelhussain/DSA/blob/c6ed76ffd59e6fd6b231a11483e9a53b786bb4c1/BinaryTree.md#morris-traversal)
-## Iterative approach
+## **morris traversal**
+without using any space inorder travers
 ```
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
@@ -28,16 +28,16 @@ class Solution {
                 list.add(cur.val);
                 cur = cur.right;
             }else {
-                TreeNode prev = cur.left;
-                while(prev.right != null && prev.right != cur) {
-                    prev = prev.right;
+                TreeNode predecessor = cur.left;
+                while(predecessor.right != null && predecessor.right != cur) {
+                    predecessor = predecessor.right;
                 }
-                if(prev.right == null) {
-                    prev.right = cur;
+                if(predecessor.right == null) {
+                    predecessor.right = cur;
                     cur = cur.left;
                 }else {
+                    predecessor.right = null;
                     list.add(cur.val);
-                    prev.right = null;
                     cur = cur.right;
                 }
             }
@@ -46,6 +46,7 @@ class Solution {
     }
 }
 ```
+![IMG_0078](https://github.com/user-attachments/assets/5ad5513c-409f-4d73-a93e-c5b949823bc4)
 
 ## recursive approach
 ```
@@ -477,42 +478,6 @@ public class TopView {
     }
 }
 ```
----
-# morris traversal
-without using any space inorder travers
-```
- private static void moriseLDR(TreeNode root) {
-        TreeNode cur = root;
-        while (cur != null) {
-            if (cur.left == null) {
-                System.out.println(cur.val + " ");
-                cur = cur.right;
-            } else {
-                TreeNode predecessor = cur.left;
-                while (predecessor.right != null && predecessor.right != cur) {
-                    predecessor = predecessor.right;
-                }
-                if(predecessor.right == null) {
-                    predecessor.right = cur;
-                    cur = cur.left;
-                } else {
-                    predecessor.right = null;
-                    System.out.println(cur.val + " ");
-                    cur = cur.right;
-                }
-            }
-        }
-    }
-    public static void main(String[] args) {
-        int[] data = {70, 8, 12, 5, -1, -1, 7, -1, 9, 13, -1, -1, -1, 15, -1, -1, 4, -1, 17, 25, -1, -1, 28, -1, -1};
-        TreeNode root = buildTree(data);
-        moriseLDR(root);
-```
-![geeks-morris](https://media.geeksforgeeks.org/wp-content/uploads/20250203183040504282/Morris-traversal-for-Inorder-8.webp)
-
-![IMG_0078](https://github.com/user-attachments/assets/5ad5513c-409f-4d73-a93e-c5b949823bc4)
-
-
 ---
 # 114. Flatten Binary Tree to Linked List [solve here](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
 ```
