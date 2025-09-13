@@ -207,24 +207,24 @@ class Solution {
 # 8. Path Sum [solve here](https://leetcode.com/problems/path-sum/)
 ![pathSum](https://assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg)
 ```
- int target;
-    public boolean hasPathSum(TreeNode root, int targetSum) {
-        target = targetSum;
-        return helper(root, 0);
-
-    }
-
-    private boolean helper(TreeNode root, int sum){
+class Solution {
+    private boolean pathSum(TreeNode root, int targetSum, int sum) {
         if(root == null) return false;
         sum += root.val;
-        if(root.left == null && root.right == null){
-            return sum == target;
-        }
-        boolean leftAns = helper(root.left, sum);
-        boolean rightAns = helper(root.right, sum);
 
-        return leftAns || rightAns;
+        if(root.left == null && root.right == null){
+            return targetSum == sum;
+        }
+
+        boolean left = pathSum(root.left, targetSum, sum);        
+        boolean right = pathSum(root.right, targetSum, sum);
+
+        return left || right;
     }
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        return pathSum(root, targetSum, 0);
+    }
+}
 ```
 ```
 class Solution {
@@ -234,6 +234,22 @@ class Solution {
             return true;
         }
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum- root.val);
+    }
+}
+```
+```
+class Solution {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null) return false;
+        targetSum -= root.val;
+
+        if(root.left == null && root.right == null) {
+            return targetSum == 0;
+        }
+
+        boolean left = hasPathSum(root.left, targetSum);
+        boolean right = hasPathSum(root.right, targetSum);
+        return left || right;
     }
 }
 ```
