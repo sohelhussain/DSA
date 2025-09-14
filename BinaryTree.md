@@ -257,24 +257,27 @@ class Solution {
 # 113. Path Sum II [solve here](https://leetcode.com/problems/path-sum-ii/)
 ```
 class Solution {
-    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        List<List<Integer>> result = new ArrayList<>();
-        findPathSum(root, targetSum, result, new ArrayList());
-        return result;
+    private void path(TreeNode root, int targetSum, List<List<Integer>> list, List<Integer> cur) {
+        if(root == null) return;
+        targetSum -= root.val;
+        cur.add(root.val);
+        if(root.left == null && root.right == null) {
+            if(targetSum == 0) {
+                list.add(new ArrayList<>(cur));
+            }
+        }
+        path(root.left, targetSum, list, cur);
+        path(root.right, targetSum, list, cur);
+        cur.remove(cur.size() - 1);
     }
 
-    public void findPathSum(TreeNode root, int targetSum, List<List<Integer>> result, List<Integer> current){
-        if(root == null) return;
-        current.add(root.val); // Add the current node's value to the path
-        if(root.left == null && root.right == null && targetSum - root.val == 0){
-            result.add(new ArrayList(current));
-        }
-        findPathSum(root.left, targetSum-root.val, result, current);
-        findPathSum(root.right, targetSum-root.val, result, current);
-        current.remove(current.size() - 1);
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+        path(root, targetSum, list, cur);
+        return list;
     }
 }
-
 ```
 ---
 # 226. Invert Binary Tree [solve here](https://leetcode.com/problems/invert-binary-tree/)
