@@ -280,6 +280,31 @@ class Solution {
 }
 ```
 ---
+# 437. Path Sum III [solve here](https://leetcode.com/problems/path-sum-iii/)
+```
+class Solution {
+    private void path(TreeNode root, int targetSum, int[] sums, List<Integer> list) {
+        if(root == null) return;
+        list.add(root.val);
+        path(root.left, targetSum, sums, list);
+        path(root.right, targetSum, sums, list);
+        long sum = 0;
+        for(int i = list.size() - 1; i >= 0; i--) {
+            sum += list.get(i);
+            if(sum == targetSum) {
+                sums[0] += 1;
+            }
+        }
+        list.remove(list.size() - 1);
+    }
+    public int pathSum(TreeNode root, int targetSum) {
+        int[] sums = new int[1];
+        List<Integer> list = new ArrayList<>();
+        path(root, targetSum, sums, list);
+        return sums[0];
+    }
+}
+```
 # 226. Invert Binary Tree [solve here](https://leetcode.com/problems/invert-binary-tree/)
 ![invertBinary](https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg)
 ```
