@@ -1,4 +1,6 @@
 
+
+
 ---
 # 1929. Concatenation of Array [solve here](https://leetcode.com/problems/concatenation-of-array/)
 
