@@ -577,3 +577,40 @@ class Solution {
     }
 }
 ```
+---
+
+# 105. Construct Binary Tree from Preorder and Inorder Traversal [solve here](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+```
+class Solution {
+    int index = 0;
+    HashMap<Integer, Integer> map;
+    private TreeNode build(int[] preorder, int start, int end) {
+        if(start > end) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preorder[index++]);
+        root.left = build(preorder, start, map.get(root.val) - 1);
+        root.right = build(preorder, map.get(root.val) + 1, end);
+        return root;
+    }
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        map = new HashMap<>();
+        for(int i = 0; i < inorder.length; i++) {
+            map.put(inorder[i], i);
+        }
+        return build(preorder,  0, preorder.length - 1);
+    }
+}
+```
+---
+# 1008. Construct Binary Search Tree from Preorder Traversal [solve here](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)
+```
+```
+---
+# 106. Construct Binary Tree from Inorder and Postorder Traversal [solve here](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+```
+```
+---
+# 889. Construct Binary Tree from Preorder and Postorder Traversal [](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
+```
+```
