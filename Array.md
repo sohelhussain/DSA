@@ -1,3 +1,27 @@
+# 75. Sort Colors [solve here](https://leetcode.com/problems/sort-colors/) 
+```
+class Solution {
+    private void swap(int[] nums, int start, int mid) {
+        int temp = nums[start];
+        nums[start] = nums[mid];
+        nums[mid] = temp;
+    }
+    public void sortColors(int[] nums) {
+        int start = 0, mid = 0, end = nums.length - 1;
+
+        while(end >= mid) {
+            if(nums[mid] == 0) {
+                swap(nums, start++, mid++);
+            }else if(nums[mid] == 2) {
+                swap(nums, end--, mid);
+            }else {
+                mid++;
+            }
+        }
+    }
+}
+```
+---
 # 1929. Concatenation of Array [solve here](https://leetcode.com/problems/concatenation-of-array/)
 
 ```
