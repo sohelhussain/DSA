@@ -1,7 +1,3 @@
-
-
-
----
 # 1929. Concatenation of Array [solve here](https://leetcode.com/problems/concatenation-of-array/)
 
 ```
@@ -22,7 +18,6 @@ class Solution {
     }
 }
 ```
-
 ---
 
 # 1299. Replace Elements with Greatest Element on Right Side [solve here](https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/)
@@ -44,6 +39,46 @@ class Solution {
 }
 ```
 
+---
+# 121. Best Time to Buy and Sell Stock [solve here](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+        int minimumPrice = prices[0], maximumProfit = 0;
+        for(int i = 0; i < prices.length; i++) {
+            maximumProfit = Math.max(maximumProfit, prices[i] - minimumPrice);
+            minimumPrice = Math.min(minimumPrice, prices[i]);
+        }
+        return maximumProfit;
+
+    }
+}
+```
+---
+
+# 169. Majority Element [solve here](https://leetcode.com/problems/majority-element/)
+```
+class Solution {
+    public int majorityElement(int[] nums) {
+        int vote = 0;
+        int candidate = nums[0];
+
+        for(int i = 0; i < nums.length; i++) {
+            if(candidate == nums[i]) {
+                vote++;
+            }else {
+                vote--;
+            }
+            if(vote <= 0) {
+                candidate = nums[i];
+                vote = 1;
+            }
+        }
+
+        return candidate;
+    }
+}
+```
 ---
 
 # 605. Can Place Flowers [solve here](https://leetcode.com/problems/can-place-flowers/)
