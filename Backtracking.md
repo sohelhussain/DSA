@@ -28,7 +28,7 @@ public static void main(String[] args) {
 
 ---
 
-# 2. Find the Winner of the Circular Game.
+# 2. Find the Winner of the Circular Game. [solve here](https://leetcode.com/problems/find-the-winner-of-the-circular-game/)
 
 1. We create a circular ArrayList and find the index of the person to be eliminated using the formula:
 (i + k - 1) % size, where i is the current index, k is the step count, and size is the number of remaining people.
