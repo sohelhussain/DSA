@@ -16,7 +16,13 @@
 
 # 1. Binary Tree Inorder Traversal [solve here](https://leetcode.com/problems/binary-tree-inorder-traversal/)
 ## **morris traversal**
-without using any space inorder travers
+##### without using any space inorder travers
+1. root not null then run loop.
+2. cur left is null then add the value on list and move right side.
+3. if not null then cur left is predecessor.
+4. predecessor right is not null and not pointing to the cur.
+5. check predecessor right is null then add cur into predecessor right and cur move to left.
+6. if not null then predecessor right become null and add value into list, move cur into right side.
 ```
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
