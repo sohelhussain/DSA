@@ -75,6 +75,39 @@ class Solution {
 ---
 
 # 2. Binary Tree Preorder Traversal [solve here](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+## **morris traversal**
+##### without using any space Preorder travers
+```
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        TreeNode cur = root;
+
+        while(cur != null) {
+            if(cur.left == null) {
+                list.add(cur.val);
+                cur = cur.right;
+            }else {
+                TreeNode predecessor = cur.left;
+                while(predecessor.right != null && predecessor.right != cur) {
+                    predecessor = predecessor.right;
+                }
+
+                if(predecessor.right == null) {
+                    list.add(cur.val);
+                    predecessor.right = cur;
+                    cur = cur.left;
+                }else {
+                    predecessor.right = null;
+                    cur = cur.right;
+                }
+            }
+        }
+        return list;
+    }
+}
+```
+## recursive approach
 ```
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
