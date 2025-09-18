@@ -68,6 +68,7 @@ class Solution {
 ```
 ---
 # 4. Kth Smallest Element in a BST [solve here](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+you goo leftmost, when we found the null then backtrak and minus k and also chek it becom zero then we save root value into the ans then retrun eather we go to the right.
 ### recursive approach
 ```
 class Solution {
