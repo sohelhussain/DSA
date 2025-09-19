@@ -115,7 +115,23 @@ class Solution {
 }
 ```
 ---
-# 5. Delete Node in a BST [solve here](https://leetcode.com/problems/delete-node-in-a-bst/) [need watch]
+# 5. Delete Node in a BST [solve here](https://leetcode.com/problems/delete-node-in-a-bst/)
+we are going to write becuse we know left maximum element i can found in rightMost in bst.
+```
+  while(root.right != null) {
+            root = root.right;
+        }
+
+
+3 node tree, max node is rightest Most (mins 4)
+
+        5
+       / \
+      3   6
+     / \    \
+    2   4    7
+
+```
 ```
 class Solution {
     private TreeNode max(TreeNode root) {
