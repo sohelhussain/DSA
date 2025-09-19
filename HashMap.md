@@ -1,6 +1,5 @@
-class Solution {
-
-  // 1. two sum
+# 1. two sum
+```
     public int[] twoSum(int[] nums, int target) {
        Map<Integer, Integer> map = new HashMap<>();
 
@@ -15,9 +14,11 @@ class Solution {
 
        return null;
     }
-
-
-  //53. Maximum Subarray
+```
+---
+# 53. Maximum Subarray
+### map
+```
   pub fn max_sub_array(nums: Vec<i32>) -> i32 {
         let mut max_sum = nums[0];
         let mut cur_sum = 0;
@@ -33,9 +34,11 @@ class Solution {
 
         max_sum
     }
+```
+---
 
-
-  //409. Longest Palindrome
+# 409. Longest Palindrome
+```
   public int longestPalindrome(String s) {
         Map<Character, Integer> map = new HashMap<>();
 
@@ -59,12 +62,52 @@ class Solution {
         return isOdd ? ans + 1 : ans;
     }
 
+```
+### using set
+```
+class Solution {
+    public int longestPalindrome(String s) {
+        Set<Character> set = new HashSet<>();
+        int ans = 0;
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if(set.contains(c)) {
+                set.remove(c);
+                ans += 2;
+            }else {
+                set.add(c);
+            }
+        }
 
+        return set.isEmpty() ? ans : ans + 1;
+    }
+}
+```
+### bit
+```
+class Solution {
+    public int longestPalindrome(String s) {
+        int[] bit = new int[123];
+        for(char ch: s.toCharArray()) bit[ch]++;
+        int ans = 0, odd = 0;
+        for(int i = 65; i < 123; i++) {
+            if(bit[i] % 2 == 0) {
+                ans += bit[i];
+            }else {
+                ans += bit[i] - 1;
+                odd = 1;
+            }
 
+            if(i == 90) i = 96;
+        }
 
-
-
-  //560. Subarray Sum Equals K
+        return ans + odd;
+    }
+}
+```
+---
+# 560. Subarray Sum Equals K
+```
   public int subarraySum(int[] nums, int k) {
         int ans = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -89,3 +132,4 @@ class Solution {
         return ans;
     }
 }
+```
