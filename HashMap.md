@@ -16,8 +16,27 @@
     }
 ```
 ---
+# 349. Intersection of Two Arrays [solve here](https://leetcode.com/problems/intersection-of-two-arrays/description/)
+```
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> set2 = new HashSet<>();
+        for(int i = 0; i < nums1.length; i++) {
+            int n = nums1[i];
+            set1.add(n);
+        }
+        for(int i = 0; i < nums2.length; i++) {
+            int n = nums2[i];
+            set2.add(n);
+        }
+        set1.retainAll(set2);
+        return set1.stream().mapToInt(Integer :: intValue).toArray();
+    }
+}
+```
+---
 # 53. Maximum Subarray
-### map
 ```
   pub fn max_sub_array(nums: Vec<i32>) -> i32 {
         let mut max_sum = nums[0];
@@ -38,6 +57,7 @@
 ---
 
 # 409. Longest Palindrome
+### map
 ```
   public int longestPalindrome(String s) {
         Map<Character, Integer> map = new HashMap<>();
@@ -130,6 +150,78 @@ class Solution {
         }
 
         return ans;
+    }
+}
+```
+# 128. Longest Consecutive Sequence [solve here](https://leetcode.com/problems/longest-consecutive-sequence/)
+but this code give TLE
+```
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        Set<Integer> set = new HashSet<>(); 
+        for(int num : nums) 
+            set.add(num);
+        int max = 0; 
+        for(int num : nums) {
+            int c = 1; 
+            if(set.contains(num - 1)) 
+                continue;
+            else if(set.contains(num + 1)) {
+                while(set.contains(++num)) 
+                    c++;
+            }
+            max = Math.max(max, c);
+        }
+        return max; 
+    }
+}
+```
+```
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        Arrays.sort(nums);
+        int longestStreak = 1;
+        int currentStreak = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i-1]) {
+                continue;
+            }
+            else if (nums[i] == nums[i-1] + 1) {
+                currentStreak++;
+            }
+            else {
+                currentStreak = 1;
+            }
+            longestStreak = Math.max(longestStreak, currentStreak);
+        }
+        return longestStreak;
+    }
+}
+```
+```
+class Solution {
+    public int longestConsecutive(int[] nums) {
+Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+        int longest = 0;
+        for (int num : set) {
+            // Start only if it's the beginning of a sequence
+            if (!set.contains(num - 1)) {
+                int currentNum = num;
+                int count = 1;
+                while (set.contains(currentNum + 1)) {
+                    currentNum++;
+                    count++;
+                }
+                longest = Math.max(longest, count);
+            }
+        }
+        return longest;
     }
 }
 ```
