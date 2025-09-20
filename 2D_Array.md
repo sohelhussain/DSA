@@ -206,6 +206,43 @@ class Solution {
     }
 }
 ```
+```
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int ROW = 0, COL = matrix.length - 1;
+        int row = 0;
+        int en = matrix[0].length;
+        while(ROW <= COL) {
+            row = ROW + (COL - ROW) / 2;
+
+            if(matrix[row][0] <= target && target <= matrix[row][en - 1]) {
+                break;
+            }else if(matrix[row][en - 1] > target) {
+                COL = row - 1;
+            }else {
+                ROW = row + 1;
+            }
+        }
+
+        en = matrix[0].length;
+        int start = 0, end = en - 1;
+
+        while(start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if(matrix[row][mid] == target) {
+                return true;
+            }else if(matrix[row][mid] > target) {
+                end = mid - 1;
+            }else {
+                start = mid + 1;
+            }
+        }
+
+        return false;
+    }
+}
+```
 [solve in O(log(m + n))]()
 ---
 
