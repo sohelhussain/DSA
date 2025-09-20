@@ -164,6 +164,24 @@ code
         }
 ```
 ---
+# 867. Transpose Matrix [solve here](https://leetcode.com/problems/transpose-matrix/)
+```
+class Solution {
+    public int[][] transpose(int[][] matrix) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int[][] transposeMatrix = new int[m][n];
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                transposeMatrix[i][j] = matrix[j][i];
+            }
+        }
+        return transposeMatrix;
+    }
+}
+```   
+---
+
 # 8. Rotate Image [solve here](https://leetcode.com/problems/rotate-image/)
 
 ```
