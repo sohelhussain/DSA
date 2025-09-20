@@ -292,3 +292,164 @@ class Solution {
     }
 }
 ```
+---
+# 51. N-Queens [solve here](https://leetcode.com/problems/n-queens/description/)
+1. backtrack
+```
+class Solution {
+    private boolean isValid(int[][] board, int row, int column) {
+        int i = row, j = column;
+
+        while(i >= 0 && j >= 0) {
+            if(board[i][j] == 1) return false;
+            i--;
+            j--;
+        }
+
+
+        i = row;
+        j = column;
+
+        while(j >= 0) {
+            if(board[i][j] == 1) return false;
+            j--;
+        }
+
+        i = row;
+        j = column;
+
+        while(i < board.length && j >= 0) {
+            if(board[i][j] == 1) return false;
+            i++;
+            j--;
+        }
+
+        return true;
+    }
+    private void nqueens(int[][] board, List<List<String>> ans, int column, int n) {
+        if(column == n) {
+            List<String> cur = new ArrayList<>();
+            for(int row[]: board) {
+                String r = "";
+                for(int data: row) {
+                    r += data == 1 ? "Q" : "."; 
+                }
+                cur.add(r);
+            }
+            ans.add(cur);
+            return;
+        }
+        for(int row = 0; row < n; row++) {
+            if(isValid(board, row, column)) {
+                board[row][column] = 1;
+                nqueens(board, ans, column + 1, n);
+                board[row][column] = 0;
+            }
+        }
+    }
+
+    public List<List<String>> solveNQueens(int n) {
+        int[][] board = new int[n][n];
+        List<List<String>> ans = new ArrayList<>();
+        nqueens(board, ans, 0, n);
+        return ans;
+    }
+}
+```
+
+![IMG_0072](https://github.com/user-attachments/assets/4d3bb712-2f9c-4538-89bf-a323b823ae41)
+
+---
+# 37. Sudoku Solver [solve here](https://leetcode.com/problems/sudoku-solver/)
+1. backtrack
+```
+class Solution {
+    private boolean isValid(char[][] board, int row, int column, char k) {
+        for (int var = 0; var < 9; var++) {
+            if (board[row][var] == k || board[var][column] == k) {
+                return false;
+            }
+            if (board[3 * (row / 3) + var / 3][3 * (column / 3) + var % 3] == k) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean solve(char[][] board) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == '.') {
+                    for (char k = '1'; k <= '9'; k++) {
+                        if (isValid(board, i, j, k)) {
+                            board[i][j] = k;
+                            if (solve(board)) {
+                                return true;
+                            }
+                            board[i][j] = '.';
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void solveSudoku(char[][] board) {
+        solve(board);
+    }
+}
+
+```
+
+---
+
+# 79. Word Search [solve here](https://leetcode.com/problems/word-search/)
+1. backtrack
+```
+class Solution {
+    private boolean exist(char[][] board, String word, int[][] visited, int row, int col, int ind, int m, int n) {
+        if(ind == word.length()) {
+            return true;
+        }
+        if(row < 0 || row >= m || col < 0 || col >= n || visited[row][col] == 1 || board[row][col] != word.charAt(ind)) {
+            return false;
+        }
+
+        visited[row][col] = 1;
+        int[] cc = {-1, 0, 1, 0};
+        int[] cr = {0, 1, 0, -1};
+        for(int i = 0; i < 4; i++) {
+            int nRow = row + cr[i];
+            int nCol = col + cc[i];
+            if(exist(board, word, visited, nRow, nCol, ind + 1, m, n)) {
+                return true;
+            }
+        }
+
+        // if(exist(board, word, visited, row - 1, col, ind + 1, m, n)
+        // || exist(board, word, visited, row, col + 1, ind + 1, m, n)
+        // || exist(board, word, visited, row + 1, col, ind + 1, m, n)
+        // || exist(board, word, visited, row, col - 1, ind + 1, m, n)) {
+        //     return true;
+        // }
+
+        visited[row][col] = 0;
+        return false;
+    }
+    public boolean exist(char[][] board, String word) {
+        int m = board.length;
+        int n = board[0].length;
+        int visited[][] = new int[m][n];
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(exist(board, word, visited, i, j, 0, m, n)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
