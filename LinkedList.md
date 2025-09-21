@@ -373,3 +373,48 @@ public int[] nodesBetweenCriticalPoints(ListNode head) {
         return new int[] {minDist, last - first};
     }
 ```
+---
+# 143. Reorder List [solve here](https://leetcode.com/problems/reorder-list/)
+```
+class Solution {
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode cur = head;
+        while(cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
+    }
+    private void merge(ListNode l1, ListNode l2) {
+        while(l1 != null && l2 != null) {
+            ListNode n1 = l1.next;
+            ListNode n2 = l2.next;
+
+            l1.next = l2;
+            if(l1 == null) break;
+            l2.next = n1;
+
+            l1 = n1;
+            l2 = n2;
+        }
+    }
+    public void reorderList(ListNode head) {
+        if(head == null && head.next == null) return;
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode second = reverse(slow.next);
+        slow.next = null;
+
+        merge(head, second);
+    }
+}
+```
