@@ -375,6 +375,8 @@ public int[] nodesBetweenCriticalPoints(ListNode head) {
 ```
 ---
 # 143. Reorder List [solve here](https://leetcode.com/problems/reorder-list/)
+- Take a middle by two pointers and break it into two parts.
+- Last part, reverse it, then merge both parts one by one.
 ```
 class Solution {
     private ListNode reverse(ListNode head) {
@@ -415,6 +417,34 @@ class Solution {
         slow.next = null;
 
         merge(head, second);
+    }
+}
+```
+---
+# 19. Remove Nth Node From End of List [solve here](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
+- Move fast and point to nth.
+- Then we check if fast is null, then return head. next.
+- Move slow point to head while fast is not null.
+- Also check if slow or next is not null. then slow next is attached to slow. next.next.
+```
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while(n-- > 0) {
+            fast = fast.next;
+        }
+        if(fast == null) {
+            return head.next;
+        }
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        if(slow != null && slow.next != null) {
+            slow.next = slow.next.next;
+        }
+        return head;
     }
 }
 ```
