@@ -448,3 +448,47 @@ class Solution {
     }
 }
 ```
+---
+
+92. Reverse Linked List II [solve here](https://leetcode.com/problems/reverse-linked-list-ii/)
+```
+class Solution {
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode cur = head;
+        while(cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
+    }
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode leftPrev = dummy;
+        for(int i = 1; i < left; i++) {
+            leftPrev = leftPrev.next;
+        }
+
+        ListNode start = leftPrev.next;
+        ListNode end = start;
+        for(int i = left; i < right; i++) {
+            end = end.next;
+        }
+
+        ListNode rightNext = end.next;
+        end.next = null;
+
+        ListNode newHead = reverse(start);
+        
+        leftPrev.next = newHead;
+        start.next = rightNext;
+
+        return dummy.next;
+
+    }
+}
+```
