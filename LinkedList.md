@@ -492,3 +492,68 @@ class Solution {
     }
 }
 ```
+---
+# 61. Rotate List [solve here](https://leetcode.com/problems/rotate-list/)
+first move pointer to end then end node point head (circular linked list) then target point add null
+```
+head → 1 → 2 → 3 → 4 → 5
+       ↑               ↓
+       └─--------──────┘
+
+
+              null
+               |
+head → 1 → 2 → 3  4 → 5
+       ↑               ↓
+       └─--------──────┘
+```
+```
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null || k == 0) return head;
+        ListNode temp = head;
+        int length = 1;
+        while (temp.next != null) {
+            temp = temp.next;
+            length++;
+        }
+        temp.next = head;
+        k = k % length;
+        int stepsToNewTail = length - k;
+        ListNode newTail = head;
+        for (int i = 1; i < stepsToNewTail; i++) {
+            newTail = newTail.next;
+        }
+        ListNode newHead = newTail.next;
+        newTail.next = null;
+        return newHead;
+    }
+}
+```
+---
+# 86. Partition List [solve here](https://leetcode.com/problems/partition-list/)
+create a tow list one is small second is large.
+```
+class Solution {
+    public ListNode partition(ListNode head, int x) {
+        ListNode small = new ListNode(0);
+        ListNode large = new ListNode(0);
+        ListNode smallTail = small;
+        ListNode largeTail = large;
+
+        while(head != null) {
+            if(head.val < x) {
+                smallTail.next = head;
+                smallTail = smallTail.next;
+            }else {
+                largeTail.next = head;
+                largeTail = largeTail.next;
+            }
+            head = head.next;
+        }
+        smallTail.next = large.next;
+        largeTail.next = null;
+        return small.next;
+    }
+}
+```
