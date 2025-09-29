@@ -72,6 +72,31 @@ class Solution {
     }
 }
 ```
+## one stack Iterative approach
+
+```
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while(true) {
+            if(cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }else {
+                if(stack.isEmpty()) {
+                    break;
+                }
+                cur = stack.pop();
+                list.add(cur.val);
+                cur = cur.right;
+            }
+        }
+        return list;
+    }
+}
+```
 ---
 
 # 2. Binary Tree Preorder Traversal [solve here](https://leetcode.com/problems/binary-tree-preorder-traversal/)
