@@ -126,6 +126,24 @@ class Solution {
     }
 }
 ```
+## one stack Iterative approach
+```
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if(root == null) return list;
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            TreeNode frontNode = stack.pop();
+            list.add(frontNode.val);
+            if(frontNode.right != null) stack.push(frontNode.right);
+            if(frontNode.left != null) stack.push(frontNode.left);
+        }
+        return list;
+    }
+}
+```
 ---
 
 # 3. Binary Tree Postorder Traversal [slove here](https://leetcode.com/problems/binary-tree-postorder-traversal/)
