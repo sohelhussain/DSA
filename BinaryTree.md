@@ -189,6 +189,29 @@ class Solution {
     }
 }
 ```
+## two stack Iterative approach
+```
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> st1 = new Stack<>();
+        Stack<TreeNode> st2 = new Stack<>();
+        if(root == null) return list;
+        st1.push(root);
+
+        while(!st1.isEmpty()) {
+            root = st1.pop();
+            st2.push(root);
+            if(root.left != null) st1.push(root.left);
+            if(root.right != null) st1.push(root.right);
+        }
+        while(!st2.isEmpty()) {
+            list.add(st2.pop().val);
+        }
+        return list;
+    }
+}
+```
 ---
 
 # 4. Maximum Depth | Maximum Height | Number Of Levels [solve here](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
@@ -387,6 +410,26 @@ class Solution {
     }
 }
 ```
+---
+# 124. Binary Tree Maximum Path Sum [soleve here](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+taking a left height and right height adding root value and return it before this we can store in a max Sum in variable.
+```
+class Solution {
+    private int maxSum(TreeNode root, int[] sums) {
+        if (root == null) return 0;
+        int left = Math.max(0, maxSum(root.left, sums));
+        int right = Math.max(0, maxSum(root.right, sums));
+        sums[0] = Math.max(sums[0], left + right + root.val);
+        return Math.max(left, right) + root.val;
+    }
+    public int maxPathSum(TreeNode root) {
+        int[] sums = new int[]{Integer.MIN_VALUE};
+        maxSum(root, sums);
+        return sums[0];
+    }
+}
+```
+---
 # 226. Invert Binary Tree [solve here](https://leetcode.com/problems/invert-binary-tree/)
 ![invertBinary](https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg)
 ```
