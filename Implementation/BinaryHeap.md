@@ -118,6 +118,16 @@ void deletion() {
 5. Recursively apply heapify on the swapped child node to maintain the heap property in the sub-tree.
 6. Repeat until all nodes satisfy the max-heap condition.
 
+# HeapSort Operation
+
+#### Goal: Sort the array in ascending order by repeatedly removing the maximum element from the heap.
+
+1. Swap the first element (root) with the last element in the heap.
+2. Reduce the heap size by 1 (ignore the sorted part).
+3. Call heapify() on the root to restore the heap property.
+4. Repeat steps 1–3 until all elements are sorted.
+5. The array is now sorted in ascending order.
+
 ```
 package heap;
 
@@ -140,6 +150,15 @@ public class BinaryHeap {
         }
     }
 
+   void heapSort(int[] nums, int n) {
+        int size = n;
+        while (size > 0) {
+            swap(nums, size, 1);
+            size--;
+            heapify(nums, size, 1);
+        }
+    }
+
     void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
@@ -154,6 +173,8 @@ public class BinaryHeap {
         for(int i = n/2; i > 0; i--) { // run loop 60 to 12
             obj.heapify(nums, n, i);
         }
+        System.out.println(Arrays.toString(nums));
+        obj.heapSort(nums, n);
         System.out.println(Arrays.toString(nums));
     }
 }
