@@ -25,6 +25,21 @@ Initial: [30]
 Add 54 at end → [30, 54]
 54 > 30 → swap → [54, 30]
 ```
+```
+ void deletion() {
+        nums[1] = nums[size];
+        size--;
+        int index = 1;
+        while (index < size) {
+            int left = nums[2 * index];
+            int right = nums[2 * index + 1];
+            int larger = left > right ? left : right;
+            if(nums[larger] > nums[index]) {
+                swap(nums, larger, index);
+            }else return;
+        }
+    }
+```
 
 ```
 package heap;
@@ -88,5 +103,59 @@ void deletion() {
         System.out.println();
         obj.print();
     }
-    ```
 }
+```
+---
+# Heapify algo
+##### that convert invalid heap to valid heap
+
+#### Goal: Ensure every parent node is greater than its children, forming a valid max heap.
+
+1. Start from the last non-leaf node (at index n/2) and move upward to the root. becuse after n/2(last childern) part is valid.
+2. For each node, find its left and right child using left = 2*i and right = 2*i + 1.
+3. Compare the parent with its children to find the largest value.
+4. If any child is larger than the parent, swap them.
+5. Recursively apply heapify on the swapped child node to maintain the heap property in the sub-tree.
+6. Repeat until all nodes satisfy the max-heap condition.
+
+```
+package heap;
+
+import java.util.Arrays;
+
+public class BinaryHeap {
+
+    void heapify(int[] nums, int n, int i) {
+        int larger = i;
+        int left = 2 * i, right = 2 * i + 1;
+        if(left <= n && nums[left] > nums[larger]) {
+            larger = left;
+        }
+        if(right <= n && nums[right] > nums[larger]) {
+            larger = right;
+        }
+        if (larger != i) {
+            swap(nums, i, larger);
+            heapify(nums, n, larger);
+        }
+    }
+
+    void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        BinaryHeap obj = new BinaryHeap();
+
+        int[] nums = {-1, 12, 50, 60, 30, 10, 41};
+        int n = 6; // this is size of array and we not count 0 index
+        for(int i = n/2; i > 0; i--) { // run loop 60 to 12
+            obj.heapify(nums, n, i);
+        }
+        System.out.println(Arrays.toString(nums));
+    }
+}
+
+```
