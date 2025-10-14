@@ -588,6 +588,36 @@ public class LeftView {
 }
 
 ```
+```
+class Solution {
+    public List<Integer> leftView(TreeNode root) {
+        // List to store the left view of the tree.
+        ArrayList<Integer> ans = new ArrayList<>(); 
+        // Map to track the first node at each level.
+        HashMap<Integer, Integer> map = new HashMap<>(); 
+         // Perform DFS starting from the root at level 0.
+        dfs(0, root, ans, map);
+        return ans; 
+    }
+    
+    void dfs(int level, Node root, ArrayList<Integer> ans, HashMap<Integer, Integer> map) {
+        // Base case: If the current node is null, return.
+        if (root == null) return;
+
+        // If the current level is not already in the map, it means this is the first node at this level.
+        if (!map.containsKey(level)) {
+            ans.add(root.data); // Add the node's data to the result.
+            map.put(level, root.data); // Mark this level as visited in the map.
+        }
+        
+        // Recursively explore the left subtree, increasing the level by 1.
+        dfs(level + 1, root.left, ans, map);
+        
+        // Recursively explore the right subtree, increasing the level by 1.
+        dfs(level + 1, root.right, ans, map);
+    }
+}
+```
 ### BFS approach
 ```
 ```
