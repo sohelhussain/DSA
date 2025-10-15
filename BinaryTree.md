@@ -770,3 +770,25 @@ class Solution {
 # 889. Construct Binary Tree from Preorder and Postorder Traversal [](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
 ```
 ```
+---
+# 572. Subtree of Another Tree [solve here](https://leetcode.com/problems/subtree-of-another-tree/)
+```
+class Solution {
+    private boolean sameTree(TreeNode root, TreeNode subRoot) {
+        if(root == null && subRoot == null) return true;
+        if(root == null || subRoot == null) return false;
+        boolean left = sameTree(root.left, subRoot.left);
+        boolean right = sameTree(root.right, subRoot.right);
+        return left && right && root.val == subRoot.val;
+    }
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if(root == null) return false;
+        boolean sametree = sameTree(root, subRoot);
+        if(sametree) return true;
+        boolean left = isSubtree(root.left, subRoot);
+        boolean right = isSubtree(root.right, subRoot);
+        return left || right;
+    }
+}
+```
+
