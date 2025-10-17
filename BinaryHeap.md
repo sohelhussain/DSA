@@ -147,3 +147,51 @@ class Solution {
     }
 }
 ```
+---
+# 973. K Closest Points to Origin [solve here]()
+
+1. Make a max heap (priority queue)
+        a. The heap will store points.
+        b. The point with the largest distance from the origin will stay on top.
+        c. Distance is calculated as x*x + y*y (no need to take the square root).
+2. Go through each point one by one.
+        a. Add the point into the heap (pq.offer(points[i])).
+        b. If the heap size becomes more than k, remove the top element (pq.poll()),
+           because the top one is the farthest point among the current ones.
+        d. This way, the heap always contains k closest points seen so far.
+3. After the loop ends
+        a. The heap now has exactly the k closest points to the origin.
+4. Take out all k points from the heap
+        a. Remove points from the heap using pq.poll() and store them in an array temp.
+5. Return the result
+        a. Return the array temp, which has the k closest points.
+
+Example
+If points = [[3,3],[5,-1],[-2,4]] and k = 2:
+
+The two closest points are [[3,3],[-2,4]].
+
+```
+class Solution {
+    public int[][] kClosest(int[][] points, int k) {
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+            public int compare(int[] p1, int[] p2) {
+                return (p2[0] * p2[0] + p2[1] * p2[1]) > (p1[0] * p1[0] + p1[1] * p1[1]) ? 1 : -1;
+            }
+        });
+
+        for(int i = 0; i < points.length; i++) {
+            pq.offer(points[i]);
+            if(pq.size() > k) pq.poll();
+        }
+
+        int[][] temp = new int[k][2];
+        for(int i = 0; i < temp.length; i++) {
+            temp[i] = pq.poll();
+        }
+        return temp;
+    }
+}
+```
+Time and Space ```Time: O(n log k) — because every add/remove in heap takes log(k) time.```
+Space: ```O(k)``` — for the heap.
