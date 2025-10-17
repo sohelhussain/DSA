@@ -11,6 +11,7 @@ Initial: [30]
 Add 54 at end → [30, 54]
 54 > 30 → swap → [54, 30]
 ```
+54, 51, 52, 50, 30, 20
 
 # Deletion Operation
 1. Replace the root with the last element in the heap.
@@ -25,6 +26,7 @@ Initial: [30]
 Add 54 at end → [30, 54]
 54 > 30 → swap → [54, 30]
 ```
+51, 52, 50, 30, 20
 ```
  void deletion() {
         nums[1] = nums[size];
@@ -94,7 +96,7 @@ void deletion() {
     public static void main(String[] args) {
         BinaryHeap obj = new BinaryHeap();
         obj.insertion(30);
-        obj.insertion(54);
+        obj.insertion(52);
         obj.insertion(20);
         obj.insertion(50);
         obj.insertion(51);
