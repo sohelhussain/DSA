@@ -1,7 +1,7 @@
 # 1. BFS of graph [solve here](https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/0)
 ```
 class Solution {
-    // Function to return Breadth First Search Traversal of given graph.
+
     public ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> adj) {
         ArrayList<Integer> list = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
@@ -9,7 +9,7 @@ class Solution {
         
         // Start from node 0
         queue.offer(0);
-        isVisited[0] = true; // mark visited when pushing to queue
+        isVisited[0] = true; 
         
         while (!queue.isEmpty()) {
             int frontNodeVal = queue.poll();
@@ -34,21 +34,65 @@ class Solution {
 class Solution {
     void solve(int node, ArrayList<ArrayList<Integer>> adj, boolean[] isVis, ArrayList<Integer> list) {
         isVis[node] = true;
-        list.add(node); // use list (not ans)
+        list.add(node); 
 
         for (int neighbor : adj.get(node)) {
             if (!isVis[neighbor]) {
-                solve(neighbor, adj, isVis, list); // don't create new boolean array each time
+                solve(neighbor, adj, isVis, list); 
             }
         }
     }
 
-    // Function to return a list containing the DFS traversal of the graph.
+
     public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
         ArrayList<Integer> list = new ArrayList<>();
-        boolean[] isVis = new boolean[adj.size()]; // 'v' should be adj.size()
+        boolean[] isVis = new boolean[adj.size()];
         solve(0, adj, isVis, list);
         return list;
     }
 }
 ```
+---
+# 3. Undirected Graph Cycle [solve here](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1)
+
+```
+
+class Solution {
+    boolean dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean[] isVis, int parent) {
+        isVis[node] = true;
+
+        for (int neighbor : adj.get(node)) {
+            if (!isVis[neighbor]) {
+                if (dfs(neighbor, adj, isVis, node)) return true;
+            } else if (neighbor != parent) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean isCycle(int V, int[][] edges) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++) adj.add(new ArrayList<>());
+
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            adj.get(u).add(v);
+            adj.get(v).add(u); // undirected graph
+        }
+        
+        boolean[] isVis = new boolean[V];
+        for (int i = 0; i < V; i++) {
+            if (!isVis[i]) {
+                if (dfs(i, adj, isVis, -1)) return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+```
+# 4. Directed Graph Cycle [solve here](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1)
