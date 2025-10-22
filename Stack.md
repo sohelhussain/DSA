@@ -131,7 +131,7 @@ class MyStack {
 ```
 ---
 
-# find the next grater element(gfg). imp [solve here](https://www.geeksforgeeks.org/problems/next-larger-element-1587115620/1)
+# 3. find the next grater element(gfg). imp [solve here](https://www.geeksforgeeks.org/problems/next-larger-element-1587115620/1)
 ```
 class Solution {
     public int[] nextGreaterElement(int[] arr) {
@@ -157,7 +157,7 @@ class Solution {
 ```
 
 ---
-# 901. Online Stock Span [solve here]()
+# 4. Online Stock Span [solve here](https://leetcode.com/problems/online-stock-span/)
 ```
     class StockSpanner {
     Stack<int[]> stack;
@@ -185,7 +185,7 @@ class Solution {
 }
 ```
 
-# 84. Largest Rectangle in Histogram [solve here]()
+# 5. Largest Rectangle in Histogram [solve here](https://leetcode.com/problems/largest-rectangle-in-histogram/)
 ```
 public int largestRectangleArea(int[] heights) {
         int n = heights.length;
@@ -236,7 +236,7 @@ public int largestRectangleArea(int[] heights) {
 ---
 
 
-# 85. Maximal Rectangle [solve here]()
+# 6. Maximal Rectangle [solve here](https://leetcode.com/problems/maximal-rectangle/)
 ```
     class Solution {
     public int maximalRectangle(char[][] matrix) {
@@ -318,7 +318,7 @@ public int largestRectangleArea(int[] heights) {
 ---
 
 
-# 155. Min Stack [solve here]()
+# 7. Min Stack [solve here](https://leetcode.com/problems/min-stack/)
 
 ```
     class MinStack {
