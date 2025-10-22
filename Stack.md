@@ -1,4 +1,4 @@
-# 232. Implement Queue using Stacks [solve here]()
+# 1. Implement Queue using Stacks [solve here](https://leetcode.com/problems/implement-queue-using-stacks/)
 ```
 class MyQueue {
     Stack<Integer> st1, st2;
@@ -45,7 +45,7 @@ class MyQueue {
 
 
 
-# 225. Implement Stack using Queues [solve here]()
+# 2. Implement Stack using Queues [solve here](https://leetcode.com/problems/implement-stack-using-queues/)
 
 ### using one queue
 
@@ -131,7 +131,7 @@ class MyStack {
 ```
 ---
 
-# find the next grater element(gfg). imp [solve here]()
+# find the next grater element(gfg). imp [solve here](https://www.geeksforgeeks.org/problems/next-larger-element-1587115620/1)
 ```
 class Solution {
     public int[] nextGreaterElement(int[] arr) {
