@@ -137,3 +137,50 @@ class Solution {
     }
 }
 ```
+---
+
+# 5. Topological sort [solve here](https://practice.geeksforgeeks.org/problems/topological-sort/1)
+```
+class Solution {
+    private static void dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean[] isVisited, Stack<Integer> stack) {
+        isVisited[node] = true;
+        
+        for (int neighbor : adj.get(node)) {
+            if (!isVisited[neighbor]) {
+                dfs(neighbor, adj, isVisited, stack);
+            }
+        }
+        stack.push(node);
+    }
+
+    public static ArrayList<Integer> topoSort(int V, int[][] edges) {
+
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++) adj.add(new ArrayList<>());
+        
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            adj.get(u).add(v); 
+        }
+
+        boolean[] isVisited = new boolean[V];
+        Stack<Integer> stack = new Stack<>();
+        ArrayList<Integer> list = new ArrayList<>();
+
+        
+        for (int i = 0; i < V; i++) {
+            if (!isVisited[i]) {
+                dfs(i, adj, isVisited, stack);
+            }
+        }
+
+        
+        while (!stack.isEmpty()) {
+            list.add(stack.pop());
+        }
+
+        return list;
+    }
+}
+```
