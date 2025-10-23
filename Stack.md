@@ -357,7 +357,7 @@ public int largestRectangleArea(int[] heights) {
 ```
 ---
 
-# 150. Evaluate Reverse Polish Notation [solve here]()
+# 8. Evaluate Reverse Polish Notation [solve here](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 ```
     public int evalRPN(String[] tokens) {
     Stack<Integer> stack = new Stack<>();
@@ -390,7 +390,7 @@ public int largestRectangleArea(int[] heights) {
 
 
 
-# 22. Generate Parentheses [solve here]()
+# 9. Generate Parentheses [solve here](https://leetcode.com/problems/generate-parentheses/)
 ```
     private void backtrack(int openN, int closedN, int n, List<String> res, StringBuilder stack) {
     if(openN == closedN && openN == n) {
@@ -415,10 +415,9 @@ public List<String> generateParenthesis(int n) {
     return list;
 }
 ```
-
 ---
 
-# 394. Decode String [solve here]()
+# 10. Decode String [solve here](https://leetcode.com/problems/decode-string/)
 
 ```
 
@@ -467,7 +466,7 @@ public List<String> generateParenthesis(int n) {
 
 ```
 ---
-# 735. Asteroid Collision [solve here]()
+# 11. Asteroid Collision [solve here](https://leetcode.com/problems/asteroid-collision/)
 
 ```
 	asteroids = [-1, 3, 2, -3];
@@ -500,12 +499,12 @@ public List<String> generateParenthesis(int n) {
         }
 
 
-        return stack.stream().mapToInt(i -> i)
+        return stack.stream().mapToInt(i -> i).toArray();
 
 ```
 ---
 
-# 71. Simplify Path [solve here]()
+# 12. Simplify Path [solve here](https://leetcode.com/problems/simplify-path/)
 ```
 public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
@@ -522,8 +521,6 @@ public String simplifyPath(String path) {
         }
 
         return "/" + String.join("/", stack);
-
     }
-
 }
 ```
