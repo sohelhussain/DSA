@@ -140,6 +140,8 @@ class Solution {
 ---
 
 # 5. Topological sort [solve here](https://practice.geeksforgeeks.org/problems/topological-sort/1)
+
+![IMG_0127](https://github.com/user-attachments/assets/c93cbb94-b080-45bb-b90a-1bd94af7a43b)
 ```
 class Solution {
     private static void dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean[] isVisited, Stack<Integer> stack) {
