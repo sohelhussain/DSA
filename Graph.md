@@ -56,6 +56,7 @@ class Solution {
 ---
 # 3. Undirected Graph Cycle [solve here](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1)
 
+![IMG_0125](https://github.com/user-attachments/assets/161a7c83-c4f4-4ab1-b9e5-a748c622caf2)
 
 ```
 class Solution {
@@ -97,6 +98,8 @@ class Solution {
 
 ```
 # 4. Directed Graph Cycle [solve here](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1)
+
+![IMG_0126](https://github.com/user-attachments/assets/f0dafcb9-fd82-40d5-a5a9-ec1cd0ca3682)
 
 ```
 class Solution {
