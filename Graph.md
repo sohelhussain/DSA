@@ -1,4 +1,5 @@
 # 1. BFS of graph [solve here](https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/0)
+![bfs](https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/700217/Web/Other/blobid0_1728648582.jpg)
 ```
 class Solution {
 
@@ -55,8 +56,8 @@ class Solution {
 ---
 # 3. Undirected Graph Cycle [solve here](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1)
 
-```
 
+```
 class Solution {
     boolean dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean[] isVis, int parent) {
         isVis[node] = true;
@@ -96,3 +97,40 @@ class Solution {
 
 ```
 # 4. Directed Graph Cycle [solve here](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1)
+
+```
+class Solution {
+    private boolean dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean[] isVisited, boolean[] recursiveStack) {
+        isVisited[node] = true;
+        recursiveStack[node] = true;
+        
+        for(int neighbor: adj.get(node)) {
+            if(!isVisited[neighbor]) {
+                if(dfs(neighbor, adj, isVisited, recursiveStack)) return true;;
+            }else if(recursiveStack[neighbor]) {
+                return true;
+            }
+        }
+        
+        recursiveStack[node] = false;
+        return false;
+    }
+    public boolean isCyclic(int V, int[][] edges) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for(int i = 0; i < V; i++) adj.add(new ArrayList<>());
+        
+        for(int[] edge: edges) {
+            int u = edge[0];
+            int v = edge[1];
+            adj.get(u).add(v);
+        }
+        
+        boolean[] isVisited = new boolean[V];
+        boolean[] recursiveStack = new boolean[V];
+        for(int i = 0; i < V; i++) {
+            if(dfs(i, adj, isVisited, recursiveStack)) return true;
+        }
+        return false;
+    }
+}
+```
