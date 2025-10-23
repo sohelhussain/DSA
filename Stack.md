@@ -43,7 +43,7 @@ class MyQueue {
 }
 ```
 
-
+---
 
 # 2. Implement Stack using Queues [solve here](https://leetcode.com/problems/implement-stack-using-queues/)
 
@@ -155,9 +155,31 @@ class Solution {
     }
 }
 ```
-
 ---
-# 4. Online Stock Span [solve here](https://leetcode.com/problems/online-stock-span/)
+# 4. Daily Temperatures [solve here](https://leetcode.com/problems/daily-temperatures/)
+```
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        Stack<Integer> stack = new Stack<>();
+        int[] dailyTemperatures = new int[temperatures.length];
+
+        for(int i = temperatures.length - 1; i >= 0; i--) {
+            while(!stack.isEmpty() && temperatures[stack.peek()] <= temperatures[i]) {
+                stack.pop();
+            }
+
+            dailyTemperatures[i] = stack.isEmpty() ? 0 : stack.peek() - i;
+
+            stack.push(i);
+
+        }
+
+        return dailyTemperatures;
+    }
+}
+```
+---
+# 5. Online Stock Span [solve here](https://leetcode.com/problems/online-stock-span/)
 ```
     class StockSpanner {
     Stack<int[]> stack;
@@ -184,8 +206,8 @@ class Solution {
     }
 }
 ```
-
-# 5. Largest Rectangle in Histogram [solve here](https://leetcode.com/problems/largest-rectangle-in-histogram/)
+---
+# 6. Largest Rectangle in Histogram [solve here](https://leetcode.com/problems/largest-rectangle-in-histogram/)
 ```
 public int largestRectangleArea(int[] heights) {
         int n = heights.length;
@@ -236,7 +258,7 @@ public int largestRectangleArea(int[] heights) {
 ---
 
 
-# 6. Maximal Rectangle [solve here](https://leetcode.com/problems/maximal-rectangle/)
+# 7. Maximal Rectangle [solve here](https://leetcode.com/problems/maximal-rectangle/)
 ```
     class Solution {
     public int maximalRectangle(char[][] matrix) {
@@ -318,7 +340,7 @@ public int largestRectangleArea(int[] heights) {
 ---
 
 
-# 7. Min Stack [solve here](https://leetcode.com/problems/min-stack/)
+# 8. Min Stack [solve here](https://leetcode.com/problems/min-stack/)
 
 ```
     class MinStack {
@@ -357,7 +379,7 @@ public int largestRectangleArea(int[] heights) {
 ```
 ---
 
-# 8. Evaluate Reverse Polish Notation [solve here](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
+# 9. Evaluate Reverse Polish Notation [solve here](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 ```
     public int evalRPN(String[] tokens) {
     Stack<Integer> stack = new Stack<>();
@@ -390,7 +412,7 @@ public int largestRectangleArea(int[] heights) {
 
 
 
-# 9. Generate Parentheses [solve here](https://leetcode.com/problems/generate-parentheses/)
+# 10. Generate Parentheses [solve here](https://leetcode.com/problems/generate-parentheses/)
 ```
     private void backtrack(int openN, int closedN, int n, List<String> res, StringBuilder stack) {
     if(openN == closedN && openN == n) {
@@ -417,7 +439,7 @@ public List<String> generateParenthesis(int n) {
 ```
 ---
 
-# 10. Decode String [solve here](https://leetcode.com/problems/decode-string/)
+# 11. Decode String [solve here](https://leetcode.com/problems/decode-string/)
 
 ```
 
@@ -466,7 +488,45 @@ public List<String> generateParenthesis(int n) {
 
 ```
 ---
-# 11. Asteroid Collision [solve here](https://leetcode.com/problems/asteroid-collision/)
+# 12. Baseball Game [solve here](https://leetcode.com/problems/baseball-game/)
+```
+class Solution {
+    public int calPoints(String[] operations) {
+        Stack<Integer> stack = new Stack<>();
+
+        for(int i = 0; i < operations.length; i++) {
+            String ops = operations[i];
+
+            if(ops.equals("C") || ops.equals("D") || ops.equals("+")) {
+                if(ops.equals("C")) {
+                    if(!stack.isEmpty()) stack.pop();
+                }else if(ops.equals("D")) {
+                    int top = stack.peek();
+                    stack.push(2 * top);
+                }else {
+                    int top2 = stack.pop();
+                    int top1 = stack.pop();
+                    stack.push(top1);
+                    stack.push(top2);
+                    stack.push(top1 + top2);
+                }
+            }else {
+                stack.push(Integer.parseInt(ops));
+            }
+        }
+
+        int sum = 0;
+
+        while(!stack.isEmpty()) {
+            sum += stack.pop();
+        }
+
+        return sum;
+    }
+}
+```
+---
+# 13. Asteroid Collision [solve here](https://leetcode.com/problems/asteroid-collision/)
 
 ```
 	asteroids = [-1, 3, 2, -3];
@@ -504,7 +564,7 @@ public List<String> generateParenthesis(int n) {
 ```
 ---
 
-# 12. Simplify Path [solve here](https://leetcode.com/problems/simplify-path/)
+# 14. Simplify Path [solve here](https://leetcode.com/problems/simplify-path/)
 ```
 public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
