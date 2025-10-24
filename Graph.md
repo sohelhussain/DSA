@@ -1,5 +1,5 @@
 # 1. BFS of graph [solve here](https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/0)
-![bfs](https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/700217/Web/Other/blobid0_1728648582.jpg)
+![IMG_0128](https://github.com/user-attachments/assets/78a94357-f9c1-4349-8101-56e83f031c29)
 ```
 class Solution {
 
