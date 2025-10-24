@@ -1,5 +1,5 @@
 # 1. BFS of graph [solve here](https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/0)
-![IMG_0128](https://github.com/user-attachments/assets/78a94357-f9c1-4349-8101-56e83f031c29)
+![IMG_0130](https://github.com/user-attachments/assets/73e9fd5e-bec7-4430-9cff-161cd84a217c)
 ```
 class Solution {
 
@@ -31,6 +31,7 @@ class Solution {
 ```
 ---
 # 2. DFS of Graph [solve here](https://www.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1)
+![IMG_0129](https://github.com/user-attachments/assets/f27dd44f-c4bb-4b65-a94a-9e4ca9c36854)
 ```
 class Solution {
     void solve(int node, ArrayList<ArrayList<Integer>> adj, boolean[] isVis, ArrayList<Integer> list) {
