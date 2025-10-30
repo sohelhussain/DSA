@@ -231,4 +231,33 @@ class Solution {
 }
 
 ```
+---
 
+# 797. All Paths From Source to Target. [solve here](https://leetcode.com/problems/all-paths-from-source-to-target/)
+#### notise this line in question ``` find all possible paths from node 0 to node n - 1 ```
+#### that why we using this condition ``` if(node == graph.length - 1) ```
+
+```
+class Solution {
+    private void dfs(int node, int[][] graph, List<List<Integer>> list, List<Integer> cur) {
+
+        cur.add(node);
+        if(node == graph.length - 1) {
+            list.add(new ArrayList<>(cur));
+        }else {
+            for(int neighbor: graph[node]) {
+                dfs(neighbor, graph, list, cur);
+            }
+        }
+        
+        cur.remove(cur.size() - 1);
+    }
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
+
+        dfs(0, graph, list, cur);
+        return list;
+    }
+}
+```
