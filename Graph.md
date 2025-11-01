@@ -261,3 +261,101 @@ class Solution {
     }
 }
 ```
+---
+# Dijkstra Algorithm [solve here](https://www.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1)
+
+### Algorithm (Easy Step-by-Step Explanation)
+
+1. We create a distance[] array and fill it with infinity (Integer.MAX_VALUE) because at the start, we don’t know any shortest paths.
+
+2. Then we set the source node’s distance = 0, because the distance from itself is zero.
+
+3. We push the source (node, distance) → (2, 0) into a min-heap (priority queue) which always gives us the node with the smallest distance.
+
+4. Now we start our loop.
+
+    a. We poll (remove) the top of the min-heap → that’s the node with the smallest distance.
+
+    b. First time, it’s (2, 0).
+
+5. From node 2, we check where we can go:
+
+    a. We can go to node 1 with weight 3 → total distance = 0 + 3 = 3.
+
+      I. This is smaller than infinity → update distance[1] = 3 and push (1, 3) into heap.
+
+    b. We can also go to node 0 with weight 6 → total distance = 0 + 6 = 6.
+
+     II. Update distance[0] = 6 and push (0, 6) into heap.
+
+    c. Now heap = [(1, 3), (0, 6)].
+
+6. Next, we poll again → (1, 3) comes out (smallest distance).
+
+    a. From node 1, we can go to:
+
+    b. node 0 with weight 1.
+
+      I. Current distance to node 1 = 3, so 3 + 1 = 4.
+
+     II. Compare with old distance of node 0 (6). 4 is smaller → update distance[0] = 4 and push (0, 4) in heap.
+
+    c. node 2 → already visited with smaller distance, skip.
+
+    d. Now heap = [(0, 4), (0, 6)].
+
+7. Next, we poll (0, 4) → from node 0:
+
+    a. Neighbors are 1 and 2, but both already have smaller distances, so skip them.
+
+8. The heap still has (0, 6) but it’s old (distance already smaller = 4), so skip it too.
+
+9. Now the heap is empty, algorithm ends.
+
+10. Final distance[] = [4, 3, 0].
+
+```
+class Solution {
+    public int[] dijkstra(int V, int[][] edges, int src) {
+        // code here
+        ArrayList<ArrayList<int[]>> graph = new ArrayList<>();
+        for(int i = 0; i < V; i++) {
+            graph.add(new ArrayList<>());
+        }
+        
+        for(int[] edge: edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int w = edge[2];
+            graph.get(u).add(new int[]{v, w});
+            graph.get(v).add(new int[]{u, w});
+        }
+        
+        int[] distance = new int[V];
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        distance[src] = 0;
+        
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+        pq.offer(new int[]{src, 0});
+        
+        while(!pq.isEmpty()) {
+            int[] curr = pq.poll();
+            int node = curr[0];
+            int d = curr[1];
+            
+            if(d > distance[node]) continue;
+            
+            for(int[] neighbor: graph.get(node)) {
+                int nextDestination = neighbor[0];
+                int weight = neighbor[1];
+                
+                if(distance[node] + weight < distance[nextDestination]) {
+                    distance[nextDestination] = distance[node] + weight;
+                    pq.offer(new int[]{nextDestination, distance[nextDestination]});
+                }
+            }
+        }
+        return distance;
+    }
+}
+```
