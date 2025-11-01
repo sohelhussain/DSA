@@ -359,3 +359,54 @@ class Solution {
     }
 }
 ```
+---
+# Bellman-Ford algorithm [solve here](https://www.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1)
+1. We first make a distance array of size V and fill it with a big number (1e8) — means infinite.
+
+2. Set the distance of the source node as 0 because we start from there.
+
+3. Now, we run a loop V times (number of vertices).
+
+4. Inside this loop, we check every edge (u, v, wt) — means from u to v with weight wt.
+
+5. If we already know the shortest distance to u and
+going from u to v gives a smaller distance than current dist[v],
+then we update dist[v] = dist[u] + wt.
+
+6. On the Vth time, if any distance is still changing, that means there is a negative weight cycle,
+so we return [-1].
+
+7. After finishing all loops, our dist[] array has the shortest distance from source to all nodes.
+
+8. Finally, return dist.
+```
+class Solution {
+    public int[] bellmanFord(int V, int[][] edges, int src) {
+         int[] dist = new int[V];
+        Arrays.fill(dist, (int)1e8);
+        dist[src] = 0;
+
+        // Relaxation of all the edges V times, not (V - 1) as we  
+        // need one additional relaxation to detect negative cycle
+        for (int i = 0; i < V; i++) {
+            for (int[] edge : edges) {
+                int u = edge[0];
+                int v = edge[1];
+                int wt = edge[2];
+                if (dist[u] != 1e8 && dist[u] + wt < dist[v]) {
+                    
+                    // If this is the Vth relaxation, then there is
+                    // a negative cycle
+                    if (i == V - 1)
+                        return new int[]{-1};
+                    
+                    // Update shortest distance to node v
+                    dist[v] = dist[u] + wt;
+                }
+            }
+        }
+        return dist;
+    }
+}
+
+```
