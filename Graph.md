@@ -410,3 +410,65 @@ class Solution {
 }
 
 ```
+---
+# Minimum Spanning Tree [solve here](https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1)
+```
+class Solution {
+    static class Pair implements Comparable<Pair> {
+        int v, wt;
+        
+        Pair(int v, int wt) {
+            this.v = v;
+            this.wt = wt;
+        }
+        
+        public int compareTo(Pair that) {
+            return this.wt - that.wt;
+        }
+    }
+
+    public int spanningTree(int V, int[][] edges) {
+        // Build adjacency list
+        ArrayList<ArrayList<int[]>> graph = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            graph.add(new ArrayList<>());
+        }
+
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            graph.get(u).add(new int[]{v, wt});
+            graph.get(v).add(new int[]{u, wt});
+        }
+
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+        boolean[] isVisited = new boolean[V];
+        pq.offer(new Pair(0, 0));
+
+        int sum = 0;
+
+        while (!pq.isEmpty()) {
+            Pair temp = pq.poll();
+            int v = temp.v;
+            int wt = temp.wt;
+
+            if (isVisited[v]) continue;
+
+            isVisited[v] = true;
+            sum += wt;
+
+            for (int[] neighbor : graph.get(v)) {
+                int adjNode = neighbor[0];
+                int adjWt = neighbor[1];
+                if (!isVisited[adjNode]) {
+                    pq.offer(new Pair(adjNode, adjWt));
+                }
+            }
+        }
+
+        return sum;
+    }
+}
+
+```
