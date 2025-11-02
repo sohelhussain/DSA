@@ -1,7 +1,7 @@
-https://www.codechef.com/roadmap/data-structures-and-algorithms
+[dsa codeChef](https://www.codechef.com/roadmap/data-structures-and-algorithms)
 
-<h1>DSA SHEET</h1>
-
+# DSA SHEET
+```
 Day 1	--Complexity Basics
 			--Complexities are generally calculated for LARGE inputs
 		--Cases
@@ -757,3 +757,4 @@ P187. Minimum number of deletions and insertions.
 				  https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions-and-insertions0209/1
 P194. 1312. Minimum Insertion Steps to Make a String Palindrome
 P195. 72. Edit Distance
+```
