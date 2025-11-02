@@ -664,16 +664,10 @@ Day 58	--Dynamic Programming Level 6
 			P195. 72. Edit Distance	
 			P196. 300. Longest Increasing Subsequence
 
-
-
-
-
-
-
-
-
-				<!--! ali extra sheet  -->
-<h1>ALI SHEET</h1>
+```
+---
+# EXTRA SHEET
+```
 
 P32. 1299. Replace Elements with Greatest Element on Right Side
 P35. 905. Sort Array By Parity
