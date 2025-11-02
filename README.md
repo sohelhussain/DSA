@@ -390,20 +390,20 @@ Day 35	--Tree / Non linear Data Structure & hexarchial dataStructure
 		--Max/Min val in tree	
 	
 Day 36	--Binary Tree Level 1
-			P119. 94. Binary Tree Inorder Traversal✅
-			P120. 144. Binary Tree Preorder Traversal✅
-			P121. 145. Binary Tree Postorder Traversal✅
-			P122. 104. Maximum Depth of Binary TreeTree✅
+			P119. 94. Binary Tree Inorder Traversal
+			P120. 144. Binary Tree Preorder Traversal
+			P121. 145. Binary Tree Postorder Traversal
+			P122. 104. Maximum Depth of Binary TreeTree
 			
-			P123. 100. Same TreeTree✅
+			P123. 100. Same TreeTree
 			
-			P125. 102. Binary Tree Level Order Traversal✅
-			P126. 116. Populating Next Right Pointers in Each Node✅
-			P127. 112. Path Sum✅
+			P125. 102. Binary Tree Level Order Traversal
+			P126. 116. Populating Next Right Pointers in Each Node
+			P127. 112. Path Sum
 			
 Day 37	--Binary Tree Level 2
-			P128. 226. Invert Binary Tree✅
-			P129. 543. Diameter of Binary TreeTree✅	
+			P128. 226. Invert Binary Tree
+			P129. 543. Diameter of Binary TreeTree
 			P130. Left View
 				  https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1
 		
@@ -411,8 +411,8 @@ Day 37	--Binary Tree Level 2
 				  https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1
 
 Day 38	--Binary Tree Level 3
-			P133. 437. Path Sum III✅
-			P134. 236. Lowest Common Ancestor of a Binary TreeTree✅
+			P133. 437. Path Sum III
+			P134. 236. Lowest Common Ancestor of a Binary TreeTree
 			P135. 105. Construct Binary Tree from Preorder and Inorder Traversal
 		
 Day 39	--Binary Search Tree
