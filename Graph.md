@@ -341,9 +341,9 @@ class Solution {
         while(!pq.isEmpty()) {
             int[] curr = pq.poll();
             int node = curr[0];
-            int d = curr[1];
+            int wt = curr[1];
             
-            if(d > distance[node]) continue;
+            if(wt > distance[node]) continue;
             
             for(int[] neighbor: graph.get(node)) {
                 int nextDestination = neighbor[0];
