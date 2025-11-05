@@ -472,3 +472,140 @@ class Solution {
 }
 
 ```
+---
+# Disjointsets data structure
+```
+public class Disjointsets {
+    int[] rank, parent;
+
+    public Disjointsets(int n) {
+        rank = new int[n + 1];
+        parent = new int[n + 1]; // becuse we are using 1-based indexing that is why we have added one more element
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+        }
+    }
+
+    void union(int u, int v) {
+        int ultimateParent_U = parent[u];
+        int ultimateParent_V = parent[v];
+        if (rank[ultimateParent_U] < rank[ultimateParent_V]) {
+            parent[ultimateParent_U] = ultimateParent_V;
+        }else if(rank[ultimateParent_U] > rank[ultimateParent_V]) {
+            parent[ultimateParent_V] = ultimateParent_U; // bache ke upar parent ka naam likh do
+        }else {
+            parent[ultimateParent_V] = ultimateParent_U;
+            rank[ultimateParent_U]++;
+        }
+    }
+
+    int findParent(int u) {
+        if (u == parent[u]) {
+            return u;
+        }
+        return parent[u] = findParent(parent[u]);
+    }
+    public static void main(String[] args) {
+        Disjointsets obj = new Disjointsets(7);
+        obj.union(1, 2);
+        obj.union(2, 3);
+        obj.union(4, 5);
+        obj.union(6, 7);
+        obj.union(5, 7);
+        if (obj.findParent(3) == obj.findParent(7)) {
+            System.out.println("YES");
+        }else {
+            System.out.println("NO");
+        }
+        obj.union(3, 7);
+        if (obj.findParent(3) == obj.findParent(7)) {
+            System.out.println("YES");
+        }else {
+            System.out.println("NO");
+        }
+    }
+}
+
+```
+---
+# kruskal's algorithm [solve here](https://www.geeksforgeeks.org/problems/minimum-spanning-tree-kruskals-algorithm/1)
+```
+class Disjointsets {
+    int[] rank, parent;
+
+    public Disjointsets(int n) {
+        rank = new int[n + 1];
+        parent = new int[n + 1]; // 1-based indexing
+        for (int i = 0; i <= n; i++) {
+            parent[i] = i;
+        }
+    }
+
+    int findParent(int u) {
+        if (u == parent[u]) return u;
+        return parent[u] = findParent(parent[u]); // path compression
+    }
+
+    void union(int u, int v) {
+        int pu = findParent(u);
+        int pv = findParent(v);
+
+        if (pu == pv) return; // already in same set
+
+        if (rank[pu] < rank[pv]) {
+            parent[pu] = pv;
+        } else if (rank[pu] > rank[pv]) {
+            parent[pv] = pu;
+        } else {
+            parent[pv] = pu;
+            rank[pu]++;
+        }
+    }
+}
+
+// Kruskal’s Algorithm
+class Solution {
+
+    static class Pair implements Comparable<Pair> {
+        int u, v, wt;
+
+        Pair(int u, int v, int wt) {
+            this.u = u;
+            this.v = v;
+            this.wt = wt;
+        }
+
+        public int compareTo(Pair that) {
+            return this.wt - that.wt; // sort by weight
+        }
+    }
+
+    static int kruskalsMST(int V, int[][] edges) {
+        // Create list of edges
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int wt = edge[2];
+            pq.offer(new Pair(u, v, wt));
+        }
+
+        Disjointsets obj = new Disjointsets(V);
+        int sum = 0;
+
+        while (!pq.isEmpty()) {
+            Pair temp = pq.poll();
+            int u = temp.u;
+            int v = temp.v;
+            int wt = temp.wt;
+
+            if (obj.findParent(u) != obj.findParent(v)) {
+                sum += wt;
+                obj.union(u, v);
+            }
+        }
+        return sum;
+    }
+}
+```
