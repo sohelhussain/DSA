@@ -262,6 +262,49 @@ class Solution {
 }
 ```
 ---
+# 207. Course Schedule [solve here](https://leetcode.com/problems/course-schedule/)
+```
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for(int i = 0; i < numCourses; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        boolean[] isVisited = new boolean[numCourses];
+        int[] inDegree = new int[numCourses];
+
+        for(int[] prerequisite: prerequisites) {
+            int course = prerequisite[0];
+            int prerequi = prerequisite[1];
+            adj.get(prerequi).add(course);
+        }
+
+        for(int i = 0; i < adj.size(); i++) {
+            for(int neighbor : adj.get(i)) {
+                inDegree[neighbor]++;
+            }
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        for(int i = 0; i < numCourses; i++) {
+            if(inDegree[i] == 0) queue.offer(i);
+        }
+        int count = 0;
+        while(!queue.isEmpty()) {
+            int frontVal = queue.poll();
+            count++;
+            for(int neighbor: adj.get(frontVal)) {
+                inDegree[neighbor]--;
+                if(inDegree[neighbor] == 0) queue.offer(neighbor);
+            }
+        }
+        return count == numCourses;
+    }
+}
+```
+---
 # Dijkstra Algorithm [solve here](https://www.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1)
 
 ### Algorithm (Easy Step-by-Step Explanation)
