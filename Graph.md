@@ -609,3 +609,27 @@ class Solution {
     }
 }
 ```
+---
+# 733. Flood Fill [solve here](https://leetcode.com/problems/flood-fill/)
+```
+class Solution {
+    private void dfs(int[][] image, int sr, int sc, int color, int oldColor) {
+        if(sr < 0 || sc < 0 || sr >= image.length || sc >= image[0].length) return;
+        if(image[sr][sc] != oldColor) return;
+
+        image[sr][sc] = color;
+
+        dfs(image, sr - 1, sc, color, oldColor);
+        dfs(image, sr + 1, sc, color, oldColor);
+        dfs(image, sr, sc - 1, color, oldColor);
+        dfs(image, sr, sc + 1, color, oldColor);
+
+    }
+    public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+        int oldColor = image[sr][sc];
+        if (oldColor == color) return image;
+        dfs(image, sr, sc, color, oldColor);
+        return image;
+    }
+}
+```
