@@ -667,3 +667,58 @@ class Solution {
     }
 }
 ```
+---
+# 547. Number of Provinces [solve here](https://leetcode.com/problems/number-of-provinces/)
+```
+class Solution {
+    public class Disjointsets {
+        int[] rank, parent;
+
+        public Disjointsets(int n) {
+            rank = new int[n + 1];
+            parent = new int[n + 1]; 
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+        }
+
+        void union(int u, int v) {
+            int ultimateParent_U = parent[u];
+            int ultimateParent_V = parent[v];
+            if (rank[ultimateParent_U] < rank[ultimateParent_V]) {
+                parent[ultimateParent_U] = ultimateParent_V;
+            } else if (rank[ultimateParent_U] > rank[ultimateParent_V]) {
+                parent[ultimateParent_V] = ultimateParent_U;
+            } else {
+                parent[ultimateParent_V] = ultimateParent_U;
+                rank[ultimateParent_U]++;
+            }
+        }
+
+        int findParent(int u) {
+            if (u == parent[u]) {
+                return u;
+            }
+            return parent[u] = findParent(parent[u]);
+        }
+    }
+
+
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        int count = n;
+        Disjointsets obj = new Disjointsets(n);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (isConnected[i][j] == 1 && obj.findParent(i) != obj.findParent(j)) {
+                    obj.union(i, j);
+                    count--;
+                }
+            }
+        }
+        return count;
+    }
+}
+
+```
