@@ -633,3 +633,37 @@ class Solution {
     }
 }
 ```
+---
+# 133. Clone Graph [solve here](https://leetcode.com/problems/clone-graph/)
+```
+class Solution {
+    public Node cloneGraph(Node node) {
+        if (node == null) return null;
+
+
+        HashMap<Node, Node> map = new HashMap<>();
+        Queue<Node> queue = new LinkedList<>();
+
+
+        map.put(node, new Node(node.val, new ArrayList<>()));
+        queue.offer(node);
+
+
+        while (!queue.isEmpty()) {
+            Node frontNode = queue.poll();
+
+            for (Node neighbor : frontNode.neighbors) {
+
+                if (!map.containsKey(neighbor)) {
+                    map.put(neighbor, new Node(neighbor.val, new ArrayList<>()));
+                    queue.offer(neighbor);
+                }
+
+                map.get(frontNode).neighbors.add(map.get(neighbor));
+            }
+        }
+
+        return map.get(node);
+    }
+}
+```
