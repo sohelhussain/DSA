@@ -77,3 +77,25 @@ class Solution {
     }
 }
 ```
+---
+# 5. Fruit Into Baskets [solve here](https://leetcode.com/problems/fruit-into-baskets/)
+```
+class Solution {
+    public int totalFruit(int[] fruits) {
+        int i = 0, j = 0, maxLength = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        while(j < fruits.length) {
+            map.put(fruits[j], map.getOrDefault(fruits[j], 0) + 1);
+            while(map.size() > 2) {
+                if(map.get(fruits[i]) == 1) map.remove(fruits[i]);
+                else map.put(fruits[i], map.get(fruits[i]) - 1);
+                i++;
+            }
+            maxLength = Math.max(maxLength, j - i + 1);
+            j++;
+        }
+        return maxLength;
+    }
+}
+```
