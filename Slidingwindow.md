@@ -99,3 +99,26 @@ class Solution {
     }
 }
 ```
+---
+# 6. Longest Substring Without Repeating Characters [solve here](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+```
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int i = 0, j = 0, max = 0;
+        if(s.length() == 0 || s.length() == 1) return s.length();
+        HashSet<Character> map = new HashSet<>();
+        while(j < s.length()) {
+            char ch = s.charAt(j);
+            if(!map.contains(ch)) {
+                map.add(ch);
+                max = Math.max(max, j - i + 1);
+                j++;
+            }else {
+                map.remove(s.charAt(i));
+                i++;
+            }
+        }
+        return max;
+    }
+}
+```
