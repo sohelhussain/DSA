@@ -122,3 +122,38 @@ class Solution {
     }
 }
 ```
+---
+# 76. Minimum Window Substring [solve here](https://leetcode.com/problems/minimum-window-substring/)
+```
+class Solution {
+    public String minWindow(String s, String t) {
+        if(t.length() > s.length()) return "";
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(int i = 0; i < t.length(); i++) {
+            map.put(t.charAt(i), map.getOrDefault(t.charAt(i), 0) + 1);
+        }
+
+        int minLength = Integer.MAX_VALUE, i = 0, minStart = 0, count = 0;
+        for(int j = 0; j < s.length(); j++) {
+            char ch = s.charAt(j);
+            if(map.containsKey(ch)) {
+                map.put(ch, map.get(ch) - 1);
+                if(map.get(ch) >= 0) count++;
+            }
+            while(count == t.length()) {
+                if(minLength > j - i + 1) {
+                    minLength = j - i + 1;
+                    minStart = i;
+                }
+                if(map.containsKey(s.charAt(i))) {
+                    map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
+                    if(map.get(s.charAt(i)) > 0) count--;
+                }
+                i++;
+            }
+        }
+        if(minLength > s.length()) return "";
+        return s.substring(minStart, minStart + minLength);
+    }
+}
+```
