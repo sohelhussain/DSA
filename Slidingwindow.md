@@ -81,7 +81,7 @@ class Solution {
 }
 ```
 ---
-# 4. // largest/longest subarray of sum k
+# 4. largest/longest subarray of sum k
 ```
 public static void main(String[] args) {
         int[] nums = {1,2,3,1,1,1,1};
