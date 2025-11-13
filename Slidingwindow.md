@@ -1,3 +1,6 @@
+```when i increase then reduce the i'th element on the sum, when j is increase then add a j'th element into sum```
+### how to find subString length ```j - i + 1```
+
 # 1. Max Sum Subarray of size K [solve here](https://www.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1)
 ```
 class Solution {
@@ -75,6 +78,24 @@ class Solution {
         }
         return count;
     }
+}
+```
+---
+# 4. // largest/longest subarray of sum k
+```
+public static void main(String[] args) {
+        int[] nums = {1,2,3,1,1,1,1};
+        int i = 0, j = 0, maxLength = 0, sum = 0;
+        int k = 3;
+        while(j < nums.length) {
+            sum += nums[j];
+            while(i <= j &&sum > k) {
+                sum -= nums[i];
+                i++;
+            }
+            if(sum == k) maxLength = Math.max(maxLength, j - i + 1);
+            j++;
+        }
 }
 ```
 ---
