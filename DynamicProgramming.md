@@ -124,7 +124,8 @@ class Solution {
 ```
 ---
 # 1143. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
-### without dp simple recursion
+![IMG_0148](https://github.com/user-attachments/assets/0c8715d3-3271-4e7e-9d85-45163a306fc0)
+### without using dp simple recursion
 ```
 class Solution {
     private int dfs(String t1, String t2, int i, int j) {
@@ -162,6 +163,7 @@ class Solution {
 }
 ```
 ### top - down
+![IMG_0149](https://github.com/user-attachments/assets/1e7a602e-180a-4d26-8f17-265c2e0df13b)
 ```
 class Solution {
     public int longestCommonSubsequence(String text1, String text2) {
