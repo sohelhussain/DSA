@@ -122,3 +122,61 @@ class Solution {
     }
 }
 ```
+---
+# 1143. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
+### without dp simple recursion
+```
+class Solution {
+    private int dfs(String t1, String t2, int i, int j) {
+        if(i == -1 || j == -1) {
+            return 0;
+        }else if(t1.charAt(i) == t2.charAt(j)) {
+            return 1 + dfs(t1, t2, i - 1, j - 1);
+        }else {
+            return Math.max(dfs(t1, t2, i - 1, j), dfs(t1, t2, i, j - 1));
+        }
+    }
+    public int longestCommonSubsequence(String text1, String text2) {
+        return dfs(text1, text2, text1.length() - 1, text2.length() - 1);
+    }
+}
+```
+### with dp
+```
+class Solution {
+    private int dfs(String t1, String t2, int i, int j, Integer[][] dp) {
+        if(i == 0 || j == 0) {
+            return 0;
+        }else if(dp[i][j] != null) {
+            return dp[i][j];
+        }else if(t1.charAt(i - 1) == t2.charAt(j - 1)) {
+            return dp[i][j] = 1 + dfs(t1, t2, i - 1, j - 1, dp);
+        }else {
+            return dp[i][j] = Math.max(dfs(t1, t2, i - 1, j, dp), dfs(t1, t2, i, j - 1, dp));
+        }
+    }
+    public int longestCommonSubsequence(String text1, String text2) {
+        Integer[][] dp = new Integer[text1.length() + 1][text2.length() + 2];
+        return dfs(text1, text2, text1.length(), text2.length(), dp);
+    }
+}
+```
+### top - down
+```
+class Solution {
+    public int longestCommonSubsequence(String text1, String text2) {
+        int[][] dp = new int[text1.length() + 1][text2.length() + 2];
+
+        for(int i = 1; i <= text1.length(); i++) {
+            for(int j = 1; j <= text2.length(); j++) {
+                if(text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                }else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j-1]);
+                }
+            }
+        }
+        return dp[text1.length()][text2.length()];
+    }
+}
+```
