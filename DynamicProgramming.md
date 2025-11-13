@@ -182,3 +182,47 @@ class Solution {
     }
 }
 ```
+---
+# Longest Common Substring [solve here](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
+
+### two pointer n^2
+```
+class Solution {
+    public int longestCommonSubstr(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+        int max = 0;
+        for (int i = 0; i < n; i++) {           
+            for (int j = 0; j < m; j++) {
+                int k = 0; // pointer to extend matching substring
+                while (i + k < n && j + k < m && s1.charAt(i + k) == s2.charAt(j + k)) {
+                    k++;
+                }       
+                max = Math.max(max, k);
+            }
+        }
+        return max;
+    }
+}
+```
+### top - down dp
+```
+class Solution {
+    public int longestCommonSubstr(String s1, String s2) {
+        int[][] dp = new int[s1.length() + 1][s2.length() + 1];
+        int max = 0;
+
+        for(int i = 1; i <= s1.length(); i++) {
+            for(int j = 1; j <= s2.length(); j++) {
+                if(s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                    max = Math.max(dp[i][j], max);
+                }else {
+                    dp[i][j] = 0;
+                }
+            }
+        }
+        return max;
+    }
+}
+```
