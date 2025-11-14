@@ -226,3 +226,81 @@ class Solution {
     }
 }
 ```
+---
+#
+```
+public class Solution {
+    
+    public static int dfs(int[] w, int[] v, int c, int n) {
+        if(n == 0 || c == 0) {
+            return 0;
+        }
+        if (w[n - 1] > c) {
+            return dfs(w, v, c, n - 1);
+        }else {
+            return Math.max(dfs(w, v, c - w[n - 1], n - 1) + v[n - 1], dfs(w, v, c, n - 1));
+        }
+    }
+    public static void main(String[] args) {
+        int c = 10;
+        int[] weight = {3,1,5,4,9};
+        int[] value = {4,3,8,8,10};
+        System.out.println(dfs(weight, value, c, weight.length, dp));
+    }
+}
+```
+### using dp memoization
+```
+public class Solution {
+    
+    public static int dfss(int[] w, int[] v, int c, int n, Integer[][] dp) {
+        if(n == 0 || c == 0) {
+            return 0;
+        }
+        if (dp[n][c] != null) {
+            return dp[n][c];
+        }
+        if (w[n - 1] > c) {
+            return dp[n][c] = dfss(w, v, c, n - 1, dp);
+        }else {
+            return dp[n][c] = Math.max(dfss(w, v, c - w[n - 1], n - 1, dp) + v[n - 1], dfss(w, v, c, n - 1, dp));
+        }
+    }
+    public static void main(String[] args) {
+        int c = 10;
+        int[] weight = {3,1,5,4,9};
+        int[] value = {4,3,8,8,10};
+        Integer[][] dp = new Integer[weight.length + 1][c + 1];
+        System.out.println(dfss(weight, value, c, weight.length, dp));
+    }
+}
+```
+### tabulation
+```
+public class Solution {
+    public static void main(String[] args) {
+        int c = 10;
+        int[] weight = {3,1,5,4,9};
+        int[] value = {4,3,8,8,10};
+        Integer[][] dp = new Integer[weight.length + 1][c + 1];
+
+        for (int i = 0; i <= weight.length; i++) {
+            for (int j = 0; j <= c; j++) {
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 0;
+                }else if (weight[i - 1] <= j) {
+                    dp[i][j] = Math.max(dp[i - 1][j - weight[i - 1]] + value[i - 1], dp[i - 1][j]);
+                }else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+        int ans = dp[weight.length][c];
+
+        for (Integer[] integers : dp) {
+            System.out.println(Arrays.toString(integers));
+        }
+        System.out.println(ans);
+    }
+}
+```
