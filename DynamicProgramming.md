@@ -227,7 +227,8 @@ class Solution {
 }
 ```
 ---
-#
+# 0/1 Knapsack
+![IMG_0151](https://github.com/user-attachments/assets/8f976810-52ab-42db-9209-c959f5f7e195)
 ```
 public class Solution {
     
