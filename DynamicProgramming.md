@@ -123,111 +123,7 @@ class Solution {
 }
 ```
 ---
-# 1143. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
-![IMG_0148](https://github.com/user-attachments/assets/0c8715d3-3271-4e7e-9d85-45163a306fc0)
-### without using dp simple recursion
-```
-class Solution {
-    private int dfs(String t1, String t2, int i, int j) {
-        if(i == -1 || j == -1) {
-            return 0;
-        }else if(t1.charAt(i) == t2.charAt(j)) {
-            return 1 + dfs(t1, t2, i - 1, j - 1);
-        }else {
-            return Math.max(dfs(t1, t2, i - 1, j), dfs(t1, t2, i, j - 1));
-        }
-    }
-    public int longestCommonSubsequence(String text1, String text2) {
-        return dfs(text1, text2, text1.length() - 1, text2.length() - 1);
-    }
-}
-```
-### with dp
-```
-class Solution {
-    private int dfs(String t1, String t2, int i, int j, Integer[][] dp) {
-        if(i == 0 || j == 0) {
-            return 0;
-        }else if(dp[i][j] != null) {
-            return dp[i][j];
-        }else if(t1.charAt(i - 1) == t2.charAt(j - 1)) {
-            return dp[i][j] = 1 + dfs(t1, t2, i - 1, j - 1, dp);
-        }else {
-            return dp[i][j] = Math.max(dfs(t1, t2, i - 1, j, dp), dfs(t1, t2, i, j - 1, dp));
-        }
-    }
-    public int longestCommonSubsequence(String text1, String text2) {
-        Integer[][] dp = new Integer[text1.length() + 1][text2.length() + 2];
-        return dfs(text1, text2, text1.length(), text2.length(), dp);
-    }
-}
-```
-### top - down
-![IMG_0149](https://github.com/user-attachments/assets/1e7a602e-180a-4d26-8f17-265c2e0df13b)
-```
-class Solution {
-    public int longestCommonSubsequence(String text1, String text2) {
-        int[][] dp = new int[text1.length() + 1][text2.length() + 2];
-
-        for(int i = 1; i <= text1.length(); i++) {
-            for(int j = 1; j <= text2.length(); j++) {
-                if(text1.charAt(i - 1) == text2.charAt(j - 1)) {
-                    dp[i][j] = 1 + dp[i - 1][j - 1];
-                }else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j-1]);
-                }
-            }
-        }
-        return dp[text1.length()][text2.length()];
-    }
-}
-```
----
-# Longest Common Substring [solve here](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
-
-### two pointer n^2
-```
-class Solution {
-    public int longestCommonSubstr(String s1, String s2) {
-        int n = s1.length();
-        int m = s2.length();
-        int max = 0;
-        for (int i = 0; i < n; i++) {           
-            for (int j = 0; j < m; j++) {
-                int k = 0; // pointer to extend matching substring
-                while (i + k < n && j + k < m && s1.charAt(i + k) == s2.charAt(j + k)) {
-                    k++;
-                }       
-                max = Math.max(max, k);
-            }
-        }
-        return max;
-    }
-}
-```
-### top - down dp
-```
-class Solution {
-    public int longestCommonSubstr(String s1, String s2) {
-        int[][] dp = new int[s1.length() + 1][s2.length() + 1];
-        int max = 0;
-
-        for(int i = 1; i <= s1.length(); i++) {
-            for(int j = 1; j <= s2.length(); j++) {
-                if(s1.charAt(i - 1) == s2.charAt(j - 1)) {
-                    dp[i][j] = 1 + dp[i - 1][j - 1];
-                    max = Math.max(dp[i][j], max);
-                }else {
-                    dp[i][j] = 0;
-                }
-            }
-        }
-        return max;
-    }
-}
-```
----
-# 0/1 Knapsack
+# 5. 0/1 Knapsack
 ![IMG_0151](https://github.com/user-attachments/assets/8f976810-52ab-42db-9209-c959f5f7e195)
 ```
 public class Solution {
@@ -302,6 +198,147 @@ public class Solution {
             System.out.println(Arrays.toString(integers));
         }
         System.out.println(ans);
+    }
+}
+```
+---
+# 6. Partition Equal Subset Sum [solve here](https://leetcode.com/problems/partition-equal-subset-sum/)
+question says ```1, 5, 5 || 11 = true (11 + 11 => 22 even)```
+```array sum / 2``` 
+```
+class Solution {
+    Boolean[][] dp;
+    private boolean part(int n, int[] nums, int sum) {
+        if(dp[n][sum] != null) {
+            return dp[n][sum];
+        }
+        if(nums[n - 1] <= sum) {
+            return dp[n][sum] = part(n - 1, nums, sum - nums[n - 1]) || part(n - 1, nums, sum);
+        }else {
+            return dp[n][sum] = part(n - 1, nums, sum);
+        }
+    }
+    public boolean canPartition(int[] nums) {
+        int n = nums.length;
+        int sum = 0;
+        for(int num: nums) {
+            sum += num;
+        }
+
+        if(sum % 2 != 0) return false;
+        else sum = sum / 2;
+        dp = new Boolean[n + 1][sum + 1];
+
+        for(int i = 0; i <= n; i++) {
+            dp[i][0] = true;
+        }
+        for(int i = 0; i <= sum; i++) {
+            dp[0][i] = false;
+        }
+        return part(n, nums, sum);
+    }
+}
+```
+---
+# 1143. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
+![IMG_0148](https://github.com/user-attachments/assets/0c8715d3-3271-4e7e-9d85-45163a306fc0)
+### without using dp simple recursion
+```
+class Solution {
+    private int dfs(String t1, String t2, int i, int j) {
+        if(i == -1 || j == -1) {
+            return 0;
+        }else if(t1.charAt(i) == t2.charAt(j)) {
+            return 1 + dfs(t1, t2, i - 1, j - 1);
+        }else {
+            return Math.max(dfs(t1, t2, i - 1, j), dfs(t1, t2, i, j - 1));
+        }
+    }
+    public int longestCommonSubsequence(String text1, String text2) {
+        return dfs(text1, text2, text1.length() - 1, text2.length() - 1);
+    }
+}
+```
+### with dp
+```
+class Solution {
+    private int dfs(String t1, String t2, int i, int j, Integer[][] dp) {
+        if(i == 0 || j == 0) {
+            return 0;
+        }else if(dp[i][j] != null) {
+            return dp[i][j];
+        }else if(t1.charAt(i - 1) == t2.charAt(j - 1)) {
+            return dp[i][j] = 1 + dfs(t1, t2, i - 1, j - 1, dp);
+        }else {
+            return dp[i][j] = Math.max(dfs(t1, t2, i - 1, j, dp), dfs(t1, t2, i, j - 1, dp));
+        }
+    }
+    public int longestCommonSubsequence(String text1, String text2) {
+        Integer[][] dp = new Integer[text1.length() + 1][text2.length() + 2];
+        return dfs(text1, text2, text1.length(), text2.length(), dp);
+    }
+}
+```
+### top - down
+![IMG_0149](https://github.com/user-attachments/assets/1e7a602e-180a-4d26-8f17-265c2e0df13b)
+```
+class Solution {
+    public int longestCommonSubsequence(String text1, String text2) {
+        int[][] dp = new int[text1.length() + 1][text2.length() + 2];
+
+        for(int i = 1; i <= text1.length(); i++) {
+            for(int j = 1; j <= text2.length(); j++) {
+                if(text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                }else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j-1]);
+                }
+            }
+        }
+        return dp[text1.length()][text2.length()];
+    }
+}
+```
+---
+# Longest Common Substring [solve here](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
+### two pointer n^2
+```
+class Solution {
+    public int longestCommonSubstr(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+        int max = 0;
+        for (int i = 0; i < n; i++) {           
+            for (int j = 0; j < m; j++) {
+                int k = 0; // pointer to extend matching substring
+                while (i + k < n && j + k < m && s1.charAt(i + k) == s2.charAt(j + k)) {
+                    k++;
+                }       
+                max = Math.max(max, k);
+            }
+        }
+        return max;
+    }
+}
+```
+### top - down dp
+```
+class Solution {
+    public int longestCommonSubstr(String s1, String s2) {
+        int[][] dp = new int[s1.length() + 1][s2.length() + 1];
+        int max = 0;
+
+        for(int i = 1; i <= s1.length(); i++) {
+            for(int j = 1; j <= s2.length(); j++) {
+                if(s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                    max = Math.max(dp[i][j], max);
+                }else {
+                    dp[i][j] = 0;
+                }
+            }
+        }
+        return max;
     }
 }
 ```
