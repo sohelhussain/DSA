@@ -249,6 +249,47 @@ class Solution {
 }
 ```
 ---
+# 7. Target Sum [solve here](https://leetcode.com/problems/target-sum/)
+```
+class Solution {
+    Integer[][] dp;
+    private int dfs(int n, int[] nums, int sum) {
+        if(dp[n][sum] != null) {
+            return dp[n][sum];
+        }
+        if(nums[n - 1] > sum) {
+            return dp[n][sum] = dfs(n - 1, nums, sum);
+        }else {
+            int take = dfs(n - 1, nums, sum - nums[n - 1]);
+            int notTake = dfs(n - 1, nums, sum);
+            return dp[n][sum] = take + notTake;
+        }
+    }
+    private int fn_dp(int n, int[] nums, int sum) {
+        dp = new Integer[n + 1][sum + 1];
+        for(int i = 0; i <= sum; i++) {
+            dp[0][i] = 0;
+        }
+        dp[0][0] = 1;
+        return dfs(n, nums, sum);
+    }
+    public int findTargetSumWays(int[] nums, int target) {
+        int n = nums.length;
+        int sum = 0;
+        target = Math.abs(target);
+
+        for(int num: nums) {
+            sum += num;
+        }
+
+        if (target > sum || (target + sum) % 2 == 1) return 0;
+
+
+        return fn_dp(n, nums, (target + sum) / 2);
+    }
+}
+```
+---
 # 1143. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
 ![IMG_0148](https://github.com/user-attachments/assets/0c8715d3-3271-4e7e-9d85-45163a306fc0)
 ### without using dp simple recursion
