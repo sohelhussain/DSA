@@ -321,7 +321,12 @@ class Solution {
 }
 ```
 ---
-# 9. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
+# 9. Coin Change [solve here](https://leetcode.com/problems/coin-change/)
+```
+
+```
+---
+# 10. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
 ![IMG_0148](https://github.com/user-attachments/assets/0c8715d3-3271-4e7e-9d85-45163a306fc0)
 ### without using dp simple recursion
 ```
@@ -381,7 +386,7 @@ class Solution {
 }
 ```
 ---
-# 10. Longest Common Substring [solve here](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
+# 11. Longest Common Substring [solve here](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
 ### two pointer n^2
 ```
 class Solution {
@@ -423,3 +428,22 @@ class Solution {
     }
 }
 ```
+---
+# 12. Delete Operation for Two Strings [solve here](https://leetcode.com/problems/delete-operation-for-two-strings/)
+```
+
+```
+---
+# 13. Shortest Common Supersequence [solve here](https://leetcode.com/problems/shortest-common-supersequence/)
+```
+```
+---
+# 14. Longest Palindromic Subsequence [solve here](https://leetcode.com/problems/longest-palindromic-subsequence)
+```
+```
+---
+# 15. Longest Palindromic Substring [solve here](https://leetcode.com/problems/longest-palindromic-substring/)
+```
+```
+---
+# 16. 
