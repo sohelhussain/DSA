@@ -124,6 +124,13 @@ class Solution {
 ```
 ---
 # 5. 0/1 Knapsack
+#### smaller input
+```
+Capacity = 5
+Weights = {2, 3}
+Values = {4, 5}
+output = 9
+```
 ![IMG_0151](https://github.com/user-attachments/assets/8f976810-52ab-42db-9209-c959f5f7e195)
 ```
 public class Solution {
@@ -160,7 +167,9 @@ public class Solution {
         if (w[n - 1] > c) {
             return dp[n][c] = dfss(w, v, c, n - 1, dp);
         }else {
-            return dp[n][c] = Math.max(dfss(w, v, c - w[n - 1], n - 1, dp) + v[n - 1], dfss(w, v, c, n - 1, dp));
+            int take = dfss(w, v, c - w[n - 1], n - 1, dp) + v[n - 1];
+            int notTake = dfss(w, v, c, n - 1, dp);
+            return dp[n][c] = Math.max(take, notTake);
         }
     }
     public static void main(String[] args) {
@@ -208,19 +217,22 @@ question says ```1, 5, 5 || 11 = true (11 + 11 => 22 even)```
 ```
 class Solution {
     Boolean[][] dp;
-    private boolean part(int n, int[] nums, int sum) {
-        if(dp[n][sum] != null) {
-            return dp[n][sum];
-        }
-        if(nums[n - 1] <= sum) {
-            return dp[n][sum] = part(n - 1, nums, sum - nums[n - 1]) || part(n - 1, nums, sum);
+    private boolean dfs(int[] nums, int target, int n) {
+        if(dp[n][target] != null) return dp[n][target];
+
+        if(nums[n - 1] > target) {
+            return dp[n][target] = dfs(nums, target, n - 1);
         }else {
-            return dp[n][sum] = part(n - 1, nums, sum);
+            boolean take = dfs(nums, target - nums[n - 1], n - 1);
+            boolean notTake = dfs(nums, target, n - 1);
+
+            return dp[n][target] = take || notTake;
         }
     }
     public boolean canPartition(int[] nums) {
         int n = nums.length;
         int sum = 0;
+
         for(int num: nums) {
             sum += num;
         }
@@ -229,13 +241,10 @@ class Solution {
         else sum = sum / 2;
         dp = new Boolean[n + 1][sum + 1];
 
-        for(int i = 0; i <= n; i++) {
-            dp[i][0] = true;
-        }
-        for(int i = 0; i <= sum; i++) {
-            dp[0][i] = false;
-        }
-        return part(n, nums, sum);
+        for(int i = 0; i <= n; i++) dp[i][0] = true;
+        for(int i = 0; i <= sum; i++) dp[0][i] = false;
+
+        return dfs(nums, sum, n);
     }
 }
 ```
