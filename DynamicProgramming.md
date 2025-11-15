@@ -290,7 +290,38 @@ class Solution {
 }
 ```
 ---
-# 1143. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
+# 8. Coin Change II [solve here](https://leetcode.com/problems/coin-change-ii/)
+```
+class Solution {
+    private int dfs(int n, int amount, int[] coins, Integer[][] dp) {
+        if(dp[n][amount] != null) {
+            return dp[n][amount];
+        }
+
+        if(coins[n - 1] > amount) {
+            return dp[n][amount] = dfs(n - 1, amount, coins, dp);
+        }else {
+            int take = dfs(n, amount - coins[n - 1], coins, dp);
+            int notTake = dfs(n - 1, amount, coins, dp);
+            return dp[n][amount] = take + notTake;
+        }
+    }
+    public int change(int amount, int[] coins) {
+        int n = coins.length;
+        Integer[][] dp = new Integer[n + 1][amount + 1];
+        for(int i = 0; i <= amount; i++) {
+            dp[0][i] = 0;
+        }
+        for(int i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
+
+        return dfs(n, amount, coins, dp);
+    }
+}
+```
+---
+# 9. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
 ![IMG_0148](https://github.com/user-attachments/assets/0c8715d3-3271-4e7e-9d85-45163a306fc0)
 ### without using dp simple recursion
 ```
@@ -350,7 +381,7 @@ class Solution {
 }
 ```
 ---
-# Longest Common Substring [solve here](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
+# 10. Longest Common Substring [solve here](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
 ### two pointer n^2
 ```
 class Solution {
