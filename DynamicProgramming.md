@@ -502,15 +502,83 @@ class Solution {
 }
 ```
 ---
-# 17. [solve here]()
+# 17. Palindrome Partitioning [solve here](https://leetcode.com/problems/palindrome-partitioning/)
 ```
+class Solution {
+    private void dfs(String s, List<List<String>> list, List<String> cur, boolean[][] dp, int tracker) {
+        if(tracker == s.length()) {
+            list.add(new ArrayList<>(cur));
+            return;
+        }
+        for(int i = tracker; i < s.length(); i++) {
+
+            if(dp[tracker][i]) {
+                String subString = s.substring(tracker, i + 1);
+                cur.add(subString);
+                dfs(s, list, cur, dp, i + 1);
+                cur.remove(cur.size() - 1);
+            }
+        }
+    }
+    public List<List<String>> partition(String s) {
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        for(int k = 0; k < n; k++) {
+            for(int i = 0, j = k; j < n; i++, j++) {
+                if(i == j) {
+                    dp[i][j] = true;
+                }else if(s.charAt(i) == s.charAt(j) && j - i == 1) {
+                    dp[i][j] = true;
+                }else if(s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]) {
+                    dp[i][j] = true;
+                }
+            }
+        }
+
+        List<List<String>> list = new ArrayList<>();
+        List<String> cur = new ArrayList<>();
+
+        dfs(s, list, cur, dp, 0);
+        return list;
+    }
+}
 ```
 ---
-# 18. [solve here]()
+# 18. Minimum Insertion Steps to Make a String Palindrome [solve here](https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/)
 ```
+
 ```
 ---
-# 19. [solve here]()
+# 19. Edit Distance [solve here](https://leetcode.com/problems/edit-distance/)
 ```
+class Solution {
+    public int minDistance(String word1, String word2) {
+        int l1 = word1.length();
+        int l2 = word2.length();
+        int[][] dp = new int[l1 + 1][l2 + 1];
+
+        for(int i = 0; i <= l1; i++) {
+            dp[i][0] = i;
+        }
+        for(int i = 0; i <= l2; i++) {
+            dp[0][i] = i;
+        }
+
+        for(int i = 1; i <= l1; i++) {
+            for(int j = 1; j <= l2; j++) {
+                if(word1.charAt(i - 1) == word2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                }else {
+                    int insert = dp[i][j - 1];
+                    int delete = dp[i - 1][j];
+                    int replace = dp[i - 1][j - 1];
+
+                    dp[i][j] = 1 + Math.min(replace, Math.min(insert, delete));
+                }
+            }
+        }
+        return dp[l1][l2];
+    }
+}
 ```
 ---
