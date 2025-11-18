@@ -73,7 +73,7 @@ class Solution {
     private int dfs(int n, Integer[] dp) {
         if(n <= 3) return n;
         if(dp[n] != null) return dp[n];
-        return dp[n] = dfs(n - 1, dp) + dfs(n - 2, dp);
+        return dp[n] = dfs(n - 1, dp) + dfs(n - 2, dp); // wher are you come from on nth stairs may be you come from n - 1 or n - 2 stairs.
     }
     public int climbStairs(int n) {
         Integer[] dp = new Integer[n + 1];
