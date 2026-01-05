@@ -15,7 +15,6 @@
 ```
 ---
 
-
 # 21. Merge Two Sorted Lists [solve here]()
 
 ### recusive approach
