@@ -144,7 +144,7 @@ class Solution {
 }
 ```
 ---
-# 76. Minimum Window Substring [solve here](https://leetcode.com/problems/minimum-window-substring/)
+# 7. Minimum Window Substring [solve here](https://leetcode.com/problems/minimum-window-substring/)
 ```
 class Solution {
     public String minWindow(String s, String t) {
