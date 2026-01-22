@@ -110,7 +110,7 @@ class Solution {
         
         for(int neighbor: adj.get(node)) {
             if(!isVisited[neighbor]) {
-                if(dfs(neighbor, adj, isVisited, recursiveStack)) return true;;
+                if(dfs(neighbor, adj, isVisited, recursiveStack)) return true;
             }else if(recursiveStack[neighbor]) {
                 return true;
             }
