@@ -597,7 +597,7 @@ class Disjointsets {
 
         if (rank[pu] < rank[pv]) {
             parent[pu] = pv;
-        } else if (rank[pu] > rank[pv]) {
+        } else if (rank[pu] > rank[pv]) { // u greter u assing
             parent[pv] = pu;
         } else {
             parent[pv] = pu;
