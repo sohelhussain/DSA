@@ -767,7 +767,7 @@ class Solution {
 ```
 ---
 #  Is Graph Bipartite? [solve here](https://leetcode.com/problems/is-graph-bipartite/) 
-
+![IMG_0205](https://github.com/user-attachments/assets/9da8bccd-87b9-48ed-bf7c-de4e10cbe4ab)
 ### dfs approach
 ```
 class Solution {
@@ -788,6 +788,7 @@ class Solution {
         Arrays.fill(colorArr, -1);
 
         for(int i = 0; i < graph.length; i++) {
+
             if(colorArr[i] == -1) {
                 if(!dfs(i, 0, colorArr, graph)) return false;
             }
