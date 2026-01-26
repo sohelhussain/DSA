@@ -800,5 +800,35 @@ class Solution {
 ### bfs approch
 
 ```
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+        int[] colorArr = new int[graph.length];
+        Arrays.fill(colorArr, -1);
 
+        for(int i = 0; i < graph.length; i++) {
+
+            if(colorArr[i] != -1) continue;
+
+
+            Queue<Integer> queue = new LinkedList<>();
+            queue.offer(i);
+            colorArr[i] = 0;
+
+
+            while(!queue.isEmpty()) {
+                int node = queue.poll();
+
+                for(int neighbor: graph[node]) {
+                    if(colorArr[neighbor] == -1) {
+                        colorArr[neighbor] = 1 - colorArr[node];
+                        queue.offer(neighbor); 
+                    }else if(colorArr[neighbor] == colorArr[node]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
