@@ -765,3 +765,40 @@ class Solution {
 }
 
 ```
+---
+#  Is Graph Bipartite? [solve here](https://leetcode.com/problems/is-graph-bipartite/) 
+
+### dfs approach
+```
+class Solution {
+    private boolean dfs(int node, int color, int[] colorArr, int[][] graph) {
+        colorArr[node] = color;
+
+        for(int neighbor: graph[node]) {
+            if(colorArr[neighbor] == -1) {
+                if(!dfs(neighbor, 1 - color, colorArr, graph)) return false;
+            }else if(colorArr[neighbor] == color) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean isBipartite(int[][] graph) {
+        int[] colorArr = new int[graph.length];
+        Arrays.fill(colorArr, -1);
+
+        for(int i = 0; i < graph.length; i++) {
+            if(colorArr[i] == -1) {
+                if(!dfs(i, 0, colorArr, graph)) return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### bfs approch
+
+```
+
+```
