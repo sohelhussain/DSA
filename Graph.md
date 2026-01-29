@@ -833,3 +833,60 @@ class Solution {
     }
 }
 ```
+---
+994. Rotting Oranges [solve here](https://leetcode.com/problems/rotting-oranges/)
+
+```
+class Solution {
+    class Pair {
+        int r, c, time;
+
+        Pair(int _r, int _c, int _time) {
+            this.r = _r;
+            this.c = _c;
+            this.time = _time;
+        }
+    }
+    public int orangesRotting(int[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+
+        Queue<Pair> queue = new LinkedList<>();
+        int fresh = 0;
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < m; j++) {
+                if(grid[i][j] == 2) {
+                    queue.offer(new Pair(i, j, 0));
+                }
+
+                if(grid[i][j] == 1) {
+                    fresh++;
+                }
+            }
+        }
+
+        int time = 0;
+        int[] drow = {-1, 0, 1, 0};
+        int[] dcol = {0, 1, 0, -1};
+
+        while(!queue.isEmpty()) {
+            Pair cur = queue.poll();
+            time = Math.max(time, cur.time);
+
+            for(int i = 0; i < 4; i++) {
+                int nr = cur.r + drow[i];
+                int nc = cur.c + dcol[i];
+
+                if(nr >= 0 && nc >= 0 && nr < n && nc < m && grid[nr][nc] == 1) {
+                    grid[nr][nc] = 2;
+                    fresh--;
+                    queue.offer(new Pair(nr, nc, cur.time + 1));
+                }
+            }
+        }
+
+        return fresh == 0 ? time : -1;
+    }
+}
+```
