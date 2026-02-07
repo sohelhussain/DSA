@@ -18,6 +18,9 @@ code
             System.out.println();        <- this is for moving cursor into next line
         }
 ```
+```
+time -> n^2
+```
 ---
 # 2. print left tringle
 
