@@ -1,4 +1,4 @@
-# isSorted or not in increaseing order
+# isSorted or not in increaseing order [solve here](https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/)
 ```
          int[] arr = {1,4,6,7,3,3};
         int n = arr.length;
@@ -41,7 +41,7 @@
         }
 ```
 ---
-# left rotation by 1
+# left rotation by 1 
 ```
         int temp = arr[0];
         
@@ -55,7 +55,7 @@
         }
 ```
 ---
-# 1051. Height Checker [solve here]() 
+# 1051. Height Checker [solve here](https://leetcode.com/problems/height-checker/) 
 ```
 class Solution {
     public int heightChecker(int[] heights) {
