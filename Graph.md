@@ -532,7 +532,7 @@ public class Disjointsets {
     void union(int u, int v) {
         int ultimateParent_U = parent[u];
         int ultimateParent_V = parent[v];
-        if (rank[ultimateParent_U] < rank[ultimateParent_V]) {
+        if (rank[ultimateParent_U] < rank[ultimateParent_V]) { // chati rank ko badi rank me add karna
             parent[ultimateParent_U] = ultimateParent_V;
         }else if(rank[ultimateParent_U] > rank[ultimateParent_V]) {
             parent[ultimateParent_V] = ultimateParent_U; // bache ke upar parent ka naam likh do
@@ -595,7 +595,7 @@ class Disjointsets {
 
         if (pu == pv) return; // already in same set
 
-        if (rank[pu] < rank[pv]) {
+        if (rank[pu] < rank[pv]) {  // chati rank ko badi rank me add karna
             parent[pu] = pv;
         } else if (rank[pu] > rank[pv]) { // u greter u assing
             parent[pv] = pu;
