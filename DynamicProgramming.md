@@ -20,14 +20,14 @@ public class Solution {
     private static int dfs(int n, Integer[] dp) {
         if(n <= 1) return n;
 
-        if(dp[n] != null) return dp[n];
+        if(dp[n] != null) return dp[n]; 
 
         return dp[n] = dfs(n - 1, dp) + dfs(n - 2, dp);
     }
     
     public static void main(String[] args) {
        int n = 4;
-       Integer[] dp = new Integer[n + 1];
+       Integer[] dp = new Integer[n + 1]; // dp of size n + 1 because you want to store values from index 0 to n
        System.out.println(dfs(n, dp));
     }    
 }
