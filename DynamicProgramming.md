@@ -125,6 +125,42 @@ class Solution {
     }
 }
 ```
+### tabu
+```
+class Solution {
+    Integer[] dp;
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        dp = new Integer[n + 1];
+        dp[0] = cost[0];
+        dp[1] = cost[1];
+
+        for(int i = 2; i <= n; i++) {
+            dp[i] = Math.min(dp[i - 1], dp[i - 2]) + (i == n ? 0 : cost[i]);
+        }
+
+        return dp[n];
+    }
+}
+```
+### space optimize O(1)
+```
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        int first = cost[0];
+        int second = cost[1];
+
+        for(int i = 2; i <= n; i++) {
+            int cur = Math.min(first, second) + (i == n ? 0 : cost[i]);
+            first = second;
+            second = cur;
+        }
+
+        return second;
+    }
+}
+```
 ---
 # 4. Jump Game [solve here](https://leetcode.com/problems/jump-game/)
 ```
