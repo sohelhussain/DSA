@@ -82,6 +82,16 @@ class Solution {
 }
 ```
 # 3. Min Cost Climbing Stairs [solve here](https://leetcode.com/problems/min-cost-climbing-stairs/)
+
+1. Brute force recursion → O(2^n)
+2. For n = 1000 → 2^1000 → impossible
+3. So immediately you know:
+   -> If recursion has branching (2 choices every step) and n is up to 1000 → it must be DP.
+4. “Minimum cost”
+    Optimization problem → classic DP signal.
+5. “From each step you can go to i+1 or i+2” -> current state depends on smaller future states
+   ```f(i) = cost[i] + min(f(i+1), f(i+2))``` It is DP.
+
 ```
 class Solution {
     private int dfs(int n, int[] cost, Integer[] dp) {
@@ -95,6 +105,23 @@ class Solution {
         int n = cost.length;
         Integer[] dp = new Integer[n + 1];
         return Math.min(dfs(n - 1, cost, dp), dfs(n - 2, cost, dp));
+    }
+}
+```
+```
+class Solution {
+    Integer[] dp;
+    private int dfs(int i, int[] cost) {
+        if(i >= cost.length) return 0;
+        if(dp[i] != null) return dp[i];
+        int n1Step = dfs(i + 1, cost);
+        int n2Step = dfs(i + 2, cost);
+
+        return dp[i] = Math.min(n1Step, n2Step) + cost[i];
+    }
+    public int minCostClimbingStairs(int[] cost) {
+        dp = new Integer[cost.length + 1];
+        return Math.min(dfs(0, cost), dfs(1, cost));
     }
 }
 ```
