@@ -14,7 +14,7 @@ public class Solution {
     }
 }
 ```
-## with dp O(n) using memoization
+### with dp O(n) using memoization
 ```
 public class Solution {
     private static int dfs(int n, Integer[] dp) {
@@ -32,7 +32,7 @@ public class Solution {
     }    
 }
 ```
-## using tabulation
+### using tabulation
 ```
 public class Solution {
    public static void main(String[] args) {
@@ -49,7 +49,7 @@ public class Solution {
   }     
 }
 ```
-## space optimization
+### space optimization
 ```
 public class Solution {
   public static void main(String[] args) {
@@ -67,7 +67,7 @@ public class Solution {
 }     
 ```
 ---
-# 2. Climbing Stairs [solve here](https://leetcode.com/problems/climbing-stairs/)
+## 2. Climbing Stairs [solve here](https://leetcode.com/problems/climbing-stairs/)
 ```
 class Solution {
     private int dfs(int n, Integer[] dp) {
@@ -81,7 +81,7 @@ class Solution {
     }
 }
 ```
-# 3. Min Cost Climbing Stairs [solve here](https://leetcode.com/problems/min-cost-climbing-stairs/)
+## 3. Min Cost Climbing Stairs [solve here](https://leetcode.com/problems/min-cost-climbing-stairs/)
 
 1. Brute force recursion → O(2^n)
 2. For n = 1000 → 2^1000 → impossible
@@ -162,7 +162,7 @@ class Solution {
 }
 ```
 ---
-# 4. Jump Game [solve here](https://leetcode.com/problems/jump-game/)
+## 4. Jump Game [solve here](https://leetcode.com/problems/jump-game/)
 ```
 class Solution {
     private boolean dfs(int[] nums, int n, Boolean[] dp) {
@@ -274,7 +274,7 @@ public class Solution {
 }
 ```
 ---
-# 6. Partition Equal Subset Sum [solve here](https://leetcode.com/problems/partition-equal-subset-sum/)
+## 6. Partition Equal Subset Sum [solve here](https://leetcode.com/problems/partition-equal-subset-sum/)
 question says ```1, 5, 5 || 11 = true (11 + 11 => 22 even)```
 ```array sum / 2```
 ### memo
@@ -349,7 +349,7 @@ class Solution {
 | Memoization | O(n * target)   | Yes (O(n))  |
 | Tabulation  | O(n * target)   | No          |
 ---
-# 7. Target Sum [solve here](https://leetcode.com/problems/target-sum/)
+## 7. Target Sum [solve here](https://leetcode.com/problems/target-sum/)
 ```
 class Solution {
     Integer[][] dp;
@@ -389,7 +389,35 @@ class Solution {
     }
 }
 ```
----
+## Subset Sum Problem
+```
+class Solution {
+    static Boolean[][] dp;
+    static Boolean dfs(int i, int currentSum, int arr[], int sum) {
+        if(currentSum == sum) {
+            return true;
+        }
+        if(i >= arr.length) return false;
+        
+        if(dp[i][currentSum + sum] != null) return dp[i][currentSum + sum];
+        
+        Boolean take = false;
+
+        if (currentSum + arr[i] <= sum) {
+            take = dfs(i + 1, currentSum + arr[i], arr, sum);
+        }
+
+        Boolean notTake = dfs(i + 1, currentSum, arr, sum);
+
+        return dp[i][currentSum] = take || notTake;
+    }
+    static Boolean isSubsetSum(int arr[], int sum) {
+        // code here
+        dp = new Boolean[arr.length][sum + 1];
+        return dfs(0, 0, arr, sum);
+    }
+}
+```
 # 8. Coin Change II [solve here](https://leetcode.com/problems/coin-change-ii/)
 ```
 class Solution {
