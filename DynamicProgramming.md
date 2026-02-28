@@ -186,7 +186,7 @@ class Solution {
 }
 ```
 ---
-# 5. 0/1 Knapsack
+# 5. 0/1 Knapsack [solve here](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)
 #### smaller input
 ```
 Capacity = 5
