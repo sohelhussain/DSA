@@ -350,6 +350,7 @@ class Solution {
 | Tabulation  | O(n * target)   | No          |
 ---
 ## 7. Target Sum [solve here](https://leetcode.com/problems/target-sum/)
+### simmiler gfg ```Perfect Sum Problem``` [solve here](https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1)
 ```
 class Solution {
     Integer[][] dp;
@@ -478,7 +479,52 @@ class Solution {
 ---
 # 9. Coin Change [solve here](https://leetcode.com/problems/coin-change/)
 ```
+class Solution {
 
+    Integer[] dp;
+
+    private int dfs(int[] coins, int amount) {
+        if (amount == 0) return 0;
+        if(amount < 0) {
+            return Integer.MAX_VALUE;
+        }
+        if (dp[amount] != null) return dp[amount];
+
+        int minStep = Integer.MAX_VALUE;
+
+        for (int i = 0; i < coins.length; i++) {
+            int res = dfs(coins, amount - coins[i]);
+            if (res != Integer.MAX_VALUE) {
+                minStep = Math.min(minStep, 1 + res);
+            }
+        }
+        return dp[amount] = minStep;
+    }
+
+    public int coinChange(int[] coins, int amount) {
+        dp = new Integer[amount + 1];
+        int ans = dfs(coins, amount);
+        return ans == Integer.MAX_VALUE ? -1 : ans;
+    }
+}
+```
+```
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        Integer[] dp = new Integer[amount + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        
+        for(int i = 1; i <= amount; i++) {
+            for(int coin: coins) {
+                if(i >= coin && dp[i - coin] != Integer.MAX_VALUE) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
+        }
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+    }
+}
 ```
 ---
 # 10. Longest Common Subsequence [solve here](https://leetcode.com/problems/longest-common-subsequence/)
