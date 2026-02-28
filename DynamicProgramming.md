@@ -276,7 +276,8 @@ public class Solution {
 ---
 # 6. Partition Equal Subset Sum [solve here](https://leetcode.com/problems/partition-equal-subset-sum/)
 question says ```1, 5, 5 || 11 = true (11 + 11 => 22 even)```
-```array sum / 2``` 
+```array sum / 2```
+### memo
 ```
 class Solution {
     Boolean[][] dp;
@@ -311,6 +312,42 @@ class Solution {
     }
 }
 ```
+### tabulation
+```
+class Solution {
+    boolean[][] dp;
+    public boolean canPartition(int[] nums) {
+        int sum = 0;
+        for(int num: nums) sum += num;
+        if(sum % 2 != 0) return false;
+
+        int target = sum / 2;
+        dp = new boolean[nums.length + 1][target + 1];
+
+        for(int i = 0; i <= nums.length; i++) {
+            dp[i][0] = true;
+        }
+
+        for(int i = 1; i <= nums.length; i++) {
+            for(int j = 1; j <= target; j++) {
+
+                if(j >= nums[i - 1]) {
+                    boolean take = dp[i - 1][j - nums[i - 1]];
+                    boolean notTake = dp[i - 1][j];
+                    dp[i][j] = take || notTake;
+                }else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+        return dp[nums.length][target];
+    }
+}
+```
+| Approach    | Time Complexity | Extra Stack |
+| ----------- | --------------- | ----------- |
+| Memoization | O(n * target)   | Yes (O(n))  |
+| Tabulation  | O(n * target)   | No          |
 ---
 # 7. Target Sum [solve here](https://leetcode.com/problems/target-sum/)
 ```
