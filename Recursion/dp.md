@@ -29,7 +29,8 @@ e.  Perfect Squares
 ## 4. Longest Common Subsequence
 
 a. [Longest common substring](https://leetcode.com/problems/longest-common-subsequence/)\
-Shortest common supersequence
+b. [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/description/)\
+c. [Longest common substring](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)\
 Minimum number of insertion and deletion to convert A to B
 Longest repeating subsequence
 Length of longest subsequence of A which is substring of B
