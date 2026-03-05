@@ -31,27 +31,19 @@ e.  Perfect Squares
 a. [Longest common substring](https://leetcode.com/problems/longest-common-subsequence/)\
 b. [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/description/)\
 c. [Longest common substring](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)\
-Minimum number of insertion and deletion to convert A to B
-Longest repeating subsequence
-Length of longest subsequence of A which is substring of B
-Subsequence pattern matching
-Count how many times A appears as subsequence in B
-Longest palindromic subsequence
-Count of palindromic substrings
-Minimum number of deletion in a string to make it palindrome
-Minimum number of insertion in a string to make it palindrome
-Uncrossed Lines
+d. [Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/)\
+Minimum number of insertion and deletion to convert A to B\
+Longest repeating subsequence\
+Length of longest subsequence of A which is substring of B\
+Subsequence pattern matching\
+Count how many times A appears as subsequence in B\
+Longest palindromic subsequence\
+Count of palindromic substrings\
+Minimum number of deletion in a string to make it palindrome\
+Minimum number of insertion in a string to make it palindrome\
+Uncrossed Lines\
 
-## 5. Matrix Chain Multiplication
-
-Burst Balloons
-Evaluate expression to true / boolean parenthesization
-Minimum or maximum value of a expression
-Palindrome partitioning
-Scramble string
-Super Egg Drop
-
-## 6. Longest Increasing Subsequence
+## 5. Longest Increasing Subsequence
 
 Print longest increasing subsequence
 Number of longest increasing subsequences
@@ -60,6 +52,15 @@ Find the longest increasing subsequence in circular manner
 Longest bitonic subsequence
 Longest arithmetic subsequence
 Maximum sum increasing subsequence
+
+## 6. Matrix Chain Multiplication
+
+Burst Balloons
+Evaluate expression to true / boolean parenthesization
+Minimum or maximum value of a expression
+Palindrome partitioning
+Scramble string
+Super Egg Drop
 
 ## 7. DP on Trees
 
