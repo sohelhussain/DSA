@@ -29,19 +29,19 @@ e.  Perfect Squares
 ## 4. Longest Common Subsequence
 
 a. [Longest common substring](https://leetcode.com/problems/longest-common-subsequence/)\
-b. [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/description/)\
+b. [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/description/)✨✨\
 c. [Longest common substring](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)\
 d. [Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/)\
-Minimum number of insertion and deletion to convert A to B\
-Longest repeating subsequence\
-Length of longest subsequence of A which is substring of B\
-Subsequence pattern matching\
-Count how many times A appears as subsequence in B\
-Longest palindromic subsequence\
-Count of palindromic substrings\
-Minimum number of deletion in a string to make it palindrome\
-Minimum number of insertion in a string to make it palindrome\
-Uncrossed Lines\
+c. Minimum number of insertion and deletion to convert A to B\
+d. Longest repeating subsequence\
+e. Length of longest subsequence of A which is substring of B\
+f. Subsequence pattern matching\
+g. [Count how many times A appears as subsequence in B](https://www.geeksforgeeks.org/problems/find-number-of-times-a-string-occurs-as-a-subsequence3020/1)✨\
+h. [Longest palindromic subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)\
+j. Count of palindromic substrings\
+k. Minimum number of deletion in a string to make it palindrome\
+l. Minimum number of insertion in a string to make it palindrome\
+m. Uncrossed Lines\
 
 ## 5. Longest Increasing Subsequence
 
