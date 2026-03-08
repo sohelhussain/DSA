@@ -3,13 +3,13 @@
 ---
 ## 1. Fibonacci :
 
-a.  Fibonacci number\
-b.  Climbing stairs\
+a.  [Fibonacci number](https://leetcode.com/problems/fibonacci-number/)✨\
+b.  [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)\
 c.  Minimum jumps to reach the end\
 d.  Friends pairing problem\
-e. Maximum subsequence sum such that no three are consecutive
+e.  Maximum subsequence sum such that no three are consecutive
 
-## 2. 0/1 knapsack problems :
+## 2. 0/1 knapsack problems:
 
 a.  Subset sum\
 b.  Equal sum partition\
@@ -45,34 +45,34 @@ m. Uncrossed Lines\
 
 ## 5. Longest Increasing Subsequence
 
-Print longest increasing subsequence
-Number of longest increasing subsequences
-Longest non-decreasing subsequence
-Find the longest increasing subsequence in circular manner
-Longest bitonic subsequence
-Longest arithmetic subsequence
-Maximum sum increasing subsequence
+Print longest increasing subsequence\
+Number of longest increasing subsequences\
+Longest non-decreasing subsequence\
+Find the longest increasing subsequence in circular manner\
+Longest bitonic subsequence\
+Longest arithmetic subsequence\
+Maximum sum increasing subsequence\
 
 ## 6. Matrix Chain Multiplication
 
-Burst Balloons
-Evaluate expression to true / boolean parenthesization
-Minimum or maximum value of a expression
-Palindrome partitioning
-Scramble string
-Super Egg Drop
+Burst Balloons\
+Evaluate expression to true / boolean parenthesization\
+Minimum or maximum value of a expression\
+Palindrome partitioning\
+Scramble string\
+Super Egg Drop\
 
 ## 7. DP on Trees
 
-Diameter of Binary Tree
-Binary Tree Maximum Path Sum
-Unique Binary Search Trees II
-House Robber III
-Sum of Distances in Tree
+Diameter of Binary Tree\
+Binary Tree Maximum Path Sum\
+Unique Binary Search Trees II\
+House Robber III\
+Sum of Distances in Tree\
 
 ## 8. DP on Grids
 
-Unique Paths
+Unique Paths\
 Unique Paths II
 Minimum Path Sum
 Dungeon Game
