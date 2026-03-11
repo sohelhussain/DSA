@@ -1,7 +1,20 @@
 # how to identify dp.
+ - For each index we have two choices, so the time complexity in recursion becomes 2^n.
+ - At that point, we should think about Dynamic Programming (DP).
+    -  We need to check whether the state repeats.
+    -  If the same state (i, sum) is reached again, the result will always be the same, so we can store it and reuse it.```fn(i, sum)```
+    -  This function depends on:
+    -  ```(i + 1, sum + nums[i])```
+    -  ```(i + 1, sum - nums[i])```
+
+```n ≤ 30```\
 ```timeComplexity:- 2^10: 10^3.```\
 ```timeComplexity:- 2^20: 10^6.```\
-```timeComplexity:- 2^30: 10^9.``` <- need to implement dp.
+```timeComplexity:- 2^30: 10^9.``` <- this is the final move implement dp.
+-   When it reaches around 2^30 (~10^9) operations, recursion becomes too slow.
+At this point, we should implement DP.
+-   use extra space for dp becuase memory is cheap but latansy is expancive so thtat we use dp
+
 
 
 ---
@@ -9,29 +22,30 @@
 
 a.  [Fibonacci number](https://leetcode.com/problems/fibonacci-number/)✨\
 b.  [Climbing stairs](https://leetcode.com/problems/climbing-stairs/)\
-c.  Minimum jumps to reach the end\
+c.  [Minimum jumps to reach the end](https://leetcode.com/problems/jump-game-ii/)\
 d.  Friends pairing problem\
 e.  Maximum subsequence sum such that no three are consecutive
 
 ## 2. 0/1 knapsack problems:
 ### how to identify?
-1. each element used once.\
-2. choose or not choose.\
-3. count ways/ maximize/ minimize.\
-4. constrant on total sum.\
-5. are element used at most once\
-6. sum/capacity/target\
-   a. subset sum equal target.\
-   b. partition equal.\
-7. does order not mater\
-   a. if order matters -> usually permutation / dp diffrent type.
-   
-a.  Subset sum\
-b.  Equal sum partition\
-c.  Count of subsets sum with a given sum\
-d.  Minimum subset sum difference\
-e. Count the number of subset with a given difference\
-f. Target sum
+- each element used once.
+- choose or not choose.
+- count ways/ maximize/ minimize.
+- counstrant on total sum.
+- are element used at most once
+- sum/capacity/target
+    - subset sum equal target.
+    - partition equal.
+- does order not mater
+   - if order matters -> usually permutation / dp diffrent type.
+
+a.  [0/1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)\
+b.  Subset sum\
+c.  Equal sum partition\
+d.  Count of subsets sum with a given sum\
+e.  Minimum subset sum difference\
+f. Count the number of subset with a given difference\
+g. Target sum
 
 ## 3. Unbounded Knapsack :
 
