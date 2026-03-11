@@ -14,9 +14,6 @@
 -   When it reaches around 2^30 (~10^9) operations, recursion becomes too slow.
 At this point, we should implement DP.
 -   use extra space for dp becuase memory is cheap but latansy is expancive so thtat we use dp
-
-
-
 ---
 ## 1. Fibonacci :
 
@@ -39,21 +36,20 @@ e.  Maximum subsequence sum such that no three are consecutive
 - does order not mater
    - if order matters -> usually permutation / dp diffrent type.
 
-a.  [0/1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)\
-b.  Subset sum\
-c.  Equal sum partition\
-d.  Count of subsets sum with a given sum\
-e.  Minimum subset sum difference\
-f. Count the number of subset with a given difference\
-g. Target sum
+a.  [0/1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)✨✨\
+b.  [Equal sum partition](https://leetcode.com/problems/partition-equal-subset-sum/)✨✨\
+c.  [Target sum](https://leetcode.com/problems/target-sum/)✨✨
+d.  [Subset sum](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1)\
+e.  [Count of subsets sum with a given sum](https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1)\
+f.  [Minimum subset sum difference](https://www.geeksforgeeks.org/problems/minimum-sum-partition3317/1) s - 2 * s1\
+g. [Count the number of subset with a given difference](https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1)\✨
 
 ## 3. Unbounded Knapsack :
-
 a.  Integer Break\
-b.  Coin Change\
-c.  Coin Change 2\
+b.  [Coin Change](https://leetcode.com/problems/coin-change/)\
+c.  [Coin Change 2](https://leetcode.com/problems/coin-change-ii/)\
 d.  Combination Sum IV\
-e.  Perfect Squares
+e.  [Perfect Squares](https://leetcode.com/problems/perfect-squares/)
 
 ## 4. Longest Common Subsequence
 
