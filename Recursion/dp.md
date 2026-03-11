@@ -1,4 +1,8 @@
 # how to identify dp.
+```timeComplexity:- 2^10: 10^3.```\
+```timeComplexity:- 2^20: 10^6.```\
+```timeComplexity:- 2^30: 10^9.``` <- need to implement dp.
+
 
 ---
 ## 1. Fibonacci :
@@ -10,7 +14,18 @@ d.  Friends pairing problem\
 e.  Maximum subsequence sum such that no three are consecutive
 
 ## 2. 0/1 knapsack problems:
-
+### how to identify?
+1. each element used once.\
+2. choose or not choose.\
+3. count ways/ maximize/ minimize.\
+4. constrant on total sum.\
+5. are element used at most once\
+6. sum/capacity/target\
+   a. subset sum equal target.\
+   b. partition equal.\
+7. does order not mater\
+   a. if order matters -> usually permutation / dp diffrent type.
+   
 a.  Subset sum\
 b.  Equal sum partition\
 c.  Count of subsets sum with a given sum\
