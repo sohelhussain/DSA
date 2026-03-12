@@ -80,6 +80,7 @@ Maximum sum increasing subsequence
 
 ## 6. Matrix Chain Multiplication
 
+a. [Matrix Chain Multiplication](https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1)✨\
 Burst Balloons\
 Evaluate expression to true / boolean parenthesization\
 Minimum or maximum value of a expression\
