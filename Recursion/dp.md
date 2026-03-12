@@ -1,5 +1,5 @@
 # how to identify dp.
- - For each index we have two choices, so the time complexity in recursion becomes 2^n.
+ - For each index we have two choices (one fn can call two or more fn), so the time complexity in recursion becomes 2^n.
  - At that point, we should think about Dynamic Programming (DP).
     -  We need to check whether the state repeats.
     -  If the same state (i, sum) is reached again, the result will always be the same, so we can store it and reuse it.```fn(i, sum)```
@@ -38,11 +38,11 @@ e.  Maximum subsequence sum such that no three are consecutive
 
 a.  [0/1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)✨✨\
 b.  [Equal sum partition](https://leetcode.com/problems/partition-equal-subset-sum/)✨✨\
-c.  [Target sum](https://leetcode.com/problems/target-sum/)✨✨
+c.  [Target sum](https://leetcode.com/problems/target-sum/)✨✨\
 d.  [Subset sum](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1)\
 e.  [Count of subsets sum with a given sum](https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1)\
 f.  [Minimum subset sum difference](https://www.geeksforgeeks.org/problems/minimum-sum-partition3317/1) s - 2 * s1\
-g. [Count the number of subset with a given difference](https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1)\✨
+g. [Count the number of subset with a given difference](https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1)✨
 
 ## 3. Unbounded Knapsack :
 a.  Integer Break\
@@ -66,7 +66,7 @@ h. [Longest palindromic subsequence](https://leetcode.com/problems/longest-palin
 j. Count of palindromic substrings\
 k. Minimum number of deletion in a string to make it palindrome\
 l. Minimum number of insertion in a string to make it palindrome\
-m. Uncrossed Lines\
+m. Uncrossed Lines
 
 ## 5. Longest Increasing Subsequence
 
@@ -76,7 +76,7 @@ Longest non-decreasing subsequence\
 Find the longest increasing subsequence in circular manner\
 Longest bitonic subsequence\
 Longest arithmetic subsequence\
-Maximum sum increasing subsequence\
+Maximum sum increasing subsequence
 
 ## 6. Matrix Chain Multiplication
 
@@ -85,7 +85,7 @@ Evaluate expression to true / boolean parenthesization\
 Minimum or maximum value of a expression\
 Palindrome partitioning\
 Scramble string\
-Super Egg Drop\
+Super Egg Drop
 
 ## 7. DP on Trees
 
@@ -93,12 +93,12 @@ Diameter of Binary Tree\
 Binary Tree Maximum Path Sum\
 Unique Binary Search Trees II\
 House Robber III\
-Sum of Distances in Tree\
+Sum of Distances in Tree
 
 ## 8. DP on Grids
 
 Unique Paths\
-Unique Paths II
-Minimum Path Sum
-Dungeon Game
+Unique Paths II\
+Minimum Path Sum\
+Dungeon Game\
 Cherry Pickup
