@@ -783,3 +783,59 @@ class Solution {
 }
 ```
 ---
+# Matrix Chain Multiplication [solve here](https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1)
+```
+class Solution {
+    static Integer[][] dp;
+    static int dfs(int i, int j, int[] arr) {
+        if (i >= j) return 0;
+        if(dp[i][j] != null) return dp[i][j];
+        int min = (int) 1e9;
+
+        for (int k = i; k <= j - 1; k++) {
+            int cost = dfs(i, k, arr)
+                     + dfs(k + 1, j, arr)
+                     + arr[i - 1] * arr[k] * arr[j];
+
+            min = Math.min(min, cost);
+        }
+
+        return dp[i][j] = min;
+    }
+
+    static int matrixMultiplication(int arr[]) {
+        int n = arr.length;
+        dp = new Integer[n][n];
+        return dfs(1, n - 1, arr);
+    }
+}
+```
+```
+class Solution {
+
+    static int matrixMultiplication(int arr[]) {
+        int n = arr.length;
+
+        int[][] dp = new int[n][n];
+
+        for (int len = 2; len < n; len++) {   // chain length
+            for (int i = 1; i <= n - len; i++) {
+
+                int j = i + len - 1;
+                dp[i][j] = Integer.MAX_VALUE;
+
+                for (int k = i; k < j; k++) {
+
+                    int cost = dp[i][k] 
+                             + dp[k + 1][j] 
+                             + arr[i - 1] * arr[k] * arr[j];
+
+                    dp[i][j] = Math.min(dp[i][j], cost);
+                }
+            }
+        }
+
+        return dp[1][n - 1];
+    }
+}
+```
