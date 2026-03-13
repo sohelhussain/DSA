@@ -785,6 +785,16 @@ class Solution {
 ---
 # Matrix Chain Multiplication [solve here](https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1)
 ```
+dfs(1,3)
+ ├── k=1
+ │    ├── dfs(1,1)=0
+ │    └── dfs(2,3)=12
+ │
+ └── k=2
+      ├── dfs(1,2)=6
+      └── dfs(3,3)=0
+```
+```
 class Solution {
     static Integer[][] dp;
     static int dfs(int i, int j, int[] arr) {
