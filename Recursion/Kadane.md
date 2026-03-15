@@ -1,0 +1,1 @@
+Kadane / Maximum Subarray Pattern
