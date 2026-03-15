@@ -103,3 +103,9 @@ Unique Paths II\
 Minimum Path Sum\
 Dungeon Game\
 Cherry Pickup
+
+## 9. Prefix–Suffix DP (Left–Right DP)
+
+[Longest Arithmetic Sequence After Changing At Most One Element](https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/)\
+
+## 10. Digit DP
