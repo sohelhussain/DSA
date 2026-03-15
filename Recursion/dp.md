@@ -106,6 +106,18 @@ Cherry Pickup
 
 ## 9. Prefix–Suffix DP (Left–Right DP)
 
-[Longest Arithmetic Sequence After Changing At Most One Element](https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/)\
+[Longest Arithmetic Sequence After Changing At Most One Element](https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/)
 
 ## 10. Digit DP
+
+## 11. State Compression / Advanced DP
+
+Combination of multiple ideas.
+
+Examples:
+
+DP with bitmask + graph
+
+DP with prefix sums
+
+DP with monotonic queue
