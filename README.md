@@ -1,5 +1,82 @@
 [dsa codeChef](https://www.codechef.com/roadmap/data-structures-and-algorithms)
 
+# 🧠 LeetCode Terms + Patterns Cheat Sheet
+
+---
+
+## 🔹 Core Terms
+
+| Term                      | Meaning                                              | Example                          | Pattern Hint                |
+|---------------------------|------------------------------------------------------|----------------------------------|-----------------------------|
+| Subsequence               | Elements in order, skipping allowed                  | [1,3,4] from [1,2,3,4]           | DP / Backtracking           |
+| Subarray / Substring      | Continuous elements only                             | [2,3] from [1,2,3,4]             | Sliding Window              |
+| Subset                    | Any elements, order doesn't matter                   | [3,1] from [1,2,3]               | Backtracking                |
+| Distinct                  | All elements must be unique                          | [1,2,3]                          | Hashing / Set               |
+| Continuous                | No gaps (same as subarray)                           | [2,3]                            | Sliding Window              |
+| Prefix                    | Starting part                                        | "ab" from "abcde"                | Strings / Trie              |
+| Suffix                    | Ending part                                          | "de" from "abcde"                | Strings                     |
+| Sliding Window            | Move a window over array                             | Longest substring                | Two Pointers                |
+| Two Pointers              | Two indices moving through array                     | Pair sum                         | Sorting / Array             |
+| Backtracking              | Try all possibilities (recursion)                    | Subsets, permutations            | Recursion Tree              |
+| Connected Components      | Groups of connected nodes                            | Graph clusters                   | DFS / BFS                   |
+| Reachable                 | Can go from one node to another                      | Path exists                      | BFS / DFS                   |
+| Shortest Path             | Minimum steps or distance                            | Grid shortest path               | BFS                         |
+| Cycle                     | Loop exists in graph                                 | A → B → C → A                    | DFS / Union-Find            |
+| Topological Sort          | Order with dependencies                              | Course schedule                  | BFS (Kahn) / DFS            |
+| Optimal                   | Best (min/max) solution                              | Max profit                       | DP / Greedy                 |
+| Overlapping Subproblems   | Same subproblem repeated                             | Fibonacci                        | DP                          |
+| Greedy                    | Take best choice at each step                        | Activity selection               | Greedy                      |
+| Memoization               | Store computed results                               | DP recursion                     | DP                          |
+| Kth Element               | Position in sorted order                             | 3rd smallest                     | Heap / Quickselect          |
+| In-place                  | No extra space used                                  | Reverse array                    | Array                       |
+| Stable                    | Maintain order of equal elements                     | Stable sort                      | Sorting                     |
+| Lexicographically Smallest| Dictionary order                                     | "abc" < "abd"                    | Strings / Sorting           |
+| Constraint                | Input limits                                         | n ≤ 10^5                         | Decide approach             |
+
+---
+
+## ⚡ Quick Meanings (Fast Revision)
+
+| Term        | Meaning              |
+|------------|---------------------|
+| Subarray   | Continuous          |
+| Subsequence| Skip allowed        |
+| Subset     | Any order           |
+| Distinct   | Unique elements     |
+| Prefix     | Start part          |
+| Suffix     | End part            |
+| BFS        | Shortest path       |
+| DFS        | Explore paths       |
+| DP         | Reuse subproblems   |
+| Greedy     | Local best choice   |
+
+---
+
+## 🔥 Pattern Recognition Table
+
+| Pattern / Keyword        | When You See This                                | Approach                | Example Problems                  |
+|--------------------------|--------------------------------------------------|-------------------------|----------------------------------|
+| Subarray / Continuous    | contiguous elements                              | Sliding Window          | Max Subarray, Longest Substring   |
+| Subsequence              | skip allowed, order matters                      | DP                      | LIS, LCS                         |
+| Subset                   | pick any combination                             | Backtracking            | Subsets, Combination Sum         |
+| Distinct / Unique        | no duplicates                                    | HashSet / HashMap       | Longest Substring Without Repeat |
+| Shortest Path            | minimum steps, minimum distance                  | BFS                     | Shortest Path Grid, Word Ladder  |
+| Multi-source             | nearest X, multiple starting points              | Multi-source BFS        | 01 Matrix, Rotten Oranges        |
+| Grid Traversal           | matrix + directions                              | BFS / DFS               | Number of Islands                |
+| Reachability             | can reach or not                                 | DFS / BFS               | Pacific Atlantic                 |
+| Cycle Detection          | detect loop                                      | DFS / Union-Find        | Detect Cycle Graph               |
+| Dependencies / Ordering  | tasks, prerequisites                             | Topological Sort        | Course Schedule                  |
+| Kth Element              | kth smallest/largest                             | Heap / Quickselect      | Kth Largest Element              |
+| Optimal (max/min)        | best answer                                      | DP / Greedy             | Knapsack, Max Profit             |
+| Overlapping Subproblems  | repeated computation                             | DP                      | Fibonacci, Climbing Stairs       |
+| Greedy Choice            | local best works                                 | Greedy                  | Jump Game, Activity Selection    |
+| Two Sum / Pair           | find pair                                        | HashMap / Two Pointers  | Two Sum                          |
+| Sorted Array             | already sorted                                   | Two Pointers / Binary Search | 2 Sum II, Binary Search     |
+| Binary Search            | search in sorted / answer space                  | Binary Search           | Search Rotated Array             |
+| Backtracking             | all possibilities                                | Recursion               | N-Queens, Permutations           |
+| Tree Traversal           | tree problems                                    | DFS / BFS               | Level Order Traversal            |
+| Graph Traversal          | nodes + edges                                    | DFS / BFS               | Connected Components             |
+
 # DSA SHEET
 ```
 Day 1	--Complexity Basics
