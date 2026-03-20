@@ -30,7 +30,7 @@
 | Kth Element               | Position in sorted order                             | 3rd smallest                     | Heap / Quickselect          |
 | In-place                  | No extra space used                                  | Reverse array                    | Array                       |
 | Stable                    | Maintain order of equal elements                     | Stable sort                      | Sorting                     |
-| Lexicographically Smallest| Dictionary order                                     | "abc" < "abd"                    | Strings / Sorting           |
+| Lexicographically Smallest| Dictionary order                                     | "abc" < "abd" <br> - shorter prefix comes first                   | Strings / Sorting           |
 | Constraint                | Input limits                                         | n ≤ 10^5                         | Decide approach             |
 
 ---
