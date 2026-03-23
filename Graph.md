@@ -572,6 +572,15 @@ public class Disjointsets {
 ```
 ---
 # kruskal's algorithm [solve here](https://www.geeksforgeeks.org/problems/minimum-spanning-tree-kruskals-algorithm/1) [watch](https://youtu.be/JZBQLXgSGfs?si=tbQOgy6NFJXfKrWj) <img width="12" height="8" alt="image" src="https://github.com/user-attachments/assets/4755ba0c-f46a-4fe7-aa2c-34416d43eea9" />
+
+- Initialize DSU (Disjoint Set Union).
+- Sort all edges by weight (ascending).
+- For each edge (u, v, w):
+    - If find(u) ≠ find(v):
+    - Add w to the total sum.
+    - Union(u, v).
+
+```Sort edges → pick smallest → if different sets → add + union.```
 ```
 class Disjointsets {
     int[] rank, parent;
