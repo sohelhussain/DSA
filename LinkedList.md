@@ -1,4 +1,4 @@
-# 876. Middle of the Linked List [solve here]()
+# 876. Middle of the Linked List [solve here](https://leetcode.com/problems/middle-of-the-linked-list/)
 
 ```
         public ListNode middleNode(ListNode head) {
@@ -12,6 +12,43 @@
 
         return slow;
     }
+```
+---
+
+# 141. Linked List Cycle [solve here](https://leetcode.com/problems/linked-list-cycle/)
+```
+      public boolean hasCycle(ListNode head) {
+        ListNode fast = head, slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            
+            if(fast == slow){
+                return true;
+            }
+
+        }
+        return false;
+    }
+```
+---
+# 206. Reverse Linked List [solve here](https://leetcode.com/problems/reverse-linked-list/)
+```
+  class Solution {
+    private ListNode reverse(ListNode cur, ListNode pre) {
+        if(cur == null) return pre;
+        ListNode next = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = next;
+        return reverse(cur, pre);
+    }
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+        return reverse(head, null);
+    }
+}
 ```
 ---
 
@@ -65,49 +102,7 @@
 
 ---
 
-# 141. Linked List Cycle [solve here]()
-```
-      public boolean hasCycle(ListNode head) {
-        ListNode fast = head, slow = head;
-
-        while(fast != null && fast.next != null){
-            slow = slow.next;
-            fast = fast.next.next;
-            
-            if(fast == slow){
-                return true;
-            }
-
-        }
-        return false;
-    }
-```
-
-
----
-  
-# 206. Reverse Linked List [solve here]()
-```
-  {
-    public ListNode reverse(ListNode head, ListNode pre) {
-        if (head == null) return pre;
-
-        ListNode temp = head.next;
-        head.next = pre;
-        pre = head;
-        head = temp;
-
-        return reverse(head, pre);
-
-    }
-    public ListNode reverseList(ListNode head) {
-        return reverse(head, null);
-    }
-  }
-```
----
-
-# 83. Remove Duplicates from Sorted List [solve here]()
+# 83. Remove Duplicates from Sorted List [solve here](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
 
 ```
 public ListNode deleteDuplicates(ListNode head) {
