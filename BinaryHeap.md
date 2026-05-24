@@ -1,3 +1,34 @@
+```
+class Pair implements Comparable<Pair> {
+    int elem, freq;
+
+    Pair(int elem, int freq) {
+        this.elem = elem;
+        this.freq = freq;
+    }
+
+    @Override
+    public int compareTo(Pair that) {
+        return Integer.compare(this.freq, that.freq); // min-heap {Smaller on top}
+        return Integer.compare(that.freq, this.freq); // max-heap {Large on top}
+    }
+}
+```
+one liner min-heap
+```
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> a.freq - b.freq);
+```
+one liner max-heap
+```
+PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()); // for a single value
+
+PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> b.freq - a.freq); // for a tow values
+
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
+
+```
 1. heap is a complite binary tree excapt last lelvel.
 ```
         5
