@@ -3,3 +3,6 @@ string to integer ```Integer.parseInt(s);```
 
 divid ```n >> 1``` same ```n / 2```\
 mod ```n & 1``` same ```n % 2```
+
+compare string like this candidate > ans
+```candidate.compareTo(ans) > 0```
