@@ -1,7 +1,7 @@
 # when i need to apply.
 
 1. array / string
-2. subArray(continues) / substring / consecutive / contiguous.
+2. subArray(continues) / substring / consecutive (n, n+1, n+2) / contiguous (Neighboring in Position).
 3. most of the time positive.
 4. max / min / longest / sortest / sum / count / average.
 5. at most k / at least k / exactly k.
