@@ -30,6 +30,7 @@ Maximum sum subarray of size k
 ## 2.Variable Size Window
 
 ### 1. maximun
+i saw a pattern that output is maxLen
 ```
 while(right < n) {
 
