@@ -32,6 +32,8 @@ while (exp > 0) {
 }
 
 ## code
+<img width="585" height="443" alt="Screenshot 2026-06-10 at 9 15 24 AM" src="https://github.com/user-attachments/assets/cff4f291-5220-409d-8926-4cc9c8a8af89" />
+
 ```
 private long findPower(long base, long exp) {
     if (exp == 0) return 1;
@@ -64,3 +66,7 @@ private long findPower(long base, long exp) {
     return result;
 }
 ```
+
+## question
+
+1. [Count Good Numbers](https://leetcode.com/problems/count-good-numbers/)
