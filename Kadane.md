@@ -64,4 +64,5 @@ class Solution {
 [Maximum Absolute Sum of Any Subarray](https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/)\
 [Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)✨\
 [Beautiful Array](https://codeforces.com/problemset/problem/1155/D)\
-[Maximum Sum Submatrix](https://www.geeksforgeeks.org/problems/maximum-sum-rectangle2948/1)
+[Maximum Sum Submatrix](https://www.geeksforgeeks.org/problems/maximum-sum-rectangle2948/1)\
+[Substring with Max Zero-One Diff](https://www.geeksforgeeks.org/problems/maximum-difference-of-zeros-and-ones-in-binary-string4111/1)
