@@ -5,6 +5,7 @@
 3. most of the time positive.
 4. max / min / longest / sortest / sum / count / average.
 5. at most k / at least k / exactly k.
+6. binary circular array
 
 ## 1.Fixed Size Window
 Keywords:
