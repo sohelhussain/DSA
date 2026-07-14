@@ -1,5 +1,5 @@
 
-
+tip first you build tree then a assigne into an arra
 
 ```
   s e  <- fixed point on normal arr
@@ -13,7 +13,7 @@ l      m     r   <- moving pointer
                                                 /    \        /     \
                                            1 [0,0] 2 [1,1] 3 [2,2] 4 [3,3]
 ```
-
+# [buildSegmentTree & rangeSum solve here](https://www.geeksforgeeks.org/problems/sum-of-query-ii5310/1)
 ```
 class Solution {
     void buildSegmentTree(int i, int left, int right, int[] st, int[] arr) {
