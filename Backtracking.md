@@ -1,4 +1,4 @@
-# 1. Tower Of Hanoi.
+# 1. Tower Of Hanoi [solve here](https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1).
 
 1. First, we move n - 1 plates to the auxiliary rod.
 (To do this, we can make the auxiliary rod the temporary destination for a shorter time.)
