@@ -37,7 +37,7 @@ while(right < n) {
 
     add current element
 
-    while(window invalid) {
+    while(window invalid) {   sum <= k
         remove left element
         left++
     }
@@ -60,7 +60,7 @@ while(right < n) {
 
     add current element
 
-    while(window correct) {
+    while(window correct) {  sum >= k
         update answer
         remove left element
         left++
@@ -147,7 +147,7 @@ for(int j = 0; j < s.length(); j++) {
     map.put(ch, map.getOrDefault(ch, 0) + 1);
 
     // shrink invalid window
-    while(windowInvalid) {
+    while(windowInvalid) { 
 
         char left = s.charAt(i);
 
