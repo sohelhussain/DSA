@@ -34,4 +34,22 @@ public class Prac {
     }
 }
 ```
- 
+
+check 3 is set or not
+
+```
+    0 1 1 0
+&   1 0 0 0   1 << 3
+    -------
+    0 0 0 0
+```
+
+make 3 to set and don't touch any one
+
+```
+    0 1 1 0
+|   1 0 0 0   1 << 3
+    -------
+    1 1 1 0
+```
+
