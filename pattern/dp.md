@@ -52,7 +52,7 @@ d.  Combination Sum IV\
 e.  [Perfect Squares](https://leetcode.com/problems/perfect-squares/)
 
 ## 4. Longest Common Subsequence
-
+- So whenever you see two arrays + matching elements + order cannot change, immediately think LCS.\
 a. [Longest common substring](https://leetcode.com/problems/longest-common-subsequence/)\
 b. [Shortest common supersequence](https://leetcode.com/problems/shortest-common-supersequence/description/)✨✨\
 c. [Longest common substring](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)\
